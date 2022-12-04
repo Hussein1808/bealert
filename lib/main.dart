@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 
 import 'Pages/start_screen.dart';
 
-
 class BeAlert extends StatelessWidget {
   //* Application routing
   final GoRouter router = GoRouter(
@@ -18,7 +17,7 @@ class BeAlert extends StatelessWidget {
           //   path: 'addtask',
           //   builder: (BuildContext context, GoRouterState state) => AddTask(),
           // ),
-          
+
           // GoRoute(
           //     path: 'home/:selectedIndex',
           //   name: 'home',
@@ -44,9 +43,10 @@ class BeAlert extends StatelessWidget {
         //* Application colors
         primaryColor: Color.fromARGB(255, 255, 255, 255),
         scaffoldBackgroundColor: Color.fromARGB(255, 243, 243, 243),
+        splashColor: Color(0xFFF3A953),
         colorScheme: ColorScheme.light(
             primary: Color.fromARGB(255, 0, 0, 0),
-            secondary: Color.fromARGB(255, 71, 181, 255)),
+            secondary: Color(0xFF007CD7)),
         iconTheme: IconThemeData(
           color: Color.fromARGB(255, 0, 0, 0),
         ),
@@ -56,5 +56,5 @@ class BeAlert extends StatelessWidget {
 }
 
 void main() {
-  runApp(BeAlert());}
-
+  runApp(BeAlert());
+}
