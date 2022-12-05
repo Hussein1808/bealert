@@ -1,19 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../Common_widgets/containerr.dart';
+import 'package:bealert/Common_widgets/containerr.dart';
 
 class Start extends StatelessWidget {
   const Start({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.secondary,
+    return Scaffoldd(
+      bcolor: Theme.of(context).colorScheme.secondary,
       body: Center(
         child: SafeArea(
           child: Column(
@@ -36,7 +37,7 @@ class Start extends StatelessWidget {
               SizedBoxx(h: 118.0),
               GestureDetector(
                 onTap: () {
-                  print('hello');
+                  GoRouter.of(context).go('/signup_page');
                 },
                 child: Containerr(
                   w: 180.0,
