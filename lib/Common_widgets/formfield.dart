@@ -15,7 +15,12 @@ class FormFieldd extends StatelessWidget {
   final scolor;
 
   const FormFieldd(
-      {super.key, required this.hint, this.icon, this.color = Colors.black, this.sicon, this.scolor});
+      {super.key,
+      required this.hint,
+      this.icon,
+      this.color = Colors.black,
+      this.sicon,
+      this.scolor});
 
   @override
   Widget build(BuildContext context) {
