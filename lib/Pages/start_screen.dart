@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bealert/Common_widgets/formbuttons.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
+import 'package:unicons/unicons.dart';
 
 class Start extends StatelessWidget {
   const Start({super.key});
@@ -35,42 +37,24 @@ class Start extends StatelessWidget {
                 size: 20.0,
               ),
               SizedBoxx(h: 118.0),
-              GestureDetector(
-                onTap: () {
-                  GoRouter.of(context).go('/signup_page');
-                },
-                child: Containerr(
-                  w: 180.0,
-                  h: 52.0,
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).splashColor,
-                      borderRadius: BorderRadius.circular(100)),
-                  child: Center(
-                      child: Textt(
-                    text: 'Sign Up',
-                    color: Theme.of(context).primaryColor,
-                  )),
-                ),
+              FormButtons(
+                width: 180.0,
+                height: 52.0,
+                bcolor: Theme.of(context).splashColor,
+                tcolor: Theme.of(context).primaryColor,
+                text: '    Sign Up',
+                redirect: '/signup_page',
               ),
               SizedBoxx(h: 15.0),
-              GestureDetector(
-                onTap: () {
-                  print('heheh');
-                },
-                child: Containerr(
-                  w: 180.0,
-                  h: 52.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      border: Border.all(
-                          width: 6.0, color: Theme.of(context).splashColor)),
-                  child: Center(
-                      child: Textt(
-                    text: 'Login',
-                    color: Theme.of(context).primaryColor,
-                  )),
-                ),
-              )
+              FormButtons(
+                width: 180.0,
+                height: 52.0,
+                tcolor: Theme.of(context).primaryColor,
+                text: '    Login',
+                redirect: '/',
+                border: Border.all(
+                    width: 6.0, color: Theme.of(context).splashColor),
+              ),
             ],
           ),
         ),

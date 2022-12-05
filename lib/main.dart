@@ -43,8 +43,8 @@ class BeAlert extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         //* Application colors
-        primaryColor: Color.fromARGB(255, 255, 255, 255),
-        scaffoldBackgroundColor: Color.fromARGB(255, 243, 243, 243),
+        primaryColor: Color.fromARGB(255, 224, 224, 224),
+        scaffoldBackgroundColor: Color(0xFFF1F1F1),
         splashColor: Color(0xFFF3A953),
         colorScheme: ColorScheme.light(
             primary: Color.fromARGB(255, 0, 0, 0),

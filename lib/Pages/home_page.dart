@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bealert/Common_widgets/containerr.dart';
+import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -17,17 +19,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int selectedIndex;
   _HomePageState({
     required this.selectedIndex,
     // required this.onTodoChanged,
-  }) : super( );
+  }) : super();
 
   // int _selectedIndex = 0;
-  static List<Widget> _pages = <Widget>[
-    
-  ];
+  static List<Widget> _pages = <Widget>[];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -38,11 +37,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(
+    return Scaffoldd(
       body: Center(
         child: _pages.elementAt(selectedIndex), //New
       ),
-      bottomNavigationBar: Container(
+      bNBar: Containerr(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
           child: GNav(
@@ -72,4 +71,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
