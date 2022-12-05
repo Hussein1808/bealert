@@ -5,14 +5,16 @@ class Containerr extends StatelessWidget {
   final w;
   final decoration;
   final child;
-
-  const Containerr({
-    super.key,
-    this.h,
-    this.w,
-    this.decoration,
-    this.child
-  });
+  final color;
+  final margin;
+  const Containerr(
+      {super.key,
+      this.h = 52.0,
+      this.w = 146.0,
+      this.decoration,
+      this.child,
+      this.color,
+      this.margin});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,9 @@ class Containerr extends StatelessWidget {
       height: h,
       width: w,
       decoration: decoration,
+      color: color,
       child: child,
+      margin: margin,
     );
   }
 }
