@@ -4,11 +4,14 @@ class Containerr extends StatelessWidget {
   final h;
   final w;
   final decoration;
+  final child;
+
   const Containerr({
     super.key,
     this.h,
     this.w,
     this.decoration,
+    this.child
   });
 
   @override
@@ -17,6 +20,7 @@ class Containerr extends StatelessWidget {
       height: h,
       width: w,
       decoration: decoration,
+      child: child,
     );
   }
 }

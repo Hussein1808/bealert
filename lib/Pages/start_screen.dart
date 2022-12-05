@@ -38,9 +38,9 @@ class Start extends StatelessWidget {
                 onTap: () {
                   print('hello');
                 },
-                child: Container(
-                  width: 180.0,
-                  height: 52.0,
+                child: Containerr(
+                  w: 180.0,
+                  h: 52.0,
                   decoration: BoxDecoration(
                       color: Theme.of(context).splashColor,
                       borderRadius: BorderRadius.circular(100)),
@@ -56,13 +56,13 @@ class Start extends StatelessWidget {
                 onTap: () {
                   print('heheh');
                 },
-                child: Container(
-                  width: 180.0,
-                  height: 52.0,
+                child: Containerr(
+                  w: 180.0,
+                  h: 52.0,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       border: Border.all(
-                          width: 10.0, color: Theme.of(context).splashColor)),
+                          width: 6.0, color: Theme.of(context).splashColor)),
                   child: Center(
                       child: Textt(
                     text: 'Login',
