@@ -15,16 +15,20 @@ class FormButtons extends StatelessWidget {
   final bcolor;
   final tcolor;
   final border;
+  final icon;
+  final icolor;
 
   const FormButtons(
       {super.key,
-      required this.width,
-      required this.height,
+      this.width = 146.0,
+      this.height = 52.0,
       this.redirect,
       this.text,
       this.bcolor,
       this.tcolor,
-      this.border});
+      this.border,
+      this.icon,
+      this.icolor});
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +43,19 @@ class FormButtons extends StatelessWidget {
             color: bcolor,
             borderRadius: BorderRadius.circular(100),
             border: border),
-        child: Center(
-            child: Textt(
-          text: text,
-          color: tcolor,
-        )),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Textt(
+              text: text,
+              color: tcolor,
+            ),
+            Icon(
+              icon,
+              color: icolor,
+            ),
+          ],
+        ),
       ),
     );
   }
