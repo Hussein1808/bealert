@@ -35,13 +35,11 @@ class Login_Page extends StatelessWidget {
             child: Column(
               children: [
                 Textt(
-                  text: 'Login',
+                  text: 'LOGIN',
                   size: 48.0,
                   font: GoogleFonts.righteous,
                 ),
-                SizedBoxx(h: 40.0),
-                FormFieldd(hint: 'Username', icon: UniconsLine.user),
-                SizedBoxx(),
+                SizedBoxx(h: 90.0),
                 FormFieldd(hint: 'Email', icon: UniconsLine.envelope),
                 SizedBoxx(),
                 FormFieldd(
@@ -50,26 +48,18 @@ class Login_Page extends StatelessWidget {
                   sicon: UniconsLine.eye,
                   obsecured: true,
                 ),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Confirm Password',
-                  icon: UniconsLine.lock,
-                  sicon: UniconsLine.eye,
-                  obsecured: true,
-                ),
-                SizedBoxx(h: 32.0),
+                SizedBoxx(h: 120.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     FormButtons(
+                      width: 320.0,
                       bcolor: Theme.of(context).splashColor,
                       tcolor: Theme.of(context).primaryColor,
-                      text: 'Next',
+                      text: '    Login',
                       redirect: '/',
                       border: Border.all(
                           width: 6.0, color: Theme.of(context).splashColor),
-                      icon: UniconsLine.angle_right_b,
-                      icolor: Theme.of(context).scaffoldBackgroundColor,
                     ),
                   ],
                 ),
@@ -78,7 +68,7 @@ class Login_Page extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Textt(
-                      text: 'Already have an account?',
+                      text: "Don't have an account ?",
                       color: Theme.of(context).colorScheme.primary,
                       size: 20.0,
                     )
@@ -89,11 +79,14 @@ class Login_Page extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
+                        onTap: () {
+                          GoRouter.of(context).go('/signup_page');
+                        },
                         child: Textt(
-                      text: 'Login from here',
-                      color: Theme.of(context).splashColor,
-                      size: 20.0,
-                    ))
+                          text: 'Sign up from here',
+                          color: Theme.of(context).splashColor,
+                          size: 20.0,
+                        ))
                   ],
                 ),
               ],
