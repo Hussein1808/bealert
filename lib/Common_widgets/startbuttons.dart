@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 
-class FormButtons extends StatelessWidget {
+class StartButtons extends StatelessWidget {
   final width;
   final height;
   final redirect;
@@ -18,7 +18,7 @@ class FormButtons extends StatelessWidget {
   final icon;
   final icolor;
 
-  FormButtons(
+  const StartButtons(
       {super.key,
       this.width = 146.0,
       this.height = 52.0,
@@ -30,16 +30,11 @@ class FormButtons extends StatelessWidget {
       this.icon,
       this.icolor});
 
-  final formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // final isValidForm = formKey.currentState!.validate();
-        // if (isValidForm) {
         GoRouter.of(context).go(redirect);
-        // }
       },
       child: Containerr(
         w: width,

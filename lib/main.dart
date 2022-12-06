@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'Pages/Login_page.dart';
 import 'Pages/signup_page.dart';
 import 'Pages/start_screen.dart';
 
@@ -18,6 +19,11 @@ class BeAlert extends StatelessWidget {
             path: 'signup_page',
             builder: (BuildContext context, GoRouterState state) =>
                 SignUp_Page(),
+          ),
+          GoRoute(
+            path: 'login_page',
+            builder: (BuildContext context, GoRouterState state) =>
+                Login_Page(),
           ),
 
           // GoRoute(

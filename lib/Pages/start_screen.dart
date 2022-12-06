@@ -3,6 +3,7 @@
 import 'package:bealert/Common_widgets/formbuttons.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
+import 'package:bealert/Common_widgets/startbuttons.dart';
 import 'package:bealert/Common_widgets/textt.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -37,7 +38,7 @@ class Start extends StatelessWidget {
                 size: 20.0,
               ),
               SizedBoxx(h: 118.0),
-              FormButtons(
+              StartButtons(
                 width: 180.0,
                 height: 52.0,
                 bcolor: Theme.of(context).splashColor,
@@ -46,12 +47,12 @@ class Start extends StatelessWidget {
                 redirect: '/signup_page',
               ),
               SizedBoxx(h: 15.0),
-              FormButtons(
+              StartButtons(
                 width: 180.0,
                 height: 52.0,
                 tcolor: Theme.of(context).primaryColor,
                 text: '    Login',
-                redirect: '/',
+                redirect: '/login_page',
                 border: Border.all(
                     width: 6.0, color: Theme.of(context).splashColor),
               ),

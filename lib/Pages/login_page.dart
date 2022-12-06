@@ -12,14 +12,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
-class SignUp_Page extends StatefulWidget {
-  const SignUp_Page({super.key});
+class Login_Page extends StatelessWidget {
+  const Login_Page({super.key});
 
-  @override
-  State<SignUp_Page> createState() => _SignUp_PageState();
-}
-
-class _SignUp_PageState extends State<SignUp_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffoldd(
@@ -40,7 +35,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
             child: Column(
               children: [
                 Textt(
-                  text: 'SIGN UP',
+                  text: 'Login',
                   size: 48.0,
                   font: GoogleFonts.righteous,
                 ),
@@ -94,14 +89,11 @@ class _SignUp_PageState extends State<SignUp_Page> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                        onTap: () {
-                          GoRouter.of(context).go('/login_page');
-                        },
                         child: Textt(
-                          text: 'Login from here',
-                          color: Theme.of(context).splashColor,
-                          size: 20.0,
-                        ))
+                      text: 'Login from here',
+                      color: Theme.of(context).splashColor,
+                      size: 20.0,
+                    ))
                   ],
                 ),
               ],
