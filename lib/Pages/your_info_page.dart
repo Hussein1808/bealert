@@ -12,14 +12,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
-class SignUp_Page extends StatefulWidget {
-  const SignUp_Page({super.key});
+class Your_Info_Page extends StatefulWidget {
+  const Your_Info_Page({super.key});
 
   @override
-  State<SignUp_Page> createState() => _SignUp_PageState();
+  State<Your_Info_Page> createState() => _Your_Info_PageState();
 }
 
-class _SignUp_PageState extends State<SignUp_Page> {
+class _Your_Info_PageState extends State<Your_Info_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffoldd(
@@ -39,27 +39,34 @@ class _SignUp_PageState extends State<SignUp_Page> {
             physics: BouncingScrollPhysics(),
             child: Column(
               children: [
-                Textt(
-                  text: 'SIGN UP',
-                  size: 48.0,
-                  font: GoogleFonts.righteous,
-                ),
+                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  IconButton(
+                    onPressed: (() => GoRouter.of(context).go('/signup_page')),
+                    icon: Icon(
+                      UniconsLine.angle_left,
+                    ),
+                    iconSize: 50,
+                  ),
+                  Textt(
+                    text: 'Your Info',
+                    size: 48.0,
+                    font: GoogleFonts.righteous,
+                  ),
+                ]),
                 SizedBoxx(h: 40.0),
-                FormFieldd(hint: 'Username', icon: UniconsLine.user),
+                FormFieldd(hint: 'Full name', icon: UniconsLine.user),
                 SizedBoxx(),
-                FormFieldd(hint: 'Email', icon: UniconsLine.envelope),
+                FormFieldd(hint: 'Address', icon: UniconsLine.envelope),
                 SizedBoxx(),
                 FormFieldd(
-                  hint: 'Password',
-                  icon: UniconsLine.lock,
-                  sicon: UniconsLine.eye,
+                  hint: 'National ID',
+                  icon: UniconsLine.credit_card,
                   obsecured: true,
                 ),
                 SizedBoxx(),
                 FormFieldd(
-                  hint: 'Confirm Password',
-                  icon: UniconsLine.lock,
-                  sicon: UniconsLine.eye,
+                  hint: 'Mobile number',
+                  icon: UniconsLine.phone,
                   obsecured: true,
                 ),
                 SizedBoxx(h: 32.0),
@@ -70,7 +77,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
                       bcolor: Theme.of(context).splashColor,
                       tcolor: Theme.of(context).primaryColor,
                       text: 'Next',
-                      redirect: '/your_info_page',
+                      redirect: '/signup_page',
                       border: Border.all(
                           width: 6.0, color: Theme.of(context).splashColor),
                       icon: UniconsLine.angle_right_b,
@@ -78,30 +85,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
                     ),
                   ],
                 ),
-                SizedBoxx(h: 80.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Textt(
-                      text: 'Already have an account?',
-                      color: Theme.of(context).colorScheme.primary,
-                      size: 20.0,
-                    )
-                  ],
-                ),
-                SizedBoxx(h: 16.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                        onTap: () =>GoRouter.of(context).go('/login_page'),
-                        child: Textt(
-                          text: 'Login from here',
-                          color: Theme.of(context).splashColor,
-                          size: 20.0,
-                        ))
-                  ],
-                ),
+                SizedBoxx(h: 146.0),
               ],
             ),
           ),

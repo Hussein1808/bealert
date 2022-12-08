@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'Pages/Login_page.dart';
 import 'Pages/signup_page.dart';
 import 'Pages/start_screen.dart';
+import 'Pages/your_info_page.dart';
 
 class BeAlert extends StatelessWidget {
   //* Application routing
@@ -24,6 +25,11 @@ class BeAlert extends StatelessWidget {
             path: 'login_page',
             builder: (BuildContext context, GoRouterState state) =>
                 Login_Page(),
+          ),
+          GoRoute(
+            path: 'your_info_page',
+            builder: (BuildContext context, GoRouterState state) =>
+                Your_Info_Page(),
           ),
 
           // GoRoute(
