@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:bealert/Common_widgets/containerr.dart';
-import 'package:bealert/Common_widgets/scaffoldd.dart';
-import 'package:go_router/go_router.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'package:flutter/material.dart';
+
+import 'new.dart';
 
 class HomePage extends StatefulWidget {
   int selectedIndex;
@@ -26,7 +26,13 @@ class _HomePageState extends State<HomePage> {
   }) : super();
 
   // int _selectedIndex = 0;
-  static List<Widget> _pages = <Widget>[];
+  static List<Widget> _pages = <Widget>[
+    New(),
+    New(),
+    New(),
+    New(),
+    New(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -37,36 +43,39 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Scaffoldd(
+    return Scaffold(
       body: Center(
         child: _pages.elementAt(selectedIndex), //New
       ),
-      bNBar: Containerr(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
-          child: GNav(
-              haptic: true,
-              backgroundColor: Colors.transparent,
-              color: Theme.of(context).colorScheme.primary,
-              activeColor: Theme.of(context).colorScheme.primary,
-              tabBackgroundColor: Theme.of(context).colorScheme.secondary,
-              gap: 8,
-              curve: Curves.easeInSine,
-              duration: Duration(milliseconds: 900),
-              padding: EdgeInsets.all(16),
-              tabs: const [
-                GButton(icon: Icons.home, text: 'Home'),
-                GButton(icon: Icons.calendar_month_rounded, text: 'Calendar'),
-                GButton(icon: Icons.checklist_outlined, text: 'Tasks'),
-                GButton(icon: Icons.book, text: 'Notes'),
-              ],
-              selectedIndex: selectedIndex,
-              onTabChange: (index) {
-                setState(() {
-                  selectedIndex = index;
-                });
-              }),
-        ),
+      bottomNavigationBar: FlashyTabBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        selectedIndex: selectedIndex,
+        showElevation: false,
+        onItemSelected: (index) => setState(() {
+          selectedIndex = index;
+        }),
+        items: [
+          FlashyTabBarItem(
+            icon: Icon(Icons.event),
+            title: Text('Home'),
+          ),
+          FlashyTabBarItem(
+            icon: Icon(Icons.search),
+            title: Text('Search'),
+          ),
+          FlashyTabBarItem(
+            icon: Icon(Icons.highlight),
+            title: Text('Highlights'),
+          ),
+          FlashyTabBarItem(
+            icon: Icon(Icons.settings),
+            title: Text('Settings'),
+          ),
+          FlashyTabBarItem(
+            icon: Icon(Icons.settings),
+            title: Text('한국어'),
+          ),
+        ],
       ),
     );
   }
