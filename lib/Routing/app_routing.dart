@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../User/Login_page.dart';
-import '../User/signup_page.dart';
-import '../User/vehicle_info_page.dart';
-import '../User/your_info_page.dart';
+import '../User/View/login_page.dart';
+import '../User/View/signup_page.dart';
+import '../User/View/vehicle_info_page.dart';
+import '../User/View/your_info_page.dart';
 import '../start_screen.dart';
 
 final GoRouter router = GoRouter(
