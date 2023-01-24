@@ -34,14 +34,17 @@ class Login_Page extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             child: Column(
               children: [
+                //* Login text
                 Textt(
                   text: 'LOGIN',
                   size: 48.0,
                   font: GoogleFonts.righteous,
                 ),
                 SizedBoxx(h: 90.0),
+                //* Email field
                 FormFieldd(hint: 'Email', icon: UniconsLine.envelope),
                 SizedBoxx(),
+                //* Password field
                 FormFieldd(
                   hint: 'Password',
                   icon: UniconsLine.lock,
@@ -49,6 +52,7 @@ class Login_Page extends StatelessWidget {
                   obsecured: true,
                 ),
                 SizedBoxx(h: 120.0),
+                //* Login button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -57,13 +61,14 @@ class Login_Page extends StatelessWidget {
                       bcolor: Theme.of(context).splashColor,
                       tcolor: Theme.of(context).primaryColor,
                       text: '    Login',
-                      redirect: '/',
+                      redirect: '/home',
                       border: Border.all(
                           width: 6.0, color: Theme.of(context).splashColor),
                     ),
                   ],
                 ),
                 SizedBoxx(h: 80.0),
+                //* Don't have an account
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -75,6 +80,7 @@ class Login_Page extends StatelessWidget {
                   ],
                 ),
                 SizedBoxx(h: 16.0),
+                //* Sign up button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

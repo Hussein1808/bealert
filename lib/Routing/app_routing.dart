@@ -4,6 +4,7 @@ import '../User/View/login_page.dart';
 import '../User/View/signup_page.dart';
 import '../User/View/vehicle_info_page.dart';
 import '../User/View/your_info_page.dart';
+import '../home_page.dart';
 import '../start_screen.dart';
 
 final GoRouter router = GoRouter(
@@ -30,15 +31,12 @@ final GoRouter router = GoRouter(
           builder: (BuildContext context, GoRouterState state) =>
               Vehicle_Info_Page(),
         ),
-
-        // GoRoute(
-        //     path: 'home/:selectedIndex',
-        //   name: 'home',
-        //   builder: (context, state) => HomePage(
-        //       selectedIndex: int.parse(state.params["selectedIndex"]!),
-
-        // ),
-        // ),
+        GoRoute(
+          path: 'home',
+          builder: (BuildContext context, GoRouterState state) => HomePage(
+            selectedIndex: 0,
+          ),
+        ),
       ],
     ),
   ],
