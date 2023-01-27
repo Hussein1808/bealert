@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:bealert/Home/View/main_home.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
 
   // int _selectedIndex = 0;
   static List<Widget> _pages = <Widget>[
-    TopHome(),
+    MainHome(),
     TopHome(),
     TopHome(),
     TopHome(),

@@ -4,7 +4,7 @@ import '../User/View/login_page.dart';
 import '../User/View/signup_page.dart';
 import '../User/View/vehicle_info_page.dart';
 import '../User/View/your_info_page.dart';
-import '../home_page.dart';
+import '../pages.dart';
 import '../start_screen.dart';
 
 final GoRouter router = GoRouter(
