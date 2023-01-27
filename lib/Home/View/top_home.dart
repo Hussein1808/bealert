@@ -1,6 +1,7 @@
 import 'package:bealert/Common_widgets/containerr.dart';
 //ignore_for_file:prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
@@ -27,7 +28,7 @@ class _TopHomeState extends State<TopHome> {
     return SafeArea(
       child: Swipe(
         onSwipeUp: () {
-          print('swioped up');
+          GoRouter.of(context).go('/home/1');
         },
         //* Top yellow container
         child: Containerr(

@@ -61,7 +61,7 @@ class Login_Page extends StatelessWidget {
                       bcolor: Theme.of(context).splashColor,
                       tcolor: Theme.of(context).primaryColor,
                       text: '    Login',
-                      redirect: '/home',
+                      redirect: '/home/0',
                       border: Border.all(
                           width: 6.0, color: Theme.of(context).splashColor),
                     ),

@@ -1,3 +1,4 @@
+import 'package:bealert/History/View/history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../User/View/login_page.dart';
@@ -32,9 +33,10 @@ final GoRouter router = GoRouter(
               Vehicle_Info_Page(),
         ),
         GoRoute(
-          path: 'home',
-          builder: (BuildContext context, GoRouterState state) => HomePage(
-            selectedIndex: 0,
+          path: 'home/:selectedIndex',
+          name: 'home',
+          builder: (context, state) => HomePage(
+            selectedIndex: int.parse(state.params["selectedIndex"]!),
           ),
         ),
       ],
