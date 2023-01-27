@@ -25,112 +25,107 @@ class _TopHomeState extends State<TopHome> {
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
     return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-            //* Top Home
-            child: Swipe(
-          onSwipeUp: () {
-            print('swioped up');
-          },
-          //* Top yellow container
-          child: Containerr(
-            w: screenwidth,
-            h: screenheight * 0.30,
-            decoration: BoxDecoration(
-              color: Theme.of(context).splashColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(50),
-                bottomRight: Radius.circular(50),
-              ),
+      child: Swipe(
+        onSwipeUp: () {
+          print('swioped up');
+        },
+        //* Top yellow container
+        child: Containerr(
+          w: screenwidth,
+          h: screenheight * 0.30,
+          decoration: BoxDecoration(
+            color: Theme.of(context).splashColor,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(50),
+              bottomRight: Radius.circular(50),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  //* Your Drowsy Days
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Textt(
-                          text: 'Your Drowsy Days',
-                          font: GoogleFonts.roboto,
-                          color: Theme.of(context).primaryColor,
-                          size: 24.0,
-                        ),
-                      ],
-                    ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //* Your Drowsy Days
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Textt(
+                        text: 'Your Drowsy Days',
+                        font: GoogleFonts.roboto,
+                        color: Theme.of(context).primaryColor,
+                        size: 24.0,
+                      ),
+                    ],
                   ),
-                  //* Number of Days in month
-                  Expanded(
-                    flex: 2,
-                    child: Row(
-                      children: [
-                        Column(
+                ),
+                //* Number of Days in month
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Textt(
+                            text: '$daysinmonth',
+                            font: GoogleFonts.righteous,
+                            color: Theme.of(context).primaryColor,
+                            size: 96.0,
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8.0, 32.0, 8.0, 8.0),
+                        child: Column(
                           children: [
                             Textt(
-                              text: '$daysinmonth',
+                              text: '/$daysinmonth',
                               font: GoogleFonts.righteous,
                               color: Theme.of(context).primaryColor,
-                              size: 96.0,
+                              size: 64.0,
                             ),
                           ],
                         ),
-                        Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(8.0, 32.0, 8.0, 8.0),
-                          child: Column(
-                            children: [
-                              Textt(
-                                text: '/$daysinmonth',
-                                font: GoogleFonts.righteous,
-                                color: Theme.of(context).primaryColor,
-                                size: 64.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                          ),
-                          onPressed: () {},
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Textt(
-                                text: 'View History',
-                                font: GoogleFonts.roboto,
-                                color: Theme.of(context).primaryColor,
-                                size: 20.0,
-                              ),
-                              Icon(
-                                UniconsLine.angle_up,
-                                size: 32.0,
-                              ),
-                            ],
-                          ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
                         ),
-                      ],
-                    ),
+                        onPressed: () {},
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Textt(
+                              text: 'View History',
+                              font: GoogleFonts.roboto,
+                              color: Theme.of(context).primaryColor,
+                              size: 20.0,
+                            ),
+                            Icon(
+                              UniconsLine.angle_up,
+                              size: 32.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-        )),
+        ),
       ),
     );
   }
