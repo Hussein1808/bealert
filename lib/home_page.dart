@@ -4,8 +4,9 @@ import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'package:flutter/material.dart';
+import 'package:unicons/unicons.dart';
 
-import 'new.dart';
+import 'Home/View/top_home.dart';
 
 class HomePage extends StatefulWidget {
   int selectedIndex;
@@ -27,11 +28,11 @@ class _HomePageState extends State<HomePage> {
 
   // int _selectedIndex = 0;
   static List<Widget> _pages = <Widget>[
-    New(),
-    New(),
-    New(),
-    New(),
-    New(),
+    TopHome(),
+    TopHome(),
+    TopHome(),
+    TopHome(),
+    TopHome(),
   ];
 
   void _onItemTapped(int index) {
@@ -42,12 +43,15 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Center(
         child: _pages.elementAt(selectedIndex), //New
       ),
       bottomNavigationBar: FlashyTabBar(
+        iconSize: screenheight * 0.035,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         selectedIndex: selectedIndex,
         showElevation: false,
@@ -56,24 +60,24 @@ class _HomePageState extends State<HomePage> {
         }),
         items: [
           FlashyTabBarItem(
-            icon: Icon(Icons.event),
+            icon: Icon(UniconsLine.estate),
             title: Text('Home'),
           ),
           FlashyTabBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Search'),
+            icon: Icon(UniconsLine.history),
+            title: Text('History'),
           ),
           FlashyTabBarItem(
-            icon: Icon(Icons.highlight),
-            title: Text('Highlights'),
+            icon: Icon(UniconsLine.record_audio),
+            title: Text('Record'),
+          ),
+          FlashyTabBarItem(
+            icon: Icon(UniconsLine.comparison),
+            title: Text('Statistics'),
           ),
           FlashyTabBarItem(
             icon: Icon(Icons.settings),
             title: Text('Settings'),
-          ),
-          FlashyTabBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('한국어'),
           ),
         ],
       ),

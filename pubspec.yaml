@@ -44,6 +44,10 @@ dependencies:
   carousel_slider: ^4.2.1
   curved_navigation_bar: ^1.0.3
   flashy_tab_bar2: ^0.0.6
+  intl: ^0.17.0
+  date_util: ^0.1.4
+  quiver: ^3.2.1
+  swipe: ^0.0.1
 
 dev_dependencies:
   flutter_test:
