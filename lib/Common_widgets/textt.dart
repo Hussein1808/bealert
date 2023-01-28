@@ -9,20 +9,22 @@ class Textt extends StatelessWidget {
   final color;
   final decorationn;
   final font;
+  final weight;
   const Textt(
       {Key? key,
       required this.text,
       this.size = 24.0,
       this.color = Colors.black,
       this.decorationn,
-      this.font = GoogleFonts.roboto})
+      this.font = GoogleFonts.roboto,
+      this.weight = FontWeight.normal})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(text,
         style: font(
-            fontWeight: FontWeight.bold,
+            fontWeight: weight,
             fontSize: size,
             color: color,
             decoration: decorationn));
