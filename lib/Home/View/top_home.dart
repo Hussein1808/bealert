@@ -29,6 +29,7 @@ class _TopHomeState extends State<TopHome> {
       child: Swipe(
         onSwipeUp: () {
           GoRouter.of(context).go('/home/1');
+          print('object');
         },
         //* Top yellow container
         child: Containerr(
@@ -97,28 +98,22 @@ class _TopHomeState extends State<TopHome> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
-                          elevation: 0,
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Textt(
-                              text: 'View History',
-                              font: GoogleFonts.roboto,
-                              color: Theme.of(context).primaryColor,
-                              size: 20.0,
-                            ),
-                            Icon(
-                              UniconsLine.angle_up,
-                              size: 32.0,
-                            ),
-                          ],
-                        ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Textt(
+                            text: 'View History',
+                            font: GoogleFonts.roboto,
+                            color: Theme.of(context).primaryColor,
+                            size: 20.0,
+                          ),
+                          Icon(
+                            UniconsLine.angle_up,
+                            color: Theme.of(context).primaryColor,
+                            size: 32.0,
+                          ),
+                        ],
                       ),
                     ],
                   ),
