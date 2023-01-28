@@ -38,8 +38,8 @@ class _TopHomeState extends State<TopHome> {
           decoration: BoxDecoration(
             color: Theme.of(context).splashColor,
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(50),
-              bottomRight: Radius.circular(50),
+              bottomLeft: Radius.circular(25),
+              bottomRight: Radius.circular(25),
             ),
           ),
           child: Padding(
@@ -58,6 +58,7 @@ class _TopHomeState extends State<TopHome> {
                         font: GoogleFonts.roboto,
                         color: Theme.of(context).primaryColor,
                         size: 24.0,
+                        weight: FontWeight.bold,
                       ),
                     ],
                   ),
@@ -77,15 +78,16 @@ class _TopHomeState extends State<TopHome> {
                           ),
                         ],
                       ),
+                      //* days in month
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(8.0, 32.0, 8.0, 8.0),
+                        padding: const EdgeInsets.fromLTRB(8.0, 40.0, 8.0, 8.0),
                         child: Column(
                           children: [
                             Textt(
                               text: '/$daysinmonth',
                               font: GoogleFonts.righteous,
                               color: Theme.of(context).primaryColor,
-                              size: 64.0,
+                              size: 56.0,
                             ),
                           ],
                         ),
@@ -107,6 +109,7 @@ class _TopHomeState extends State<TopHome> {
                             font: GoogleFonts.roboto,
                             color: Theme.of(context).primaryColor,
                             size: 20.0,
+                            weight: FontWeight.bold,
                           ),
                           Icon(
                             UniconsLine.angle_up,
