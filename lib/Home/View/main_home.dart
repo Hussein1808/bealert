@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:bealert/Common_widgets/containerr.dart';
+import 'package:bealert/Home/View/mid_home.dart';
 //ignore_for_file:prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,6 +10,7 @@ import 'package:quiver/time.dart';
 import 'package:swipe/swipe.dart';
 import 'package:unicons/unicons.dart';
 import '../../Common_widgets/textt.dart';
+import 'bottom_home.dart';
 import 'top_home.dart';
 
 class MainHome extends StatefulWidget {
@@ -26,12 +30,24 @@ class _MainHomeState extends State<MainHome> {
     final screenheight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-            child: Column(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TopHome(),
+            Expanded(flex: 7, child: TopHome()),
+            Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: MidHome(),
+                )),
+            Expanded(
+                flex: 11,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: BottomHome(),
+                ))
           ],
-        )),
+        ),
       ),
     );
   }
