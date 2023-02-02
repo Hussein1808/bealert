@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:bealert/History/View/history_page.dart';
 import 'package:bealert/Home/View/main_home.dart';
+import 'package:bealert/Settings/View/main_settings.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -33,8 +34,8 @@ class _HomePageState extends State<HomePage> {
     MainHome(),
     History(),
     TopHome(),
-    TopHome(),
-    TopHome(),
+    MainSettings(),
+    MainSettings(),
   ];
 
   void _onItemTapped(int index) {
