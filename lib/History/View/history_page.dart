@@ -35,8 +35,7 @@ class _HistoryState extends State<History> {
               decoration: BoxDecoration(
                 color: Theme.of(context).splashColor,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(25),
-                  bottomRight: Radius.circular(25),
+                  bottomRight: Radius.circular(40),
                 ),
               ),
               child: Padding(
