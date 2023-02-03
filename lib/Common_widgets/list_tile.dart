@@ -11,11 +11,12 @@ import 'package:unicons/unicons.dart';
 class ListTilee extends StatefulWidget {
   final title;
   final icon;
-
+  final redirection;
   const ListTilee({
     super.key,
     required this.title,
     this.icon,
+    this.redirection,
   });
 
   @override
