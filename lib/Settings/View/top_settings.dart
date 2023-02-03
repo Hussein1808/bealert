@@ -32,7 +32,7 @@ class _TopSettingsState extends State<TopSettings> {
           GoRouter.of(context).go('/home/1');
           print('object');
         },
-        //* Top yellow container
+        //* Top blue container
         child: Stack(
           children: [
             Containerr(
@@ -42,82 +42,60 @@ class _TopSettingsState extends State<TopSettings> {
                 color: Theme.of(context).colorScheme.secondary,
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    //* Your Drowsy Days
-                    Expanded(
-                      flex: 1,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Textt(
-                            text: 'Settings',
-                            font: GoogleFonts.roboto,
-                            color: Theme.of(context).primaryColor,
-                            size: 24.0,
-                            weight: FontWeight.bold,
+                    Row(
+                      children: [
+                        Containerr(
+                          w: screenwidth * 0.21,
+                          h: screenheight * 0.1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            image: DecorationImage(
+                                image: AssetImage('assets/settings.png')),
                           ),
-                        ],
-                      ),
-                    ),
-                    //* Number of Days in month
-                    SizedBox(
-                      height: screenheight * 0.02,
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Row(
-                        children: [
-                          Container(
-                            width: screenwidth * 0.21,
-                            height: screenheight * 0.1,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              image: DecorationImage(
-                                  image: AssetImage('assets/settings.png')),
-                            ),
-                          ),
-                          Textt(
-                            text: '$constt',
-                            weight: FontWeight.bold,
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                          ),
-                        ],
-                      ),
+                        ),
+                        Textt(
+                          text: '$constt',
+                          weight: FontWeight.bold,
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(top: 21.0),
-            //   child: Containerr(
-            //     decoration: BoxDecoration(
-            //       color: Theme.of(context).scaffoldBackgroundColor,
-            //       borderRadius: BorderRadius.only(
-            //           bottomRight: Radius.circular(25),
-            //           topRight: Radius.circular(25)),
-            //     ),
-            //     w: screenwidth * 0.35,
-            //     child: Row(
-            //       crossAxisAlignment: CrossAxisAlignment.center,
-            //       children: [
-            //         Padding(
-            //           padding: const EdgeInsets.only(left: 16.0),
-            //           child: Textt(
-            //             text: 'Settings',
-            //             font: GoogleFonts.roboto,
-            //             color: Theme.of(context).colorScheme.primary,
-            //             size: 24.0,
-            //             weight: FontWeight.bold,
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // )
+            Padding(
+              padding: const EdgeInsets.only(top: 21.0),
+              child: Containerr(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(25),
+                      topRight: Radius.circular(25)),
+                ),
+                w: screenwidth * 0.35,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Textt(
+                        text: 'Settings',
+                        font: GoogleFonts.roboto,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: 24.0,
+                        weight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
