@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:bealert/History/View/history_page.dart';
+import 'package:bealert/History/View/main_history.dart';
 import 'package:bealert/Home/View/main_home.dart';
 import 'package:bealert/Settings/View/main_settings.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';

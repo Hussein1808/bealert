@@ -1,4 +1,4 @@
-import 'package:bealert/History/View/history_page.dart';
+import 'package:bealert/History/View/main_history.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../User/View/login_page.dart';
