@@ -11,7 +11,7 @@ import 'package:quiver/time.dart';
 import 'package:swipe/swipe.dart';
 import 'package:unicons/unicons.dart';
 import '../../Common_widgets/textt.dart';
-import '../Data/const.dart';
+import '../Data/tiles_data.dart';
 
 class BottomSettings extends StatefulWidget {
   const BottomSettings({super.key});
@@ -33,8 +33,9 @@ class _BottomSettingsState extends State<BottomSettings> {
         return Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
           child: ListTilee(
-            title: tiles[index],
-            icon: icons[index],
+            title: tiles[index].title,
+            icon: tiles[index].icon,
+            redirection: tiles[index].redirection,
           ),
         );
       },
