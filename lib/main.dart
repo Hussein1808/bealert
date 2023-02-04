@@ -19,10 +19,9 @@ class BeAlert extends StatelessWidget {
         //* Application colors
         primaryColor: Color(0xFFF1F1F1),
         // primaryColor: Color.fromARGB(255, 224, 224, 224),
-
+        secondaryHeaderColor: Color(0xFF878787),
         scaffoldBackgroundColor: Color.fromARGB(255, 224, 224, 224),
         // scaffoldBackgroundColor: Color(0xFFF1F1F1),
-
         splashColor: Color(0xFFF3A953),
         colorScheme: ColorScheme.light(
             primary: Color.fromARGB(255, 0, 0, 0),
