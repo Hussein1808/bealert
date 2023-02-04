@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable,prefer_const_constructors
 import 'package:bealert/Common_widgets/containerr.dart';
-import 'package:bealert/Common_widgets/list_tile.dart';
+import 'package:bealert/Settings/Widgets/list_tile_settings.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -26,8 +26,7 @@ class _BottomSettingsState extends State<BottomSettings> {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    return Container(
-        child: ListView.builder(
+    return ListView.builder(
       itemCount: tiles.length,
       itemBuilder: (BuildContext context, int index) {
         return Padding(
@@ -39,6 +38,6 @@ class _BottomSettingsState extends State<BottomSettings> {
           ),
         );
       },
-    ));
+    );
   }
 }
