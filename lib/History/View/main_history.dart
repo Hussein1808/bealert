@@ -1,77 +1,49 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:bealert/Common_widgets/containerr.dart';
+import 'package:bealert/Home/View/mid_home.dart';
+import 'package:bealert/History/View/top_history.dart';
 //ignore_for_file:prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:swipe/swipe.dart';
 import 'package:unicons/unicons.dart';
 import '../../Common_widgets/textt.dart';
+import '../../Home/View/bottom_home.dart';
+import '../../Home/View/top_home.dart';
+import 'bottom_history.dart';
 
-class History extends StatefulWidget {
-  const History({super.key});
+class MainHistory extends StatefulWidget {
+  const MainHistory({super.key});
 
   @override
-  State<History> createState() => _HistoryState();
+  State<MainHistory> createState() => _MainHistoryState();
 }
 
-class _HistoryState extends State<History> {
+class _MainHistoryState extends State<MainHistory> {
+  // final DateFormat _dateFormatter = DateFormat.MMMEd();
+  // late var months = DateFormat.M().format(DateTime.now());
   @override
   Widget build(BuildContext context) {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
     return SafeArea(
-      child: Column(
-        children: [
-          Swipe(
-            onSwipeDown: () {
-              GoRouter.of(context).go('/home/0');
-            },
-            child: Stack(
-              children: [
-                Containerr(
-                  w: screenwidth,
-                  h: screenheight * 0.12,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).splashColor,
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(40),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 21.0),
-                  child: Containerr(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(25),
-                          topRight: Radius.circular(25)),
-                    ),
-                    w: screenwidth * 0.35,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16.0),
-                          child: Textt(
-                            text: 'History',
-                            font: GoogleFonts.roboto,
-                            color: Theme.of(context).colorScheme.primary,
-                            size: 24.0,
-                            weight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(flex: 1, child: TopHistory()),
+            Expanded(
+                flex: 7,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: BottomHistory(),
+                ))
+          ],
+        ),
       ),
     );
   }
