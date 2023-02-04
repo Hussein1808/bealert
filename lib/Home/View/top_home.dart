@@ -38,7 +38,7 @@ class _TopHomeState extends State<TopHome> {
               w: screenwidth,
               h: screenheight * 0.30,
               decoration: BoxDecoration(
-                color: Theme.of(context).splashColor,
+                color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(40),
                 ),
@@ -88,7 +88,8 @@ class _TopHomeState extends State<TopHome> {
                                 Textt(
                                   text: '/$daysinmonth',
                                   font: GoogleFonts.righteous,
-                                  color: Theme.of(context).primaryColor,
+                                  color:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                   size: 56.0,
                                 ),
                               ],

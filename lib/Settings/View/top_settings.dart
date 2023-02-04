@@ -73,7 +73,7 @@ class _TopSettingsState extends State<TopSettings> {
               padding: const EdgeInsets.only(top: 21.0),
               child: Containerr(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(25),
                       topRight: Radius.circular(25)),

@@ -35,7 +35,7 @@ class _TopHistoryState extends State<TopHistory> {
                   w: screenwidth,
                   h: screenheight * 0.10,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).splashColor,
+                    color: Theme.of(context).colorScheme.secondary,
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(40),
                     ),
@@ -45,7 +45,7 @@ class _TopHistoryState extends State<TopHistory> {
                   padding: const EdgeInsets.only(top: 21.0),
                   child: Containerr(
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).scaffoldBackgroundColor,
                       borderRadius: BorderRadius.only(
                           bottomRight: Radius.circular(25),
                           topRight: Radius.circular(25)),
