@@ -67,6 +67,16 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                   hint: 'Mobile number',
                   icon: UniconsLine.phone,
                 ),
+                SizedBoxx(),
+                FormFieldd(
+                  hint: 'Emergency contact',
+                  icon: UniconsLine.heart_rate,
+                ),
+                SizedBoxx(),
+                FormFieldd(
+                  hint: 'Blood group',
+                  icon: UniconsLine.medical_drip,
+                ),
                 SizedBoxx(h: 32.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
