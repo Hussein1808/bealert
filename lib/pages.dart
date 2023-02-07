@@ -2,6 +2,7 @@
 import 'package:bealert/History/View/main_history.dart';
 import 'package:bealert/Home/View/main_home.dart';
 import 'package:bealert/Settings/View/main_settings.dart';
+import 'package:bealert/Statistics/View/main_statistics.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -32,9 +33,9 @@ class _HomePageState extends State<HomePage> {
   // int _selectedIndex = 0;
   static List<Widget> _pages = <Widget>[
     MainHome(),
-    History(),
+    MainHistory(),
     TopHome(),
-    MainSettings(),
+    MainStatistics(),
     MainSettings(),
   ];
 
@@ -54,7 +55,8 @@ class _HomePageState extends State<HomePage> {
         child: _pages.elementAt(selectedIndex), //New
       ),
       bottomNavigationBar: FlashyTabBar(
-        iconSize: screenheight * 0.035,
+        height: 55,
+        iconSize: 25,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         selectedIndex: selectedIndex,
         showElevation: false,
