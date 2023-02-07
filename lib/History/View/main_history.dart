@@ -39,7 +39,7 @@ class _MainHistoryState extends State<MainHistory> {
             Expanded(
                 flex: 7,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: BottomHistory(),
                 ))
           ],

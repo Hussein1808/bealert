@@ -14,6 +14,7 @@ import '../../Common_widgets/textt.dart';
 import '../../Home/View/bottom_home.dart';
 import '../../Home/View/top_home.dart';
 import 'bottom_statistics.dart';
+import 'top_statistics.dart';
 
 class MainStatistics extends StatefulWidget {
   const MainStatistics({super.key});
@@ -35,7 +36,7 @@ class _MainStatisticsState extends State<MainStatistics> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 4, child: TopSettings()),
+            Expanded(flex: 4, child: TopStatistics()),
             Expanded(
               flex: 1,
               child: Padding(
@@ -51,7 +52,7 @@ class _MainStatisticsState extends State<MainStatistics> {
             Expanded(
                 flex: 5,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: BottomStatistics(),
                 ))
           ],
