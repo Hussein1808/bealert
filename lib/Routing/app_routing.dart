@@ -1,6 +1,7 @@
 import 'package:bealert/History/View/main_history.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../Edit Profile/View/main_edit_profie.dart';
 import '../User/View/login_page.dart';
 import '../User/View/signup_page.dart';
 import '../User/View/vehicle_info_page.dart';
@@ -38,6 +39,11 @@ final GoRouter router = GoRouter(
           builder: (context, state) => HomePage(
             selectedIndex: int.parse(state.params["selectedIndex"]!),
           ),
+        ),
+        GoRoute(
+          path: 'editprofile_page',
+          builder: (BuildContext context, GoRouterState state) =>
+              MainEditProfile(),
         ),
       ],
     ),
