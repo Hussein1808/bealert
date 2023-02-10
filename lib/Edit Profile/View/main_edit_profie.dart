@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'bottom_edit_profilr.dart';
-import 'mid_edit_profile.dart';
 import 'top_edit_profile.dart';
 
 class MainEditProfile extends StatefulWidget {
