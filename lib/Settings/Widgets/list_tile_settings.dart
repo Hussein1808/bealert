@@ -28,15 +28,20 @@ class _ListTileeState extends State<ListTilee> {
 
   @override
   Widget build(BuildContext context) {
-    return Containerr(
-      decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.circular(25)),
-      child: ListTile(
-        minLeadingWidth: 10,
-        leading: Icon(widget.icon),
-        title: Textt(
-            text: widget.title, color: Theme.of(context).colorScheme.primary),
+    return InkWell(
+      onTap: () {
+        context.go(widget.redirection);
+      },
+      child: Containerr(
+        decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+            borderRadius: BorderRadius.circular(25)),
+        child: ListTile(
+          minLeadingWidth: 10,
+          leading: Icon(widget.icon),
+          title: Textt(
+              text: widget.title, color: Theme.of(context).colorScheme.primary),
+        ),
       ),
     );
   }

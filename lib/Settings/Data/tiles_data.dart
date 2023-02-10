@@ -21,26 +21,27 @@ final List<Tile> tiles = [
   Tile(
     title: 'Edit Profile',
     icon: UniconsLine.user,
-    redirection: 'settings/edit_profile',
+    redirection: '/editprofile_page',
   ),
   Tile(
     title: 'Notifications',
     icon: UniconsLine.bell,
-    redirection: 'settings/notifications',
+    redirection: '/notifications_page',
+
   ),
   Tile(
     title: 'Clear History',
     icon: UniconsLine.trash,
-    redirection: 'settings/clear_history',
+
   ),
   Tile(
     title: 'About',
     icon: UniconsLine.info_circle,
-    redirection: 'settings/about',
+    redirection: '/about_page',
+
   ),
   Tile(
     title: 'Logout',
     icon: UniconsLine.sign_out_alt,
-    redirection: 'settings/logout',
   ),
 ];
