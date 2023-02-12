@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
 import 'Home/View/top_home.dart';
+import 'Record/View/main_record.dart';
 
 class HomePage extends StatefulWidget {
   int selectedIndex;
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   static List<Widget> _pages = <Widget>[
     MainHome(),
     MainHistory(),
-    TopHome(),
+    MainRecord(),
     MainStatistics(),
     MainSettings(),
   ];
