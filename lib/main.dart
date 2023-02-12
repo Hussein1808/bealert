@@ -22,12 +22,12 @@ class BeAlert extends StatelessWidget {
         secondaryHeaderColor: Color(0xFF878787),
         // scaffoldBackgroundColor: Color.fromARGB(255, 224, 224, 224),
         scaffoldBackgroundColor: Color(0xFFF4F4F2),
-        splashColor: Color(0xFFF3A953),
+        splashColor: Color(0xFFec2f4b),
         cardColor: Color(0xFFE5E5E5),
 
         colorScheme: ColorScheme.light(
             primary: Color.fromARGB(255, 0, 0, 0),
-            secondary: Color(0xFF2173FD)),
+            secondary: Color(0xFF009fff)),
         iconTheme: IconThemeData(
           color: Color.fromARGB(255, 0, 0, 0),
         ),

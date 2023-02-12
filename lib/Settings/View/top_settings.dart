@@ -39,7 +39,14 @@ class _TopSettingsState extends State<TopSettings> {
               w: screenwidth,
               h: screenheight * 0.3,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
+                gradient: LinearGradient(
+                  colors: [
+                    Theme.of(context).colorScheme.secondary,
+                    Theme.of(context).splashColor,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
               ),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 8.0),

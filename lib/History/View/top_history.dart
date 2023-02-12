@@ -35,7 +35,14 @@ class _TopHistoryState extends State<TopHistory> {
                   w: screenwidth,
                   h: screenheight * 0.10,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondary,
+                    gradient: LinearGradient(
+                      colors: [
+                        Theme.of(context).colorScheme.secondary,
+                        Theme.of(context).splashColor,
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(40),
                     ),

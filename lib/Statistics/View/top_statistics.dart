@@ -32,7 +32,14 @@ class _TopStatisticsState extends State<TopStatistics> {
             w: screenwidth,
             h: screenheight * 0.10,
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
+              gradient: LinearGradient(
+                colors: [
+                  Theme.of(context).colorScheme.secondary,
+                  Theme.of(context).splashColor,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(25),
               ),
@@ -54,7 +61,7 @@ class _TopStatisticsState extends State<TopStatistics> {
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
                     child: Textt(
-                      text: 'Settings',
+                      text: 'Statistics',
                       font: GoogleFonts.roboto,
                       color: Theme.of(context).colorScheme.primary,
                       size: 24.0,
