@@ -39,6 +39,9 @@ class _TopSettingsState extends State<TopSettings> {
               w: screenwidth,
               h: screenheight * 0.3,
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(40),
+                ),
                 gradient: LinearGradient(
                   colors: [
                     Theme.of(context).colorScheme.secondary,
