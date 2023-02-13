@@ -32,6 +32,8 @@ class _BottomHomeState extends State<BottomHome> {
         w: screenwidth * 0.90,
         h: screenheight * 0.30,
         decoration: BoxDecoration(
+            border: Border.all(
+                color: Theme.of(context).colorScheme.secondary, width: 3),
             borderRadius: BorderRadius.all(Radius.circular(50)),
             color: Theme.of(context).primaryColor),
         child: Padding(
