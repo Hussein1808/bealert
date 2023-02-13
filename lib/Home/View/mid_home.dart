@@ -26,31 +26,33 @@ class _MidHomeState extends State<MidHome> {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    return Column(children: [
-      Row(
-        children: [
-          Textt(
-            text: 'Your statistics',
-            font: GoogleFonts.righteous,
-            size: 36.0,
-          ),
-        ],
-      ),
-      Row(
-        children: [
-          Textt(
-            text: 'for today, ',
-            font: GoogleFonts.roboto,
-            size: 16.0,
-          ),
-          Textt(
-            text: '$month_day',
-            font: GoogleFonts.roboto,
-            size: 16.0,
-            weight: FontWeight.bold,
-          ),
-        ],
-      )
-    ]);
+    return Center(
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Row(
+          children: [
+            Textt(
+              text: 'Your statistics',
+              font: GoogleFonts.righteous,
+              size: 36.0,
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Textt(
+              text: 'for today, ',
+              font: GoogleFonts.roboto,
+              size: 16.0,
+            ),
+            Textt(
+              text: '$month_day',
+              font: GoogleFonts.roboto,
+              size: 16.0,
+              weight: FontWeight.bold,
+            ),
+          ],
+        )
+      ]),
+    );
   }
 }
