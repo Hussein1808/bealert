@@ -35,7 +35,7 @@ class _BottomHomeState extends State<BottomHome> {
             borderRadius: BorderRadius.all(Radius.circular(50)),
             color: Theme.of(context).primaryColor),
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -113,6 +113,9 @@ class _BottomHomeState extends State<BottomHome> {
       case 10:
         text = Text('10', style: style);
         break;
+      case 12:
+        text = Text('12', style: style);
+        break;
 
       default:
         text = Text('', style: style);
@@ -137,10 +140,10 @@ class _BottomHomeState extends State<BottomHome> {
         text = '0%';
         break;
 
-      case 3:
+      case 5:
         text = '50%';
         break;
-      case 6:
+      case 10:
         text = '100%';
         break;
 
@@ -192,15 +195,15 @@ class _BottomHomeState extends State<BottomHome> {
               bottom: BorderSide(
                   color: Theme.of(context).primaryColor, width: 0.3))),
       minX: 0,
-      maxX: 11,
+      maxX: 12,
       minY: 0,
-      maxY: 6,
+      maxY: 10,
       lineBarsData: [
         LineChartBarData(
           spots: [
             FlSpot(0, 2),
             FlSpot(1, 1),
-            FlSpot(2, 5),
+            FlSpot(2, 10),
             FlSpot(3, 2),
             FlSpot(4, 5),
             FlSpot(5, 5),
@@ -210,6 +213,7 @@ class _BottomHomeState extends State<BottomHome> {
             FlSpot(9, 3),
             FlSpot(10, 4),
             FlSpot(11, 4),
+            FlSpot(12, 4),
           ],
           isCurved: true,
           gradient: LinearGradient(
