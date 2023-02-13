@@ -4,14 +4,14 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LineChartSample2 extends StatefulWidget {
-  const LineChartSample2({super.key});
+class BottomHome extends StatefulWidget {
+  const BottomHome({super.key});
 
   @override
-  State<LineChartSample2> createState() => _LineChartSample2State();
+  State<BottomHome> createState() => _BottomHomeState();
 }
 
-class _LineChartSample2State extends State<LineChartSample2> {
+class _BottomHomeState extends State<BottomHome> {
   List<Color> gradientColors = [
     Color(0xFF009fff),
     Color(0xFFec2f4b),

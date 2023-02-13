@@ -44,7 +44,7 @@ class _MainHomeState extends State<MainHome> {
                 flex: 11,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: LineChartSample2(),
+                  child: BottomHome(),
                 ))
           ],
         ),
