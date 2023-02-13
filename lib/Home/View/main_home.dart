@@ -33,9 +33,9 @@ class _MainHomeState extends State<MainHome> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 7, child: TopHome()),
+            Expanded(flex: 8, child: TopHome()),
             Expanded(
-                flex: 2,
+                flex: 3,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: MidHome(),
@@ -44,7 +44,7 @@ class _MainHomeState extends State<MainHome> {
                 flex: 11,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: BottomHome(),
+                  child: LineChartSample2(),
                 ))
           ],
         ),
