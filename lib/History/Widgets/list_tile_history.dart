@@ -30,9 +30,10 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10))),
         child: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             border: Border(
-              left: BorderSide(color: Color(0xFFF3A953), width: 8),
+              left: BorderSide(
+                  color: Theme.of(context).colorScheme.secondary, width: 8),
             ),
           ),
           child: ListTile(
@@ -54,7 +55,7 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
             trailing: Textt(
               text: '${widget.trailing}',
               size: 58.0,
-              color: Theme.of(context).splashColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ),

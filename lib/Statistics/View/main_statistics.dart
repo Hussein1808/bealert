@@ -14,6 +14,7 @@ import '../../Common_widgets/textt.dart';
 import '../../Home/View/bottom_home.dart';
 import '../../Home/View/top_home.dart';
 import 'bottom_statistics.dart';
+import 'mid_satistics.dart';
 import 'top_statistics.dart';
 
 class MainStatistics extends StatefulWidget {
@@ -36,21 +37,15 @@ class _MainStatisticsState extends State<MainStatistics> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 4, child: TopStatistics()),
+            Expanded(flex: 1, child: TopStatistics()),
             Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 10.0, 0.0, 0.0),
-                child: Textt(
-                  text: 'Events',
-                  size: 35.0,
-                  weight: FontWeight.w500,
-                  font: GoogleFonts.righteous,
-                ),
-              ),
-            ),
+                flex: 3,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+                  child: MidStatistics(),
+                )),
             Expanded(
-                flex: 5,
+                flex: 3,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: BottomStatistics(),
