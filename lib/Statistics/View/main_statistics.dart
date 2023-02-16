@@ -39,7 +39,7 @@ class _MainStatisticsState extends State<MainStatistics> {
           children: [
             Expanded(flex: 1, child: TopStatistics()),
             Expanded(
-                flex: 3,
+                flex: 4,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: MidStatistics(),
