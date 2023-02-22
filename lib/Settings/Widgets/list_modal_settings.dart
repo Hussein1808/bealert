@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
@@ -6,17 +7,23 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
+import 'package:quickalert/quickalert.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:unicons/unicons.dart';
 
 class Modall extends StatefulWidget {
   final title;
   final icon;
   final redirection;
+  final mtitle;
+  final mtext;
   const Modall({
     super.key,
     required this.title,
     this.icon,
     this.redirection,
+    this.mtitle,
+    this.mtext,
   });
 
   @override
@@ -30,7 +37,28 @@ class _ModallState extends State<Modall> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(widget.redirection);
+        if (widget.title == 'Clear History') {
+          QuickAlert.show(
+            context: context,
+            title: widget.mtitle,
+            text: widget.mtext,
+            type: QuickAlertType.warning,
+            confirmBtnText: 'yes',
+            confirmBtnColor: Theme.of(context).splashColor,
+            showCancelBtn: true,
+          );
+        } else if (widget.title == 'logout') {
+          QuickAlert.show(
+            context: context,
+            title: widget.mtitle,
+            text: widget.mtext,
+            type: QuickAlertType.confirm,
+            confirmBtnText: 'yes',
+            onConfirmBtnTap: () {
+              GoRouter.of(context).go('/login_page');
+            },
+          );
+        }
       },
       child: Containerr(
         decoration: BoxDecoration(
