@@ -5,11 +5,7 @@ class Scaffoldd extends StatelessWidget {
   final body;
   final bNBar;
 
-  const Scaffoldd(
-      {super.key,
-      this.bcolor = const Color(0xFF007CD7),
-      required this.body,
-      this.bNBar});
+  const Scaffoldd({super.key, this.bcolor, required this.body, this.bNBar});
 
   @override
   Widget build(BuildContext context) {
