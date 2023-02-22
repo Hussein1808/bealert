@@ -22,91 +22,100 @@ class SignUp_Page extends StatefulWidget {
 class _SignUp_PageState extends State<SignUp_Page> {
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
     return Scaffoldd(
-        body: Containerr(
-      margin: EdgeInsets.only(top: 100.0),
-      w: MediaQuery.of(context).size.width,
-      h: 727.0,
-      decoration: BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(50.0), topRight: Radius.circular(50.0)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
-        child: Center(
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                Textt(
-                  text: 'SIGN UP',
-                  size: 48.0,
-                  font: GoogleFonts.righteous,
-                ),
-                SizedBoxx(h: 40.0),
-                FormFieldd(hint: 'Username', icon: UniconsLine.user),
-                SizedBoxx(),
-                FormFieldd(hint: 'Email', icon: UniconsLine.envelope),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Password',
-                  icon: UniconsLine.lock,
-                  sicon: UniconsLine.eye,
-                  obsecured: true,
-                ),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Confirm Password',
-                  icon: UniconsLine.lock,
-                  sicon: UniconsLine.eye,
-                  obsecured: true,
-                ),
-                SizedBoxx(h: 32.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+      bcolor: Theme.of(context).colorScheme.secondary,
+
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Containerr(
+          w: screenwidth,
+          h: screenheight * 0.85,
+          decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50.0),
+                topRight: Radius.circular(50.0)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
+            child: Center(
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Column(
                   children: [
-                    FormButtons(
-                      bcolor: Theme.of(context).splashColor,
-                      tcolor: Theme.of(context).primaryColor,
-                      text: 'Next',
-                      redirect: '/your_info_page',
-                      border: Border.all(
-                          width: 6.0, color: Theme.of(context).splashColor),
-                      icon: UniconsLine.angle_right_b,
-                      icolor: Theme.of(context).scaffoldBackgroundColor,
+                    Textt(
+                      text: 'SIGN UP',
+                      size: 48.0,
+                      font: GoogleFonts.righteous,
+                    ),
+                    SizedBoxx(h: 40.0),
+                    FormFieldd(hint: 'Username', icon: UniconsLine.user),
+                    SizedBoxx(),
+                    FormFieldd(hint: 'Email', icon: UniconsLine.envelope),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'Password',
+                      icon: UniconsLine.lock,
+                      sicon: UniconsLine.eye,
+                      obsecured: true,
+                    ),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'Confirm Password',
+                      icon: UniconsLine.lock,
+                      sicon: UniconsLine.eye,
+                      obsecured: true,
+                    ),
+                    SizedBoxx(h: 32.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        FormButtons(
+                          bcolor: Theme.of(context).splashColor,
+                          tcolor: Theme.of(context).primaryColor,
+                          text: 'Next',
+                          redirect: '/your_info_page',
+                          border: Border.all(
+                              width: 6.0, color: Theme.of(context).splashColor),
+                          icon: UniconsLine.angle_right_b,
+                          icolor: Theme.of(context).scaffoldBackgroundColor,
+                        ),
+                      ],
+                    ),
+                    SizedBoxx(h: 80.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Textt(
+                          text: 'Already have an account?',
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 20.0,
+                        )
+                      ],
+                    ),
+                    SizedBoxx(h: 16.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                            onTap: () => GoRouter.of(context).go('/login_page'),
+                            child: Textt(
+                              text: 'Login from here',
+                              color: Theme.of(context).splashColor,
+                              size: 20.0,
+                            ))
+                      ],
                     ),
                   ],
                 ),
-                SizedBoxx(h: 80.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Textt(
-                      text: 'Already have an account?',
-                      color: Theme.of(context).colorScheme.primary,
-                      size: 20.0,
-                    )
-                  ],
-                ),
-                SizedBoxx(h: 16.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                        onTap: () =>GoRouter.of(context).go('/login_page'),
-                        child: Textt(
-                          text: 'Login from here',
-                          color: Theme.of(context).splashColor,
-                          size: 20.0,
-                        ))
-                  ],
-                ),
-              ],
+              ),
             ),
           ),
         ),
-      ),
+      ],
     ));
   }
 }
