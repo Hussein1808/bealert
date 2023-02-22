@@ -3,20 +3,6 @@ import 'package:unicons/unicons.dart';
 
 import '../Domain/tiles_domain.dart';
 
-// List<String> tiles = [
-//   'Edit Profile',
-//   'Notifications',
-//   'Clear History',
-//   'About',
-//   'Logout'
-// ];
-// List<IconData> icons = [
-//   UniconsLine.user,
-//   UniconsLine.bell,
-//   UniconsLine.trash,
-//   UniconsLine.info_circle,
-//   UniconsLine.sign_out_alt
-// ];
 final List<Tile> tiles = [
   Tile(
     title: 'Edit Profile',
@@ -27,21 +13,11 @@ final List<Tile> tiles = [
     title: 'Notifications',
     icon: UniconsLine.bell,
     redirection: '/notifications_page',
-
-  ),
-  Tile(
-    title: 'Clear History',
-    icon: UniconsLine.trash,
-
   ),
   Tile(
     title: 'About',
     icon: UniconsLine.info_circle,
     redirection: '/about_page',
-
-  ),
-  Tile(
-    title: 'Logout',
-    icon: UniconsLine.sign_out_alt,
   ),
 ];
+
