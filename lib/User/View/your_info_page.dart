@@ -22,83 +22,93 @@ class Your_Info_Page extends StatefulWidget {
 class _Your_Info_PageState extends State<Your_Info_Page> {
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
     return Scaffoldd(
-        body: Containerr(
-      margin: EdgeInsets.only(top: 100.0),
-      w: MediaQuery.of(context).size.width,
-      h: 727.0,
-      decoration: BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(50.0), topRight: Radius.circular(50.0)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
-        child: Center(
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                  IconButton(
-                    onPressed: (() => GoRouter.of(context).go('/signup_page')),
-                    icon: Icon(
-                      UniconsLine.angle_left,
-                    ),
-                    iconSize: 50,
-                  ),
-                  Textt(
-                    text: 'Your Info',
-                    size: 48.0,
-                    font: GoogleFonts.righteous,
-                  ),
-                ]),
-                SizedBoxx(h: 40.0),
-                FormFieldd(hint: 'Full name', icon: UniconsLine.user),
-                SizedBoxx(),
-                FormFieldd(hint: 'Address', icon: UniconsLine.envelope),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'National ID',
-                  icon: UniconsLine.credit_card,
-                ),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Mobile number',
-                  icon: UniconsLine.phone,
-                ),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Emergency contact',
-                  icon: UniconsLine.heart_rate,
-                ),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Blood group',
-                  icon: UniconsLine.medical_drip,
-                ),
-                SizedBoxx(h: 32.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+      bcolor: Theme.of(context).colorScheme.secondary,
+
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Containerr(
+          w: screenwidth,
+          h: screenheight * 0.85,
+          decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50.0),
+                topRight: Radius.circular(50.0)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
+            child: Center(
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Column(
                   children: [
-                    FormButtons(
-                      bcolor: Theme.of(context).splashColor,
-                      tcolor: Theme.of(context).primaryColor,
-                      text: 'Next',
-                      redirect: '/vehicle_info_page',
-                      border: Border.all(
-                          width: 6.0, color: Theme.of(context).splashColor),
-                      icon: UniconsLine.angle_right_b,
-                      icolor: Theme.of(context).scaffoldBackgroundColor,
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                      IconButton(
+                        onPressed: (() =>
+                            GoRouter.of(context).go('/signup_page')),
+                        icon: Icon(
+                          UniconsLine.angle_left,
+                        ),
+                        iconSize: 50,
+                      ),
+                      Textt(
+                        text: 'Your Info',
+                        size: 48.0,
+                        font: GoogleFonts.righteous,
+                      ),
+                    ]),
+                    SizedBoxx(h: 40.0),
+                    FormFieldd(hint: 'Full name', icon: UniconsLine.user),
+                    SizedBoxx(),
+                    FormFieldd(hint: 'Address', icon: UniconsLine.envelope),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'National ID',
+                      icon: UniconsLine.credit_card,
                     ),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'Mobile number',
+                      icon: UniconsLine.phone,
+                    ),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'Emergency contact',
+                      icon: UniconsLine.heart_rate,
+                    ),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'Blood group',
+                      icon: UniconsLine.medical_drip,
+                    ),
+                    SizedBoxx(h: 32.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        FormButtons(
+                          bcolor: Theme.of(context).splashColor,
+                          tcolor: Theme.of(context).primaryColor,
+                          text: 'Next',
+                          redirect: '/vehicle_info_page',
+                          border: Border.all(
+                              width: 6.0, color: Theme.of(context).splashColor),
+                          icon: UniconsLine.angle_right_b,
+                          icolor: Theme.of(context).scaffoldBackgroundColor,
+                        ),
+                      ],
+                    ),
+                    SizedBoxx(h: 146.0),
                   ],
                 ),
-                SizedBoxx(h: 146.0),
-              ],
+              ),
             ),
           ),
         ),
-      ),
+      ],
     ));
   }
 }
