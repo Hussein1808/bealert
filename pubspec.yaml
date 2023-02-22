@@ -51,6 +51,10 @@ dependencies:
   fl_chart: ^0.60.0
   group_button: ^5.2.2
   liquid_swipe: ^3.0.0
+  google_maps: ^6.2.0
+  rflutter_alert: ^2.0.4
+  awesome_dialog: ^3.0.2
+  quickalert: ^1.0.1
 
 dev_dependencies:
   flutter_test:
