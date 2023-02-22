@@ -22,86 +22,95 @@ class Vehicle_Info_Page extends StatefulWidget {
 class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
     return Scaffoldd(
-        body: Containerr(
-      margin: EdgeInsets.only(top: 100.0),
-      w: MediaQuery.of(context).size.width,
-      h: 727.0,
-      decoration: BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(50.0), topRight: Radius.circular(50.0)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(30.0, 30.0, 35.0, 5.0),
-        child: Center(
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                  IconButton(
-                    onPressed: (() =>
-                        GoRouter.of(context).go('/your_info_page')),
-                    icon: Icon(
-                      UniconsLine.angle_left,
-                    ),
-                    iconSize: 50,
-                  ),
-                  Textt(
-                    text: 'Vehicle Info',
-                    size: 48.0,
-                    font: GoogleFonts.righteous,
-                  ),
-                ]),
-                SizedBoxx(h: 40.0),
-                FormFieldd(hint: 'Owner', icon: UniconsLine.user),
-                SizedBoxx(),
-                FormFieldd(hint: 'Brand', icon: UniconsLine.car),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Color',
-                  icon: UniconsLine.palette,
-                ),
-                SizedBoxx(),
-                Row(
+      bcolor: Theme.of(context).colorScheme.secondary,
+
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Containerr(
+          w: screenwidth,
+          h: screenheight * 0.85,
+          decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50.0),
+                topRight: Radius.circular(50.0)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(30.0, 30.0, 35.0, 5.0),
+            child: Center(
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Column(
                   children: [
-                    Textt(
-                      text: 'License plate',
-                      size: 20.0,
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                      IconButton(
+                        onPressed: (() =>
+                            GoRouter.of(context).go('/your_info_page')),
+                        icon: Icon(
+                          UniconsLine.angle_left,
+                        ),
+                        iconSize: 50,
+                      ),
+                      Textt(
+                        text: 'Vehicle Info',
+                        size: 48.0,
+                        font: GoogleFonts.righteous,
+                      ),
+                    ]),
+                    SizedBoxx(h: 40.0),
+                    FormFieldd(hint: 'Owner', icon: UniconsLine.user),
+                    SizedBoxx(),
+                    FormFieldd(hint: 'Brand', icon: UniconsLine.car),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'Color',
+                      icon: UniconsLine.palette,
                     ),
+                    SizedBoxx(),
+                    Row(
+                      children: [
+                        Textt(
+                          text: 'License plate',
+                          size: 20.0,
+                        ),
+                      ],
+                    ),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'Numbers',
+                    ),
+                    SizedBoxx(),
+                    FormFieldd(
+                      hint: 'Letters',
+                    ),
+                    SizedBoxx(h: 32.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        FormButtons(
+                          bcolor: Theme.of(context).splashColor,
+                          tcolor: Theme.of(context).primaryColor,
+                          text: 'Next',
+                          redirect: '/login_page',
+                          border: Border.all(
+                              width: 6.0, color: Theme.of(context).splashColor),
+                          icon: UniconsLine.angle_right_b,
+                          icolor: Theme.of(context).scaffoldBackgroundColor,
+                        ),
+                      ],
+                    ),
+                    SizedBoxx(h: 46.0),
                   ],
                 ),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Numbers',
-                ),
-                SizedBoxx(),
-                FormFieldd(
-                  hint: 'Letters',
-                ),
-                SizedBoxx(h: 32.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    FormButtons(
-                      bcolor: Theme.of(context).splashColor,
-                      tcolor: Theme.of(context).primaryColor,
-                      text: 'Next',
-                      redirect: '/login_page',
-                      border: Border.all(
-                          width: 6.0, color: Theme.of(context).splashColor),
-                      icon: UniconsLine.angle_right_b,
-                      icolor: Theme.of(context).scaffoldBackgroundColor,
-                    ),
-                  ],
-                ),
-                SizedBoxx(h: 46.0),
-              ],
+              ),
             ),
           ),
         ),
-      ),
+      ],
     ));
   }
 }
