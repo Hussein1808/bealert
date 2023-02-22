@@ -17,89 +17,98 @@ class Login_Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
     return Scaffoldd(
-        body: Containerr(
-      margin: EdgeInsets.only(top: 100.0),
-      w: MediaQuery.of(context).size.width,
-      h: 727.0,
-      decoration: BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(50.0), topRight: Radius.circular(50.0)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
-        child: Center(
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                //* Login text
-                Textt(
-                  text: 'LOGIN',
-                  size: 48.0,
-                  font: GoogleFonts.righteous,
-                ),
-                SizedBoxx(h: 90.0),
-                //* Email field
-                FormFieldd(hint: 'Email', icon: UniconsLine.envelope),
-                SizedBoxx(),
-                //* Password field
-                FormFieldd(
-                  hint: 'Password',
-                  icon: UniconsLine.lock,
-                  sicon: UniconsLine.eye,
-                  obsecured: true,
-                ),
-                SizedBoxx(h: 120.0),
-                //* Login button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    FormButtons(
-                      width: 320.0,
-                      bcolor: Theme.of(context).splashColor,
-                      tcolor: Theme.of(context).primaryColor,
-                      text: '    Login',
-                      redirect: '/home/0',
-                      border: Border.all(
-                          width: 6.0, color: Theme.of(context).splashColor),
+        bcolor: Theme.of(context).colorScheme.secondary,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Containerr(
+              w: screenwidth,
+              h: screenheight * 0.85,
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50.0),
+                    topRight: Radius.circular(50.0)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
+                child: Center(
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: Column(
+                      children: [
+                        //* Login text
+                        Textt(
+                          text: 'LOGIN',
+                          size: 48.0,
+                          font: GoogleFonts.righteous,
+                        ),
+                        SizedBoxx(h: 90.0),
+                        //* Email field
+                        FormFieldd(hint: 'Email', icon: UniconsLine.envelope),
+                        SizedBoxx(),
+                        //* Password field
+                        FormFieldd(
+                          hint: 'Password',
+                          icon: UniconsLine.lock,
+                          sicon: UniconsLine.eye,
+                          obsecured: true,
+                        ),
+                        SizedBoxx(h: 120.0),
+                        //* Login button
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            FormButtons(
+                              width: 320.0,
+                              bcolor: Theme.of(context).splashColor,
+                              tcolor: Theme.of(context).primaryColor,
+                              text: '    Login',
+                              redirect: '/home/0',
+                              border: Border.all(
+                                  width: 6.0,
+                                  color: Theme.of(context).splashColor),
+                            ),
+                          ],
+                        ),
+                        SizedBoxx(h: 80.0),
+                        //* Don't have an account
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Textt(
+                              text: "Don't have an account ?",
+                              color: Theme.of(context).colorScheme.primary,
+                              size: 20.0,
+                            )
+                          ],
+                        ),
+                        SizedBoxx(h: 16.0),
+                        //* Sign up button
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                                onTap: () {
+                                  GoRouter.of(context).go('/signup_page');
+                                },
+                                child: Textt(
+                                  text: 'Sign up from here',
+                                  color: Theme.of(context).splashColor,
+                                  size: 20.0,
+                                ))
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-                SizedBoxx(h: 80.0),
-                //* Don't have an account
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Textt(
-                      text: "Don't have an account ?",
-                      color: Theme.of(context).colorScheme.primary,
-                      size: 20.0,
-                    )
-                  ],
-                ),
-                SizedBoxx(h: 16.0),
-                //* Sign up button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                        onTap: () {
-                          GoRouter.of(context).go('/signup_page');
-                        },
-                        child: Textt(
-                          text: 'Sign up from here',
-                          color: Theme.of(context).splashColor,
-                          size: 20.0,
-                        ))
-                  ],
-                ),
-              ],
+              ),
             ),
-          ),
-        ),
-      ),
-    ));
+          ],
+        ));
   }
 }
