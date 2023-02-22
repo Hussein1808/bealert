@@ -11,7 +11,9 @@ import 'package:quiver/time.dart';
 import 'package:swipe/swipe.dart';
 import 'package:unicons/unicons.dart';
 import '../../Common_widgets/textt.dart';
+import '../Data/modals_data.dart';
 import '../Data/tiles_data.dart';
+import '../Widgets/list_modal_settings.dart';
 
 class BottomSettings extends StatefulWidget {
   const BottomSettings({super.key});
@@ -26,18 +28,42 @@ class _BottomSettingsState extends State<BottomSettings> {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    return ListView.builder(
-      itemCount: tiles.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: ListTilee(
-            title: tiles[index].title,
-            icon: tiles[index].icon,
-            redirection: tiles[index].redirection,
-          ),
-        );
-      },
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: tiles.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: ListTilee(
+                    title: tiles[index].title,
+                    icon: tiles[index].icon,
+                    redirection: tiles[index].redirection,
+                  ),
+                );
+              }),
+          ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: modals.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: Modall(
+                    title: modals[index].title,
+                    icon: modals[index].icon,
+                    redirection: modals[index].redirection,
+                    mtitle: modals[index].mtitle,
+                    mtext: modals[index].mtext,
+                  ),
+                );
+              }),
+        ],
+      ),
     );
   }
 }
