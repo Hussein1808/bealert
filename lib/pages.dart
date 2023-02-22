@@ -68,22 +68,27 @@ class _HomePageState extends State<HomePage> {
           FlashyTabBarItem(
             icon: Icon(UniconsLine.estate),
             title: Text('Home'),
+            activeColor: Theme.of(context).colorScheme.secondary,
           ),
           FlashyTabBarItem(
             icon: Icon(UniconsLine.history),
             title: Text('History'),
+            activeColor: Theme.of(context).colorScheme.secondary,
           ),
           FlashyTabBarItem(
             icon: Icon(UniconsLine.record_audio),
             title: Text('Record'),
+            activeColor: Theme.of(context).colorScheme.secondary,
           ),
           FlashyTabBarItem(
             icon: Icon(UniconsLine.comparison),
             title: Text('Statistics'),
+            activeColor: Theme.of(context).colorScheme.secondary,
           ),
           FlashyTabBarItem(
             icon: Icon(Icons.settings),
             title: Text('Settings'),
+            activeColor: Theme.of(context).colorScheme.secondary,
           ),
         ],
       ),
