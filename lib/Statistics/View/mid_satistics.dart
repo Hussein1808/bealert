@@ -49,6 +49,7 @@ class MidStatisticsState extends State<MidStatistics> {
     showingBarGroups = rawBarGroups;
   }
 
+  final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
@@ -62,6 +63,21 @@ class MidStatisticsState extends State<MidStatistics> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               GroupButton(
+                onSelected: (value, index, isSelected) {
+                  if (index == 0) {
+                    _scrollController.animateTo(
+                      0.0,
+                      curve: Curves.easeOut,
+                      duration: const Duration(milliseconds: 300),
+                    );
+                  } else {
+                    _scrollController.animateTo(
+                      screenwidth * 0.9,
+                      curve: Curves.easeOut,
+                      duration: const Duration(milliseconds: 300),
+                    );
+                  }
+                },
                 controller: controller,
                 buttons: ['Week', 'Month'],
                 options: GroupButtonOptions(
@@ -92,101 +108,12 @@ class MidStatisticsState extends State<MidStatistics> {
         ),
         Expanded(
           flex: 5,
-          child: ListView(
+          child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: AspectRatio(
-                  
-                  aspectRatio: screenwidth / screenheight * 2.9,
-                  child: BarChart(
-                    BarChartData(
-                      maxY: 20,
-                      barTouchData: BarTouchData(
-                        touchTooltipData: BarTouchTooltipData(
-                          tooltipBgColor: Color.fromARGB(255, 255, 0, 0),
-                          getTooltipItem: (a, b, c, d) => null,
-                        ),
-                        touchCallback: (FlTouchEvent event, response) {
-                          if (response == null || response.spot == null) {
-                            setState(() {
-                              touchedGroupIndex = -1;
-                              showingBarGroups = List.of(rawBarGroups);
-                            });
-                            return;
-                          }
-
-                          touchedGroupIndex =
-                              response.spot!.touchedBarGroupIndex;
-
-                          setState(() {
-                            if (!event.isInterestedForInteractions) {
-                              touchedGroupIndex = -1;
-                              showingBarGroups = List.of(rawBarGroups);
-                              return;
-                            }
-                            showingBarGroups = List.of(rawBarGroups);
-                            if (touchedGroupIndex != -1) {
-                              var sum = 0.0;
-                              for (final rod
-                                  in showingBarGroups[touchedGroupIndex]
-                                      .barRods) {
-                                sum += rod.toY;
-                              }
-                              final avg = sum /
-                                  showingBarGroups[touchedGroupIndex]
-                                      .barRods
-                                      .length;
-
-                              showingBarGroups[touchedGroupIndex] =
-                                  showingBarGroups[touchedGroupIndex].copyWith(
-                                barRods: showingBarGroups[touchedGroupIndex]
-                                    .barRods
-                                    .map((rod) {
-                                  return rod.copyWith(
-                                    toY: avg,
-                                  );
-                                }).toList(),
-                              );
-                            }
-                          });
-                        },
-                      ),
-                      titlesData: FlTitlesData(
-                        show: true,
-                        rightTitles: AxisTitles(
-                          sideTitles: SideTitles(showTitles: false),
-                        ),
-                        topTitles: AxisTitles(
-                          sideTitles: SideTitles(showTitles: false),
-                        ),
-                        bottomTitles: AxisTitles(
-                          sideTitles: SideTitles(
-                            showTitles: true,
-                            getTitlesWidget: bottomTitles,
-                            reservedSize: 42,
-                          ),
-                        ),
-                        leftTitles: AxisTitles(
-                          sideTitles: SideTitles(
-                            showTitles: true,
-                            reservedSize: 40,
-                            interval: 1,
-                            getTitlesWidget: leftTitles,
-                          ),
-                        ),
-                      ),
-                      borderData: FlBorderData(
-                        show: false,
-                      ),
-                      barGroups: showingBarGroups,
-                      gridData: FlGridData(show: false),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
+            itemCount: 2,
+            controller: _scrollController,
+            itemBuilder: (context, index) {
+              return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: AspectRatio(
                   aspectRatio: screenwidth / screenheight * 2.9,
@@ -275,8 +202,8 @@ class MidStatisticsState extends State<MidStatistics> {
                     ),
                   ),
                 ),
-              ),
-            ],
+              );
+            },
           ),
         ),
       ],
