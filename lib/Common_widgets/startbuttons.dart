@@ -17,6 +17,7 @@ class StartButtons extends StatelessWidget {
   final border;
   final icon;
   final icolor;
+  final weight;
 
   const StartButtons(
       {super.key,
@@ -28,7 +29,8 @@ class StartButtons extends StatelessWidget {
       this.tcolor,
       this.border,
       this.icon,
-      this.icolor});
+      this.icolor,
+      this.weight});
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,7 @@ class StartButtons extends StatelessWidget {
             Textt(
               text: text,
               color: tcolor,
+              weight: weight,
             ),
             Icon(
               icon,

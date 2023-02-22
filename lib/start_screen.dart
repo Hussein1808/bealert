@@ -45,9 +45,11 @@ class Start extends StatelessWidget {
                 tcolor: Theme.of(context).primaryColor,
                 text: '    Sign Up',
                 redirect: '/signup_page',
+                weight: FontWeight.bold,
               ),
               SizedBoxx(h: 15.0),
               StartButtons(
+                weight: FontWeight.bold,
                 width: 180.0,
                 height: 52.0,
                 tcolor: Theme.of(context).primaryColor,
