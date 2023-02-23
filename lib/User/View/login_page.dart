@@ -62,14 +62,13 @@ class _Login_PageState extends State<Login_Page> {
                             size: 48.0,
                             font: GoogleFonts.righteous,
                           ),
-                          SizedBoxx(h: 90.0),
+                          SizedBoxx(h: 58.0),
                           //* Email field
                           Form(
                             key: formKey,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
-                              obscureText: !_isVisible,
                               validator: (value2) {
                                 if (value2!.isEmpty) {
                                   return 'Required';
@@ -164,7 +163,8 @@ class _Login_PageState extends State<Login_Page> {
                                         ),
                                       ),
                                       onPressed: () {
-                                        if (formKey.currentState!.validate()) {
+                                        if (formKey.currentState!.validate() &&
+                                            formKey2.currentState!.validate()) {
                                           GoRouter.of(context).go('/home/0');
                                         }
                                       },
