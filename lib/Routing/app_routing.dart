@@ -6,6 +6,7 @@ import '../User/View/login_page.dart';
 import '../User/View/signup_page.dart';
 import '../User/View/vehicle_info_page.dart';
 import '../User/View/your_info_page.dart';
+import '../info.dart';
 import '../pages.dart';
 import '../start_screen.dart';
 
@@ -13,8 +14,12 @@ final GoRouter router = GoRouter(
   routes: <GoRoute>[
     GoRoute(
       path: '/',
-      builder: (BuildContext context, GoRouterState state) => Start(),
+      builder: (BuildContext context, GoRouterState state) => Info(),
       routes: <GoRoute>[
+        GoRoute(
+          path: 'start_screen',
+          builder: (BuildContext context, GoRouterState state) => Start(),
+        ),
         GoRoute(
           path: 'signup_page',
           builder: (BuildContext context, GoRouterState state) => SignUp_Page(),
