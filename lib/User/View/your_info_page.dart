@@ -28,6 +28,9 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
   final RegExp emailvalid = RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
   final RegExp passwordvalid =
       RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
+  final bloodGroupRegex = RegExp(r'^(A|B|AB|O)[+-]$');
+  final RegExp nationalIdRegex = RegExp(r'^[0-9]{1,}$');
+
   final formKey = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
   final formKey3 = GlobalKey<FormState>();
@@ -80,6 +83,9 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   font: GoogleFonts.righteous,
                                 ),
                               ]),
+                          SizedBoxx(
+                            h: 30.0,
+                          ),
                           //* full name field
                           Form(
                             key: formKey,
@@ -125,8 +131,6 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                               validator: (value2) {
                                 if (value2!.isEmpty) {
                                   return 'Required';
-                                } else if (!emailvalid.hasMatch(value2)) {
-                                  return 'Invalid email format';
                                 } else {
                                   return null;
                                 }
@@ -160,12 +164,13 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                               validator: (value3) {
                                 if (value3!.isEmpty) {
                                   return 'Required';
-                                } else if (!passwordvalid.hasMatch(value3)) {
-                                  return 'Password must contain atleast 1 uppercase, 1 lowercase, 1 number and 1 special character';
+                                } else if (!nationalIdRegex.hasMatch(value3)) {
+                                  return 'Invalid National ID format';
                                 } else {
                                   return null;
                                 }
                               },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
                                 border: OutlineInputBorder(
@@ -187,11 +192,17 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                           //* Mobile number
                           Form(
                             key: formKey4,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
                             child: InternationalPhoneNumberInput(
                               onInputChanged: (PhoneNumber number) {},
-                              onInputValidated: (bool value) {},
+                              autoValidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (value4) {
+                                if (value4!.isEmpty) {
+                                  return 'Required';
+                                } else {
+                                  return null;
+                                }
+                              },
                               selectorConfig: SelectorConfig(
                                 selectorType:
                                     PhoneInputSelectorType.BOTTOM_SHEET,
@@ -199,8 +210,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                               selectorTextStyle: TextStyle(color: Colors.black),
                               ignoreBlank: false,
                               formatInput: true,
-                              keyboardType: TextInputType.numberWithOptions(
-                                  signed: true, decimal: true),
+                              keyboardType: TextInputType.number,
                               inputBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
@@ -210,10 +220,17 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                           //* Emergency contact
                           Form(
                             key: formKey5,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
                             child: InternationalPhoneNumberInput(
                               onInputChanged: (PhoneNumber number) {},
+                              autoValidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (value5) {
+                                if (value5!.isEmpty) {
+                                  return 'Required';
+                                } else {
+                                  return null;
+                                }
+                              },
                               onInputValidated: (bool value) {},
                               selectorConfig: SelectorConfig(
                                 selectorType:
@@ -239,11 +256,10 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             child: TextFormField(
                               obscureText: !_isVisible2,
                               validator: (value6) {
-                                if (value6 != pw.text) {
-                                  return 'Password does not match';
-                                } else {
-                                  return null;
+                                if (!bloodGroupRegex.hasMatch('$value6')) {
+                                  return 'Invalid blood group';
                                 }
+                                return null;
                               },
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
@@ -265,10 +281,30 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                           SizedBoxx(h: 30.0),
                           //* Sign up button
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SizedBox(
-                                height: 80.0,
+                                height: 60,
+                                width: 180,
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Theme.of(context).splashColor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Textt(
+                                        text: 'Auto fill',
+                                        size: 24.0,
+                                        color: Theme.of(context).primaryColor,
+                                        weight: FontWeight.bold)),
+                              ),
+                              SizedBox(
+                                height: 60.0,
+                                width: 90,
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor:
@@ -279,9 +315,11 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                       // if (formKey.currentState!.validate() &&
                                       //     formKey2.currentState!.validate() &&
                                       //     formKey3.currentState!.validate() &&
-                                      //     formKey4.currentState!.validate()) {
+                                      //     formKey4.currentState!.validate() &&
+                                      //     formKey5.currentState!.validate() &&
+                                      //     formKey6.currentState!.validate()) {
                                       GoRouter.of(context)
-                                          .go('/your_info_page');
+                                          .go('/vehicle_info_page');
                                       // }
                                     },
                                     child: Icon(
