@@ -240,10 +240,30 @@ class _SignUp_PageState extends State<SignUp_Page> {
                           SizedBoxx(h: 30.0),
                           //* Sign up button
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SizedBox(
-                                height: 80.0,
+                                height: 60,
+                                width: 180,
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Theme.of(context).splashColor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Textt(
+                                        text: 'Auto fill',
+                                        size: 24.0,
+                                        color: Theme.of(context).primaryColor,
+                                        weight: FontWeight.bold)),
+                              ),
+                              SizedBox(
+                                height: 60.0,
+                                width: 90,
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor:
@@ -259,9 +279,11 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                           .go('/your_info_page');
                                       // }
                                     },
-                                    child: Icon(
-                                      UniconsLine.arrow_right,
-                                      size: 42.0,
+                                    child: Center(
+                                      child: Icon(
+                                        UniconsLine.arrow_right,
+                                        size: 42.0,
+                                      ),
                                     )),
                               )
                             ],
