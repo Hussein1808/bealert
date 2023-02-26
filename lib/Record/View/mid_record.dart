@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../Common_widgets/textt.dart';
 
 class MidRecord extends StatefulWidget {
   const MidRecord({super.key});
@@ -10,8 +11,6 @@ class MidRecord extends StatefulWidget {
 class _MidRecordState extends State<MidRecord> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container(child: Text('Mid Record'));
   }
 }
