@@ -81,9 +81,9 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   return 'Required';
                                 } else if (!namevalid.hasMatch(value) &&
                                     !RegExp(r"\s").hasMatch(value)) {
-                                  return 'Name must be alphabets';
+                                  return 'Userame must be alphabets';
                                 } else if (value.length < 3) {
-                                  return 'Name must be atleast 3 characters';
+                                  return 'Username must be atleast 3 characters';
                                 } else {
                                   return null;
                                 }
@@ -271,13 +271,13 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                       shape: CircleBorder(),
                                     ),
                                     onPressed: () {
-                                      // if (formKey.currentState!.validate() &&
-                                      //     formKey2.currentState!.validate() &&
-                                      //     formKey3.currentState!.validate() &&
-                                      //     formKey4.currentState!.validate()) {
-                                      GoRouter.of(context)
-                                          .go('/your_info_page');
-                                      // }
+                                      if (formKey.currentState!.validate() &&
+                                          formKey2.currentState!.validate() &&
+                                          formKey3.currentState!.validate() &&
+                                          formKey4.currentState!.validate()) {
+                                        GoRouter.of(context)
+                                            .go('/your_info_page');
+                                      }
                                     },
                                     child: Center(
                                       child: Icon(

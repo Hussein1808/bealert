@@ -257,7 +257,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                               obscureText: !_isVisible2,
                               validator: (value6) {
                                 if (!bloodGroupRegex.hasMatch('$value6')) {
-                                  return 'Invalid blood group';
+                                  return 'Invalid blood group formatb';
                                 }
                                 return null;
                               },
