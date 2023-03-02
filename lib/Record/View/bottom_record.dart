@@ -1,5 +1,10 @@
+import 'package:animated_snack_bar/animated_snack_bar.dart';
+import 'package:animated_toast_list/animated_toast_list.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:flutter/material.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../Common_widgets/textt.dart';
@@ -20,7 +25,6 @@ class _BottomRecordState extends State<BottomRecord> {
     final screenheight = MediaQuery.of(context).size.height;
     return Containerr(
         w: screenwidth,
-        color: Theme.of(context).primaryColor,
         child: start
             ? Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -36,6 +40,15 @@ class _BottomRecordState extends State<BottomRecord> {
                             onPressed: () {
                               setState(() {
                                 choose = false;
+                                AnimatedSnackBar.material(
+                                  'Paused',
+                                  type: AnimatedSnackBarType.warning,
+                                  mobileSnackBarPosition:
+                                      MobileSnackBarPosition.bottom,
+                                  desktopSnackBarPosition:
+                                      DesktopSnackBarPosition.bottomLeft,
+                                  duration: Duration(milliseconds: 300),
+                                ).show(context);
                               });
                             },
                             child: Icon(Icons.square,
@@ -47,22 +60,31 @@ class _BottomRecordState extends State<BottomRecord> {
                       : Row(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            SizedBox(
-                              width: screenwidth * 0.25,
+                            Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      width: 3,
+                                      style: BorderStyle.solid)),
+                              width: screenwidth * 0.23,
                               child: FloatingActionButton(
                                 elevation: 0.0,
                                 backgroundColor:
-                                    Theme.of(context).colorScheme.secondary,
+                                    Theme.of(context).scaffoldBackgroundColor,
                                 onPressed: () {
                                   setState(() {
                                     choose = true;
                                   });
                                 },
                                 child: Textt(
-                                  text: 'Resume',
-                                  color: Theme.of(context).primaryColor,
-                                  weight: FontWeight.w600,
-                                  size: 22.0,
+                                  text: 'RESUME',
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                  weight: FontWeight.w700,
+                                  size: 16.0,
                                 ),
                               ),
                             ),
@@ -70,7 +92,7 @@ class _BottomRecordState extends State<BottomRecord> {
                               width: 20,
                             ),
                             SizedBox(
-                              width: screenwidth * 0.25,
+                              width: screenwidth * 0.23,
                               child: FloatingActionButton(
                                 elevation: 0.0,
                                 backgroundColor:
@@ -81,10 +103,10 @@ class _BottomRecordState extends State<BottomRecord> {
                                   });
                                 },
                                 child: Textt(
-                                  text: 'Finish',
+                                  text: 'FINISH',
                                   color: Theme.of(context).primaryColor,
-                                  weight: FontWeight.w600,
-                                  size: 24.0,
+                                  weight: FontWeight.w700,
+                                  size: 16.0,
                                 ),
                               ),
                             ),
@@ -103,7 +125,7 @@ class _BottomRecordState extends State<BottomRecord> {
                 child: Textt(
                   text: 'Start',
                   color: Theme.of(context).primaryColor,
-                  weight: FontWeight.w600,
+                  weight: FontWeight.w700,
                 ),
               ));
   }

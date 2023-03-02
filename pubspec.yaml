@@ -67,6 +67,10 @@ dependencies:
   geolocator: ^9.0.2
   modal_bottom_sheet: ^2.1.2
   circular_seek_bar: ^1.1.0+2
+  top_snackbar_flutter: ^3.0.0+1
+  animated_toast_list: ^1.0.1
+  awesome_snackbar_content: ^0.1.1
+  animated_snack_bar: ^0.3.0
 
 dev_dependencies:
   flutter_test:
