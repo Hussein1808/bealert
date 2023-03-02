@@ -11,6 +11,15 @@ class MidRecord extends StatefulWidget {
 class _MidRecordState extends State<MidRecord> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('Mid Record'));
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/maps.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
   }
 }
