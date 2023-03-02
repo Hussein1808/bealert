@@ -29,7 +29,7 @@ class _MainRecordState extends State<MainRecord> {
           children: [
             Expanded(flex: 1, child: TopRecord()),
 
-            Expanded(flex: 4, child: MidRecord()),
+            Expanded(flex: 5, child: MidRecord()),
             // Expanded(flex:1, child: MidEditProfile()),
             Expanded(flex: 1, child: BottomRecord())
           ],
