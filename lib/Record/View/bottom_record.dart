@@ -25,94 +25,105 @@ class _BottomRecordState extends State<BottomRecord> {
     final screenheight = MediaQuery.of(context).size.height;
     return Containerr(
         w: screenwidth,
+        decoration: BoxDecoration(
+            border: Border(
+          top: BorderSide(
+            color: Theme.of(context).dividerColor,
+            width: 2.0,
+          ),
+        )),
         child: start
-            ? Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  choose
-                      ? SizedBox(
-                          width: screenwidth * 0.25,
-                          child: FloatingActionButton(
-                            elevation: 0.0,
-                            backgroundColor:
-                                Theme.of(context).colorScheme.secondary,
-                            onPressed: () {
-                              setState(() {
-                                choose = false;
-                                AnimatedSnackBar.material(
-                                  'Paused',
-                                  type: AnimatedSnackBarType.warning,
-                                  mobileSnackBarPosition:
-                                      MobileSnackBarPosition.bottom,
-                                  desktopSnackBarPosition:
-                                      DesktopSnackBarPosition.bottomLeft,
-                                  duration: Duration(milliseconds: 300),
-                                ).show(context);
-                              });
-                            },
-                            child: Icon(Icons.square,
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor,
-                                size: 35),
-                          ),
-                        )
-                      : Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                      width: 3,
-                                      style: BorderStyle.solid)),
-                              width: screenwidth * 0.23,
-                              child: FloatingActionButton(
-                                elevation: 0.0,
-                                backgroundColor:
-                                    Theme.of(context).scaffoldBackgroundColor,
-                                onPressed: () {
-                                  setState(() {
-                                    choose = true;
-                                  });
-                                },
-                                child: Textt(
-                                  text: 'RESUME',
+            ? Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    choose
+                        ? SizedBox(
+                            width: screenwidth * 0.25,
+                            child: FloatingActionButton(
+                              elevation: 0.0,
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.secondary,
+                              onPressed: () {
+                                setState(() {
+                                  choose = false;
+                                  AnimatedSnackBar.material(
+                                    'Paused',
+                                    type: AnimatedSnackBarType.warning,
+                                    mobileSnackBarPosition:
+                                        MobileSnackBarPosition.bottom,
+                                    desktopSnackBarPosition:
+                                        DesktopSnackBarPosition.bottomLeft,
+                                    duration: Duration(milliseconds: 300),
+                                  ).show(context);
+                                });
+                              },
+                              child: Icon(Icons.square,
                                   color:
+                                      Theme.of(context).scaffoldBackgroundColor,
+                                  size: 35),
+                            ),
+                          )
+                        : Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        width: 3,
+                                        style: BorderStyle.solid)),
+                                width: screenwidth * 0.235,
+                                child: FloatingActionButton(
+                                  elevation: 0.0,
+                                  backgroundColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
+                                  onPressed: () {
+                                    setState(() {
+                                      choose = true;
+                                    });
+                                  },
+                                  child: Textt(
+                                    text: 'RESUME',
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
+                                    weight: FontWeight.w900,
+                                    size: 16.0,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              SizedBox(
+                                width: screenwidth * 0.235,
+                                child: FloatingActionButton(
+                                  elevation: 0.0,
+                                  backgroundColor:
                                       Theme.of(context).colorScheme.secondary,
-                                  weight: FontWeight.w700,
-                                  size: 16.0,
+                                  onPressed: () {
+                                    setState(() {
+                                      start = false;
+                                      choose = true;
+                                    });
+                                  },
+                                  child: Textt(
+                                    text: 'FINISH',
+                                    color: Theme.of(context).primaryColor,
+                                    weight: FontWeight.w900,
+                                    size: 16.0,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            SizedBox(
-                              width: screenwidth * 0.23,
-                              child: FloatingActionButton(
-                                elevation: 0.0,
-                                backgroundColor:
-                                    Theme.of(context).colorScheme.secondary,
-                                onPressed: () {
-                                  setState(() {
-                                    choose = true;
-                                  });
-                                },
-                                child: Textt(
-                                  text: 'FINISH',
-                                  color: Theme.of(context).primaryColor,
-                                  weight: FontWeight.w700,
-                                  size: 16.0,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                ],
+                            ],
+                          ),
+                  ],
+                ),
               )
             : FloatingActionButton(
                 elevation: 0.0,
@@ -120,6 +131,14 @@ class _BottomRecordState extends State<BottomRecord> {
                 onPressed: () {
                   setState(() {
                     start = true;
+                    AnimatedSnackBar.material(
+                      'Trip started',
+                      type: AnimatedSnackBarType.warning,
+                      mobileSnackBarPosition: MobileSnackBarPosition.bottom,
+                      desktopSnackBarPosition:
+                          DesktopSnackBarPosition.bottomLeft,
+                      duration: Duration(milliseconds: 300),
+                    ).show(context);
                   });
                 },
                 child: Textt(
