@@ -21,6 +21,9 @@ class MidStatisticsState extends State<MidStatistics> {
   late List<BarChartGroupData> rawBarGroups;
   late List<BarChartGroupData> showingBarGroups;
 
+  late List<BarChartGroupData> rawBarGroupsmon;
+  late List<BarChartGroupData> showingBarGroupsmon;
+
   int touchedGroupIndex = -1;
 
   @override
@@ -47,6 +50,22 @@ class MidStatisticsState extends State<MidStatistics> {
     rawBarGroups = items;
 
     showingBarGroups = rawBarGroups;
+
+    final barGroupmon1 = makeGroupData(0, 5);
+    final barGroupmon2 = makeGroupData(1, 16);
+    final barGroupmon3 = makeGroupData(2, 18);
+    final barGroupmon4 = makeGroupData(3, 20);
+
+    final itemsmon = [
+      barGroupmon1,
+      barGroupmon2,
+      barGroupmon3,
+      barGroupmon4,
+    ];
+
+    rawBarGroupsmon = itemsmon;
+
+    showingBarGroupsmon = rawBarGroupsmon;
   }
 
   final ScrollController _scrollController = ScrollController();
@@ -54,6 +73,7 @@ class MidStatisticsState extends State<MidStatistics> {
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
+    bool week = true;
     final controller = GroupButtonController(selectedIndex: 0);
     return Column(
       children: [
@@ -70,12 +90,14 @@ class MidStatisticsState extends State<MidStatistics> {
                       curve: Curves.easeOut,
                       duration: const Duration(milliseconds: 300),
                     );
+                    week = true;
                   } else {
                     _scrollController.animateTo(
                       screenwidth * 0.9,
                       curve: Curves.easeOut,
                       duration: const Duration(milliseconds: 300),
                     );
+                    week = false;
                   }
                 },
                 controller: controller,
@@ -108,12 +130,11 @@ class MidStatisticsState extends State<MidStatistics> {
         ),
         Expanded(
           flex: 5,
-          child: ListView.builder(
+          child: ListView(
             scrollDirection: Axis.horizontal,
-            itemCount: 2,
             controller: _scrollController,
-            itemBuilder: (context, index) {
-              return Padding(
+            children: [
+              Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: AspectRatio(
                   aspectRatio: screenwidth / screenheight * 2.9,
@@ -157,7 +178,8 @@ class MidStatisticsState extends State<MidStatistics> {
                                       .length;
 
                               showingBarGroups[touchedGroupIndex] =
-                                  showingBarGroups[touchedGroupIndex].copyWith(
+                                  showingBarGroupsmon[touchedGroupIndex]
+                                      .copyWith(
                                 barRods: showingBarGroups[touchedGroupIndex]
                                     .barRods
                                     .map((rod) {
@@ -202,9 +224,197 @@ class MidStatisticsState extends State<MidStatistics> {
                     ),
                   ),
                 ),
-              );
-            },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AspectRatio(
+                  aspectRatio: screenwidth / screenheight * 2.9,
+                  child: BarChart(
+                    BarChartData(
+                      maxY: 20,
+                      barTouchData: BarTouchData(
+                        touchTooltipData: BarTouchTooltipData(
+                          tooltipBgColor: Color.fromARGB(255, 255, 0, 0),
+                          getTooltipItem: (a, b, c, d) => null,
+                        ),
+                        touchCallback: (FlTouchEvent event, response) {
+                          if (response == null || response.spot == null) {
+                            setState(() {
+                              touchedGroupIndex = -1;
+                              showingBarGroupsmon = List.of(rawBarGroups);
+                            });
+                            return;
+                          }
+
+                          touchedGroupIndex =
+                              response.spot!.touchedBarGroupIndex;
+
+                          setState(() {
+                            if (!event.isInterestedForInteractions) {
+                              touchedGroupIndex = -1;
+                              showingBarGroupsmon = List.of(rawBarGroups);
+                              return;
+                            }
+                            showingBarGroupsmon = List.of(rawBarGroups);
+                            if (touchedGroupIndex != -1) {
+                              var sum = 0.0;
+                              for (final rod
+                                  in showingBarGroupsmon[touchedGroupIndex]
+                                      .barRods) {
+                                sum += rod.toY;
+                              }
+                              final avg = sum /
+                                  showingBarGroupsmon[touchedGroupIndex]
+                                      .barRods
+                                      .length;
+
+                              showingBarGroupsmon[touchedGroupIndex] =
+                                  showingBarGroupsmon[touchedGroupIndex]
+                                      .copyWith(
+                                barRods: showingBarGroupsmon[touchedGroupIndex]
+                                    .barRods
+                                    .map((rod) {
+                                  return rod.copyWith(
+                                    toY: avg,
+                                  );
+                                }).toList(),
+                              );
+                            }
+                          });
+                        },
+                      ),
+                      titlesData: FlTitlesData(
+                        show: true,
+                        rightTitles: AxisTitles(
+                          sideTitles: SideTitles(showTitles: false),
+                        ),
+                        topTitles: AxisTitles(
+                          sideTitles: SideTitles(showTitles: false),
+                        ),
+                        bottomTitles: AxisTitles(
+                          sideTitles: SideTitles(
+                            showTitles: true,
+                            getTitlesWidget: bottomTitlesmonth,
+                            reservedSize: 42,
+                          ),
+                        ),
+                        leftTitles: AxisTitles(
+                          sideTitles: SideTitles(
+                            showTitles: true,
+                            reservedSize: 40,
+                            interval: 1,
+                            getTitlesWidget: leftTitles,
+                          ),
+                        ),
+                      ),
+                      borderData: FlBorderData(
+                        show: false,
+                      ),
+                      barGroups: showingBarGroupsmon,
+                      gridData: FlGridData(show: false),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
+          // child: ListView.builder(
+          //   scrollDirection: Axis.horizontal,
+          //   itemCount: 2,
+          //   controller: _scrollController,
+          //   itemBuilder: (context, index) {
+          //     return Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: AspectRatio(
+          //         aspectRatio: screenwidth / screenheight * 2.9,
+          //         child: BarChart(
+          //           BarChartData(
+          //             maxY: 20,
+          //             barTouchData: BarTouchData(
+          //               touchTooltipData: BarTouchTooltipData(
+          //                 tooltipBgColor: Color.fromARGB(255, 255, 0, 0),
+          //                 getTooltipItem: (a, b, c, d) => null,
+          //               ),
+          //               touchCallback: (FlTouchEvent event, response) {
+          //                 if (response == null || response.spot == null) {
+          //                   setState(() {
+          //                     touchedGroupIndex = -1;
+          //                     showingBarGroupsmon = List.of(rawBarGroups);
+          //                   });
+          //                   return;
+          //                 }
+
+          //                 touchedGroupIndex =
+          //                     response.spot!.touchedBarGroupIndex;
+
+          //                 setState(() {
+          //                   if (!event.isInterestedForInteractions) {
+          //                     touchedGroupIndex = -1;
+          //                     showingBarGroupsmon = List.of(rawBarGroups);
+          //                     return;
+          //                   }
+          //                   showingBarGroupsmon = List.of(rawBarGroups);
+          //                   if (touchedGroupIndex != -1) {
+          //                     var sum = 0.0;
+          //                     for (final rod
+          //                         in showingBarGroupsmon[touchedGroupIndex]
+          //                             .barRods) {
+          //                       sum += rod.toY;
+          //                     }
+          //                     final avg = sum /
+          //                         showingBarGroupsmon[touchedGroupIndex]
+          //                             .barRods
+          //                             .length;
+
+          //                     showingBarGroupsmon[touchedGroupIndex] =
+          //                         showingBarGroupsmon[touchedGroupIndex].copyWith(
+          //                       barRods: showingBarGroupsmon[touchedGroupIndex]
+          //                           .barRods
+          //                           .map((rod) {
+          //                         return rod.copyWith(
+          //                           toY: avg,
+          //                         );
+          //                       }).toList(),
+          //                     );
+          //                   }
+          //                 });
+          //               },
+          //             ),
+          //             titlesData: FlTitlesData(
+          //               show: true,
+          //               rightTitles: AxisTitles(
+          //                 sideTitles: SideTitles(showTitles: false),
+          //               ),
+          //               topTitles: AxisTitles(
+          //                 sideTitles: SideTitles(showTitles: false),
+          //               ),
+          //               bottomTitles: AxisTitles(
+          //                 sideTitles: SideTitles(
+          //                   showTitles: true,
+          //                   getTitlesWidget: bottomTitles,
+          //                   reservedSize: 42,
+          //                 ),
+          //               ),
+          //               leftTitles: AxisTitles(
+          //                 sideTitles: SideTitles(
+          //                   showTitles: true,
+          //                   reservedSize: 40,
+          //                   interval: 1,
+          //                   getTitlesWidget: leftTitles,
+          //                 ),
+          //               ),
+          //             ),
+          //             borderData: FlBorderData(
+          //               show: false,
+          //             ),
+          //             barGroups: showingBarGroupsmon,
+          //             gridData: FlGridData(show: false),
+          //           ),
+          //         ),
+          //       ),
+          //     );
+          //   },
+          // ),
         ),
       ],
     );
@@ -258,6 +468,54 @@ class MidStatisticsState extends State<MidStatistics> {
   ) {
     return BarChartGroupData(
       barsSpace: 4,
+      x: x,
+      barRods: [
+        BarChartRodData(
+          toY: y1,
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF009fff),
+              Color(0xFFec2f4b),
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+          width: width,
+        ),
+      ],
+    );
+  }
+
+  Widget bottomTitlesmonth(double value, TitleMeta meta) {
+    final titles = <String>[
+      'Week 1',
+      'Week 2',
+      'Week 3',
+      'Week 4',
+    ];
+
+    final Widget text = Text(
+      titles[value.toInt()],
+      style: TextStyle(
+        color: Theme.of(context).secondaryHeaderColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 14,
+      ),
+    );
+
+    return SideTitleWidget(
+      axisSide: meta.axisSide,
+      space: 16, //margin top
+      child: text,
+    );
+  }
+
+  BarChartGroupData makeGroupDatamonth(
+    int x,
+    double y1,
+  ) {
+    return BarChartGroupData(
+      barsSpace: 2,
       x: x,
       barRods: [
         BarChartRodData(
