@@ -37,7 +37,7 @@ class _BottomTripState extends State<BottomTrip> {
             width: screenwidth * 1,
             height: screenheight * 0.40,
             elevation: 0,
-            color: Theme.of(context).cardColor,
+            color: Color.fromARGB(140, 229, 229, 229),
             padding: const EdgeInsets.all(8),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(50),
