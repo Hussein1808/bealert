@@ -1,4 +1,5 @@
 import 'package:bealert/History/View/main_history.dart';
+import 'package:bealert/Trips_details/View/trips_details.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../Edit Profile/View/main_edit_profie.dart';
@@ -49,6 +50,14 @@ final GoRouter router = GoRouter(
           path: 'editprofile_page',
           builder: (BuildContext context, GoRouterState state) =>
               MainEditProfile(),
+        ),
+        GoRoute(
+          name: "tripsdetails",
+          path: 'tripsdetails/:title/:trailing',
+          builder: (BuildContext context, GoRouterState state) => TripDetails(
+            title: state.params["title"]!,
+            trailing: int.parse(state.params["trailing"]!),
+          ),
         ),
       ],
     ),
