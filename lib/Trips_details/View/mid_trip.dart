@@ -34,7 +34,7 @@ class _MidTripState extends State<MidTrip> {
                   width: screenwidth * 0.6,
                   height: screenheight * 0.11,
                   elevation: 0,
-                  color: Theme.of(context).cardColor,
+                  color: Color.fromARGB(140, 229, 229, 229),
                   padding: const EdgeInsets.all(8),
                   borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(50),
@@ -68,7 +68,7 @@ class _MidTripState extends State<MidTrip> {
                   width: screenwidth * 0.1,
                   height: screenheight * 0.11,
                   elevation: 0,
-                  color: Theme.of(context).cardColor,
+                  color: Color.fromARGB(140, 229, 229, 229),
                   padding: const EdgeInsets.all(8),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(50),
@@ -102,7 +102,7 @@ class _MidTripState extends State<MidTrip> {
             width: screenwidth * 0.9,
             height: screenheight * 0.11,
             elevation: 0,
-            color: Theme.of(context).cardColor,
+            color: Color.fromARGB(140, 229, 229, 229),
             padding: const EdgeInsets.all(8),
             borderRadius: const BorderRadius.only(
               topRight: Radius.circular(50),
