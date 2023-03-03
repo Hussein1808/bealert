@@ -42,6 +42,7 @@ class _BottomStatisticsState extends State<BottomStatistics> {
                 child: HistoryListTilee(
                   title: histories[index].date,
                   trailing: histories[index].drowsydays,
+                  tripdistance: histories[index].tripdistance,
                 ),
               );
             },
