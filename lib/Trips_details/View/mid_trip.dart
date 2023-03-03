@@ -7,8 +7,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MidTrip extends StatefulWidget {
   final drowsytimes;
+  final tripdistance;
 
-  const MidTrip({super.key, required this.drowsytimes});
+  const MidTrip(
+      {super.key, required this.drowsytimes, required this.tripdistance});
 
   @override
   State<MidTrip> createState() => _MidTripState();
@@ -116,7 +118,7 @@ class _MidTripState extends State<MidTrip> {
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     Expanded(
-                      flex: 2,
+                      flex: 3,
                       child: Textt(
                         text: 'Distance Travelled',
                         weight: FontWeight.w500,
@@ -124,9 +126,9 @@ class _MidTripState extends State<MidTrip> {
                       ),
                     ),
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: Textt(
-                        text: '20 Km',
+                        text: '${widget.tripdistance} km',
                         weight: FontWeight.w700,
                         size: 36.0,
                       ),
