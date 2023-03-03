@@ -46,28 +46,74 @@ class _TripDetailsState extends State<TripDetails> {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            Expanded(
-                flex: 1,
-                child:
-                    TopTrip(drowsytimes: widget.trailing, date: widget.title)),
-            Expanded(
-                flex: 3,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
-                  child: MidTrip(
-                    drowsytimes: widget.trailing,
-                  ),
-                )),
-            Expanded(
-                flex: 4,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 16.0),
-                  child: BottomTrip(),
-                ))
+            Positioned(
+              top: 200,
+              left: 10,
+              child: GradientBall(
+                colors: [
+                  Colors.deepOrange,
+                  Colors.amber,
+                ],
+              ),
+            ),
+            Positioned(
+              top: 300,
+              right: -90,
+              child: GradientBall(
+                size: Size.square(200),
+                colors: [Colors.blue, Colors.purple],
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                    flex: 1,
+                    child: TopTrip(
+                        drowsytimes: widget.trailing, date: widget.title)),
+                Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
+                      child: MidTrip(
+                        drowsytimes: widget.trailing,
+                      ),
+                    )),
+                Expanded(
+                    flex: 4,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 16.0),
+                      child: BottomTrip(),
+                    ))
+              ],
+            ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class GradientBall extends StatelessWidget {
+  final List<Color> colors;
+  final Size size;
+  const GradientBall({
+    Key? key,
+    required this.colors,
+    this.size = const Size.square(150),
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: size.height,
+      width: size.width,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: LinearGradient(
+          colors: colors,
         ),
       ),
     );
