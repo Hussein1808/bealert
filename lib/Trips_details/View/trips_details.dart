@@ -12,8 +12,13 @@ import 'top_trip.dart';
 class TripDetails extends StatefulWidget {
   final title;
   final trailing;
+  final tripdistance;
 
-  TripDetails({super.key, required this.title, required this.trailing});
+  TripDetails(
+      {super.key,
+      required this.title,
+      required this.trailing,
+      required this.tripdistance});
 
   @override
   State<TripDetails> createState() => _TripDetailsState();
@@ -72,14 +77,16 @@ class _TripDetailsState extends State<TripDetails> {
                 Expanded(
                     flex: 1,
                     child: TopTrip(
-                        drowsytimes: widget.trailing, date: widget.title)),
+                      drowsytimes: widget.trailing,
+                      date: widget.title,
+                    )),
                 Expanded(
                     flex: 3,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
                       child: MidTrip(
-                        drowsytimes: widget.trailing,
-                      ),
+                          drowsytimes: widget.trailing,
+                          tripdistance: widget.tripdistance),
                     )),
                 Expanded(
                     flex: 4,
