@@ -1,15 +1,16 @@
 // ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables
 import 'package:bealert/Common_widgets/textt.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HistoryListTilee extends StatefulWidget {
   final title;
-  final trailing;
+  final int trailing;
   const HistoryListTilee({
     super.key,
     required this.title,
-    this.trailing,
+    required this.trailing,
   });
 
   @override
@@ -22,10 +23,8 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-
-
-
-        
+        GoRouter.of(context).pushNamed('tripsdetails',
+            params: {'title': widget.title, 'trailing': '${widget.trailing}'});
       },
       child: Card(
         elevation: 0,
