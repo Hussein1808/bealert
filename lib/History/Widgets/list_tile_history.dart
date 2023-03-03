@@ -7,10 +7,14 @@ import 'package:google_fonts/google_fonts.dart';
 class HistoryListTilee extends StatefulWidget {
   final title;
   final int trailing;
+  final int tripdistance;
+
   const HistoryListTilee({
     super.key,
     required this.title,
     required this.trailing,
+    required this.tripdistance,
+
   });
 
   @override
@@ -24,7 +28,7 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).pushNamed('tripsdetails',
-            params: {'title': widget.title, 'trailing': '${widget.trailing}'});
+            params: {'title': widget.title, 'trailing': '${widget.trailing}', 'tripdistance': '${widget.tripdistance}'});
       },
       child: Card(
         elevation: 0,
