@@ -6,6 +6,8 @@ import 'package:bealert/Common_widgets/formfield.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
+import 'package:bealert/User/View/signup_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -13,6 +15,8 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
+
+import '../../pages.dart';
 
 class Login_Page extends StatefulWidget {
   const Login_Page({super.key});
@@ -28,6 +32,15 @@ class _Login_PageState extends State<Login_Page> {
       RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
   final formKey = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
+  final _emailcontroller = TextEditingController();
+  final _passwordcontroller = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailcontroller.dispose();
+    _passwordcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +82,7 @@ class _Login_PageState extends State<Login_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: _emailcontroller,
                               validator: (value2) {
                                 if (value2!.isEmpty) {
                                   return 'Required';
@@ -102,6 +116,7 @@ class _Login_PageState extends State<Login_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: _passwordcontroller,
                               obscureText: !_isVisible,
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -162,12 +177,24 @@ class _Login_PageState extends State<Login_Page> {
                                               BorderRadius.circular(30.0),
                                         ),
                                       ),
-                                      onPressed: () {
-                                        if (formKey.currentState!.validate() &&
-                                            formKey2.currentState!.validate()) {
-                                          GoRouter.of(context).go('/home/0');
-                                        }
-                                      },
+                                      onPressed: signIn,
+
+                                      // () async {
+                                      //   if (formKey.currentState!.validate() &&
+                                      //       formKey2.currentState!.validate()) {
+                                      //     signIn();
+                                      //     // StreamBuilder<User?>(
+                                      //     //     stream: FirebaseAuth.instance
+                                      //     //         .authStateChanges(),
+                                      //     //     builder: (context, snapshot) {
+                                      //     //       if (snapshot.hasData) {
+                                      //     //         return SignUp_Page();
+                                      //     //       } else {
+                                      //     //         return SignUp_Page();
+                                      //     //       }
+                                      //     //     });
+                                      //   }
+                                      // },
                                       child: Textt(
                                           text: 'Login',
                                           size: 24.0,
@@ -214,5 +241,13 @@ class _Login_PageState extends State<Login_Page> {
             ),
           ],
         ));
+  }
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailcontroller.text.trim(),
+        password: _passwordcontroller.text.trim());
+    FocusScope.of(context).unfocus();
+    GoRouter.of(context).go('/home/0');
   }
 }
