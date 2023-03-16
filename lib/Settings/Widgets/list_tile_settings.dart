@@ -35,7 +35,7 @@ class _ListTileeState extends State<ListTilee> {
       child: Containerr(
         decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(25)),
+            borderRadius: BorderRadius.circular(40)),
         child: ListTile(
           minLeadingWidth: 10,
           leading: Icon(widget.icon),

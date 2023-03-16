@@ -3,6 +3,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,6 +56,8 @@ class _ModallState extends State<Modall> {
             type: QuickAlertType.confirm,
             confirmBtnText: 'yes',
             onConfirmBtnTap: () {
+              Navigator.pop(context);
+              FirebaseAuth.instance.signOut();
               GoRouter.of(context).go('/login_page');
             },
           );
