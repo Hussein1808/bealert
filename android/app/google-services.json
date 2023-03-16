@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "140099292949",
+    "project_id": "be-alert-23a3c",
+    "storage_bucket": "be-alert-23a3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140099292949:android:123b8ad6c3f3253360231c",
+        "android_client_info": {
+          "package_name": "com.example.bealert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140099292949-us6ts9hptd443soafjr2pslu7tgetbcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbProBWlTeb92LyMMx-BP_6m6gh13ipSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140099292949-us6ts9hptd443soafjr2pslu7tgetbcn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
