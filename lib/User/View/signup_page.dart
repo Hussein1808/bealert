@@ -6,6 +6,7 @@ import 'package:bealert/Common_widgets/formfield.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +36,8 @@ class _SignUp_PageState extends State<SignUp_Page> {
   final formKey3 = GlobalKey<FormState>();
   final formKey4 = GlobalKey<FormState>();
   final TextEditingController pw = TextEditingController();
-
+  final _emailcontroller = TextEditingController();
+  final _passwordcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
@@ -112,6 +114,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: _emailcontroller,
                               validator: (value2) {
                                 if (value2!.isEmpty) {
                                   return 'Required';
@@ -270,15 +273,16 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                           Theme.of(context).splashColor,
                                       shape: CircleBorder(),
                                     ),
-                                    onPressed: () {
-                                      if (formKey.currentState!.validate() &&
-                                          formKey2.currentState!.validate() &&
-                                          formKey3.currentState!.validate() &&
-                                          formKey4.currentState!.validate()) {
-                                        GoRouter.of(context)
-                                            .go('/your_info_page');
-                                      }
-                                    },
+                                    onPressed: signUp,
+                                    // () {
+                                    // if (formKey.currentState!.validate() &&
+                                    //     formKey2.currentState!.validate() &&
+                                    //     formKey3.currentState!.validate() &&
+                                    //     formKey4.currentState!.validate()) {
+                                    // GoRouter.of(context)
+                                    //     .go('/your_info_page');
+                                    // }
+                                    // },
                                     child: Center(
                                       child: Icon(
                                         UniconsLine.arrow_right,
@@ -326,5 +330,17 @@ class _SignUp_PageState extends State<SignUp_Page> {
             ),
           ],
         ));
+  }
+
+  Future signUp() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailcontroller.text.trim(),
+        password: pw.text.trim(),
+      );
+      GoRouter.of(context).go('/your_info_page');
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
   }
 }
