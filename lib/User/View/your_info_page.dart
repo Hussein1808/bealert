@@ -15,13 +15,34 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:unicons/unicons.dart';
 
 class Your_Info_Page extends StatefulWidget {
-  const Your_Info_Page({super.key});
+  String userName;
+  String email;
+  String password;
+
+  Your_Info_Page(
+      {required this.userName,
+      required this.email,
+      required this.password,
+      super.key});
 
   @override
-  State<Your_Info_Page> createState() => _Your_Info_PageState();
+  State<Your_Info_Page> createState() => _Your_Info_PageState(
+        userName: userName,
+        email: email,
+        password: password,
+      );
 }
 
 class _Your_Info_PageState extends State<Your_Info_Page> {
+  String userName;
+  String email;
+  String password;
+  _Your_Info_PageState({
+    required this.userName,
+    required this.email,
+    required this.password,
+  });
+
   bool _isVisible = false;
   bool _isVisible2 = false;
   final RegExp namevalid = RegExp(r'(^[a-zA-Z]+$)');
@@ -38,7 +59,13 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
   final formKey5 = GlobalKey<FormState>();
   final formKey6 = GlobalKey<FormState>();
 
-  final TextEditingController pw = TextEditingController();
+  final TextEditingController fullNamecontrolller = TextEditingController();
+  final TextEditingController addresscontrolller = TextEditingController();
+  final TextEditingController nationalIDcontrolller = TextEditingController();
+  final TextEditingController phoneNumbercontrolller = TextEditingController();
+  final TextEditingController emergencyContactcontrolller = TextEditingController();
+  final TextEditingController bloodGroupcontrolller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
@@ -92,6 +119,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: fullNamecontrolller,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Required';
@@ -128,6 +156,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: addresscontrolller,
                               validator: (value2) {
                                 if (value2!.isEmpty) {
                                   return 'Required';
@@ -159,7 +188,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
-                              controller: pw,
+                              controller: nationalIDcontrolller,
                               obscureText: !_isVisible,
                               validator: (value3) {
                                 if (value3!.isEmpty) {
@@ -193,6 +222,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                           Form(
                             key: formKey4,
                             child: InternationalPhoneNumberInput(
+                              textFieldController: phoneNumbercontrolller,
                               onInputChanged: (PhoneNumber number) {},
                               autoValidateMode:
                                   AutovalidateMode.onUserInteraction,
@@ -221,6 +251,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                           Form(
                             key: formKey5,
                             child: InternationalPhoneNumberInput(
+                              textFieldController: emergencyContactcontrolller,
                               onInputChanged: (PhoneNumber number) {},
                               autoValidateMode:
                                   AutovalidateMode.onUserInteraction,
@@ -254,10 +285,11 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: bloodGroupcontrolller,
                               obscureText: !_isVisible2,
                               validator: (value6) {
                                 if (!bloodGroupRegex.hasMatch('$value6')) {
-                                  return 'Invalid blood group formatb';
+                                  return 'Invalid blood group format';
                                 }
                                 return null;
                               },
@@ -318,8 +350,20 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                       //     formKey4.currentState!.validate() &&
                                       //     formKey5.currentState!.validate() &&
                                       //     formKey6.currentState!.validate()) {
-                                      GoRouter.of(context)
-                                          .go('/vehicle_info_page');
+                                      GoRouter.of(context).pushNamed(
+                                          'vehicle_info_page',
+                                          params: {
+                                            'username': userName,
+                                            'password': password, 
+                                            'email': email ,
+                                            'fullName': fullNamecontrolller.text.trim() ,
+                                            'address': addresscontrolller.text.trim(), 
+                                            'nationalID': nationalIDcontrolller.text.trim(),
+                                            'phoneNumber': phoneNumbercontrolller.text.trim(),
+                                            'emergencyContact':
+                                                emergencyContactcontrolller.text.trim() ,
+                                            'bloodGroup': bloodGroupcontrolller.text.trim(),
+                                          });
                                       // }
                                     },
                                     child: Icon(
