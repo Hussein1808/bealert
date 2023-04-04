@@ -35,14 +35,30 @@ final GoRouter router = GoRouter(
           builder: (BuildContext context, GoRouterState state) => Login_Page(),
         ),
         GoRoute(
-          path: 'your_info_page',
+          name: "your_info_page",
+          path: 'your_info_page/:username/:email/:password',
           builder: (BuildContext context, GoRouterState state) =>
-              Your_Info_Page(),
+              Your_Info_Page(
+                  userName: state.params["username"]!,
+                  email: state.params["email"]!,
+                  password: state.params["password"]!),
         ),
         GoRoute(
-          path: 'vehicle_info_page',
+          name: 'vehicle_info_page',
+          path:
+              'vehicle_info_page/:username/:email/:password/:fullName/:address/:nationalID/:phoneNumber/:emergencyContact/:bloodGroup',
           builder: (BuildContext context, GoRouterState state) =>
-              Vehicle_Info_Page(),
+              Vehicle_Info_Page(
+            userName: state.params["username"]!,
+            email: state.params["email"]!,
+            password: state.params["password"]!,
+            fullName: state.params["fullName"]!,
+            address: state.params["address"]!,
+            nationalID: int.parse(state.params["nationalID"]!),
+            phoneNumber: state.params["phoneNumber"]!,
+            emergencyContact: state.params["emergencyContact"]!,
+            bloodGroup: state.params["bloodGroup"]!,
+          ),
         ),
         GoRoute(
           path: 'home/:selectedIndex',
