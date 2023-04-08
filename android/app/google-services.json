@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:140099292949:android:123b8ad6c3f3253360231c",
+        "mobilesdk_app_id": "1:140099292949:android:52aa6c2ad89e78c760231c",
         "android_client_info": {
-          "package_name": "com.example.bealert"
+          "package_name": "miu.csgp.bealert"
         }
       },
       "oauth_client": [
