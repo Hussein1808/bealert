@@ -6,14 +6,37 @@ import 'package:bealert/Common_widgets/formfield.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
+import '../Data/auth_data.dart';
+
 class Vehicle_Info_Page extends StatefulWidget {
-  const Vehicle_Info_Page({super.key});
+  String userName;
+  String email;
+  String password;
+  String fullName;
+  String address;
+  int nationalID;
+  String phoneNumber;
+  String emergencyContact;
+  String bloodGroup;
+  Vehicle_Info_Page(
+      {required this.userName,
+      required this.email,
+      required this.password,
+      required this.fullName,
+      required this.address,
+      required this.nationalID,
+      required this.phoneNumber,
+      required this.emergencyContact,
+      required this.bloodGroup,
+      super.key});
 
   @override
   State<Vehicle_Info_Page> createState() => _Vehicle_Info_PageState();
@@ -25,6 +48,12 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
   static GlobalKey<FormState> formKey9 = new GlobalKey<FormState>();
   static GlobalKey<FormState> formKey10 = new GlobalKey<FormState>();
   static GlobalKey<FormState> formKey11 = new GlobalKey<FormState>();
+
+  final TextEditingController ownername = TextEditingController();
+  final TextEditingController brand = TextEditingController();
+  final TextEditingController color = TextEditingController();
+  final TextEditingController platenumbers = TextEditingController();
+  final TextEditingController plateletters = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -76,11 +105,13 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                                 ),
                               ]),
                           SizedBoxx(h: 30.0),
+                          //* Owner's name
                           Form(
                             key: formKey7,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: ownername,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Required';
@@ -111,11 +142,13 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                             ),
                           ),
                           SizedBoxx(),
+                          //* Brand
                           Form(
                             key: formKey8,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: brand,
                               validator: (value2) {
                                 if (value2!.isEmpty) {
                                   return 'Required';
@@ -141,11 +174,13 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                             ),
                           ),
                           SizedBoxx(),
+                          //* Color
                           Form(
                             key: formKey9,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: color,
                               validator: (value3) {
                                 if (value3!.isEmpty) {
                                   return 'Required';
@@ -181,11 +216,13 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                             ],
                           ),
                           SizedBoxx(),
+                          //* Numbers
                           Form(
                             key: formKey10,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: platenumbers,
                               keyboardType: TextInputType.number,
                               validator: (value4) {
                                 if (value4!.isEmpty) {
@@ -214,11 +251,13 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                             ),
                           ),
                           SizedBoxx(),
+                          //* Letters
                           Form(
                             key: formKey11,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: plateletters,
                               validator: (value5) {
                                 if (value5!.isEmpty) {
                                   return 'Required';
@@ -259,18 +298,7 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                                               BorderRadius.circular(30.0),
                                         ),
                                       ),
-                                      onPressed: () {
-                                        if (formKey7.currentState!.validate() &&
-                                            formKey8.currentState!.validate() &&
-                                            formKey9.currentState!.validate() &&
-                                            formKey10.currentState!
-                                                .validate() &&
-                                            formKey11.currentState!
-                                                .validate()) {
-                                          GoRouter.of(context)
-                                              .go('/Login_page');
-                                        }
-                                      },
+                                      onPressed: signUp,
                                       child: Textt(
                                           text: 'Finish',
                                           size: 24.0,
@@ -290,5 +318,39 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
             ),
           ],
         ));
+  }
+
+  Future signUp() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: widget.email,
+        password: widget.password,
+      );
+      User updateUser = FirebaseAuth.instance.currentUser!;
+      userSetup(
+          widget.userName,
+          widget.fullName,
+          widget.address,
+          widget.nationalID,
+          widget.phoneNumber,
+          widget.emergencyContact,
+          widget.bloodGroup,
+          // ownername.text,
+          ownername.text.trim(),
+          brand.text.trim(),
+          color.text.trim(),
+          plateletters.text.trim(),
+          int.parse(platenumbers.text));
+      // vehicleUpdate(ownername.text.trim(), brand.text.trim(), color.text.trim(),
+      //     plateletters.text.trim(), int.parse(platenumbers.text));
+      // var collection = FirebaseFirestore.instance.collection('Users');
+      // var snapshots = await collection.get();
+      // for (var doc in snapshots.docs) {
+      //   await doc.reference.delete();
+      // }
+      GoRouter.of(context).go('/Login_page');
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
   }
 }
