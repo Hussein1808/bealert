@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "bealert" "\0"
+            VALUE "FileDescription", "Be Alert" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "bealert" "\0"
+            VALUE "InternalName", "Be Alert" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "bealert.exe" "\0"
-            VALUE "ProductName", "bealert" "\0"
+            VALUE "ProductName", "Be Alert" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
