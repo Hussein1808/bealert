@@ -17,6 +17,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
+import '../Data/auth_data.dart';
+
 class SignUp_Page extends StatefulWidget {
   const SignUp_Page({super.key});
 
@@ -38,6 +40,8 @@ class _SignUp_PageState extends State<SignUp_Page> {
   final TextEditingController pw = TextEditingController();
   final _emailcontroller = TextEditingController();
   final _passwordcontroller = TextEditingController();
+  final _usernamecontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
@@ -78,6 +82,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              controller: _usernamecontroller,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'Required';
@@ -273,16 +278,25 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                           Theme.of(context).splashColor,
                                       shape: CircleBorder(),
                                     ),
-                                    onPressed: signUp,
-                                    // () {
-                                    // if (formKey.currentState!.validate() &&
-                                    //     formKey2.currentState!.validate() &&
-                                    //     formKey3.currentState!.validate() &&
-                                    //     formKey4.currentState!.validate()) {
-                                    // GoRouter.of(context)
-                                    //     .go('/your_info_page');
-                                    // }
-                                    // },
+                                    onPressed:
+                                        // signUp,
+                                        () {
+                                      if (formKey.currentState!.validate() &&
+                                          formKey2.currentState!.validate() &&
+                                          formKey3.currentState!.validate() &&
+                                          formKey4.currentState!.validate()) {
+                                        GoRouter.of(context).pushNamed(
+                                            'your_info_page',
+                                            params: {
+                                              'username': _usernamecontroller
+                                                  .text
+                                                  .trim(),
+                                              'email':
+                                                  _emailcontroller.text.trim(),
+                                              'password': pw.text.trim(),
+                                            });
+                                      }
+                                    },
                                     child: Center(
                                       child: Icon(
                                         UniconsLine.arrow_right,
@@ -332,15 +346,17 @@ class _SignUp_PageState extends State<SignUp_Page> {
         ));
   }
 
-  Future signUp() async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailcontroller.text.trim(),
-        password: pw.text.trim(),
-      );
-      GoRouter.of(context).go('/your_info_page');
-    } on FirebaseAuthException catch (e) {
-      print(e);
-    }
-  }
+  // Future signUp() async {
+  //   try {
+  //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //       email: _emailcontroller.text.trim(),
+  //       password: pw.text.trim(),
+  //     );
+  //     User updateUser = FirebaseAuth.instance.currentUser!;
+  //     userSetup(_usernamecontroller.text.trim());
+  //     GoRouter.of(context).go('/your_info_page');
+  //   } on FirebaseAuthException catch (e) {
+  //     print(e);
+  //   }
+  // }
 }
