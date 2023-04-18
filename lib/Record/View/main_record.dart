@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables,prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,19 +19,18 @@ class _MainRecordState extends State<MainRecord> {
   @override
   Widget build(BuildContext context) {
     //* Screen size
-    final screenwidth = MediaQuery.of(context).size.width;
-    final screenheight = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 3, child: TopRecord()),
+           const  Expanded(flex: 3, child: TopRecord()),
 
-            Expanded(flex: 24, child: MidRecord()),
+            const Expanded(flex: 24, child: MidRecord()),
             // Expanded(flex:1, child: MidEditProfile()),
-            Expanded(flex: 4, child: BottomRecord())
+            const Expanded(flex: 4, child: BottomRecord())
           ],
         ),
       ),

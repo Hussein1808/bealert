@@ -1,12 +1,9 @@
 import 'package:bealert/Common_widgets/containerr.dart';
-//ignore_for_file:prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:swipe/swipe.dart';
-import 'package:unicons/unicons.dart';
 import '../../Common_widgets/textt.dart';
 
 class TopSettings extends StatefulWidget {
@@ -25,12 +22,11 @@ class _TopSettingsState extends State<TopSettings> {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    final constt = ' This is a test';
+    const constt = ' This is a test';
     return SafeArea(
       child: Swipe(
         onSwipeUp: () {
           GoRouter.of(context).go('/home/1');
-          print('object');
         },
         //* Top blue container
         child: Stack(
@@ -39,7 +35,7 @@ class _TopSettingsState extends State<TopSettings> {
               w: screenwidth,
               h: screenheight * 0.3,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(40),
                 ),
                 gradient: LinearGradient(
@@ -64,7 +60,7 @@ class _TopSettingsState extends State<TopSettings> {
                           h: screenheight * 0.1,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                 image: AssetImage('assets/settings.png')),
                           ),
                         ),
@@ -84,7 +80,7 @@ class _TopSettingsState extends State<TopSettings> {
               child: Containerr(
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(25),
                       topRight: Radius.circular(25)),
                 ),

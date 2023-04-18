@@ -51,14 +51,14 @@ class _Login_PageState extends State<Login_Page> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Expanded(child: SizedBox.shrink()),
+            const Expanded(child: SizedBox.shrink()),
             Expanded(
               flex: 8,
               child: Containerr(
                 w: screenwidth,
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(50.0),
                       topRight: Radius.circular(50.0)),
                 ),
@@ -70,12 +70,12 @@ class _Login_PageState extends State<Login_Page> {
                       child: Column(
                         children: [
                           //* Login text
-                          Textt(
+                          const Textt(
                             text: 'LOGIN',
                             size: 48.0,
                             font: GoogleFonts.righteous,
                           ),
-                          SizedBoxx(h: 58.0),
+                          const SizedBoxx(h: 58.0),
                           //* Email field
                           Form(
                             key: formKey,
@@ -98,12 +98,12 @@ class _Login_PageState extends State<Login_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Email",
-                                hintStyle: TextStyle(
+                                hintStyle:const  TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.envelope,
                                 ),
                               ),
@@ -133,12 +133,12 @@ class _Login_PageState extends State<Login_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Password",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.lock,
                                 ),
                                 suffixIcon: IconButton(
@@ -148,11 +148,11 @@ class _Login_PageState extends State<Login_Page> {
                                     });
                                   },
                                   icon: _isVisible
-                                      ? Icon(
+                                      ? const Icon(
                                           Icons.visibility,
                                           color: Colors.black,
                                         )
-                                      : Icon(
+                                      : const Icon(
                                           Icons.visibility_off,
                                           color: Colors.grey,
                                         ),
@@ -160,7 +160,7 @@ class _Login_PageState extends State<Login_Page> {
                               ),
                             ),
                           ),
-                          SizedBoxx(h: 120.0),
+                          const SizedBoxx(h: 120.0),
                           //* Login button
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -204,7 +204,7 @@ class _Login_PageState extends State<Login_Page> {
                               )
                             ],
                           ),
-                          SizedBoxx(h: 80.0),
+                          const SizedBoxx(h: 80.0),
                           //* Don't have an account
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -216,7 +216,7 @@ class _Login_PageState extends State<Login_Page> {
                               )
                             ],
                           ),
-                          SizedBoxx(h: 16.0),
+                          const SizedBoxx(h: 16.0),
                           //* Sign up button
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

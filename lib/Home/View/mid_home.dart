@@ -1,12 +1,11 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable,prefer_const_constructors
-import 'package:bealert/Common_widgets/containerr.dart';
+// ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
-import 'package:swipe/swipe.dart';
-import 'package:unicons/unicons.dart';
+
 import '../../Common_widgets/textt.dart';
 
 class MidHome extends StatefulWidget {
@@ -30,7 +29,7 @@ class _MidHomeState extends State<MidHome> {
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Row(
           children: [
-            Textt(
+            const Textt(
               text: 'Your statistics',
               font: GoogleFonts.righteous,
               size: 36.0,
@@ -39,7 +38,7 @@ class _MidHomeState extends State<MidHome> {
         ),
         Row(
           children: [
-            Textt(
+            const Textt(
               text: 'for today, ',
               font: GoogleFonts.roboto,
               size: 16.0,

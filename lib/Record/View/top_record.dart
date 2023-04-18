@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors,prefer_const_literals_to_create_immutables
+// ignore_for_file:,prefer_const_literals_to_create_immutables
 
 import 'package:circular_seek_bar/circular_seek_bar.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class TopRecord extends StatefulWidget {
 class _TopRecordState extends State<TopRecord> {
   @override
   Widget build(BuildContext context) {
-    final screenwidth = MediaQuery.of(context).size.width;
+    
     final screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -40,7 +40,7 @@ class _TopRecordState extends State<TopRecord> {
             ),
             onPressed: () {
               showMaterialModalBottomSheet(
-                shape: RoundedRectangleBorder(
+                shape:const  RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
@@ -55,9 +55,9 @@ class _TopRecordState extends State<TopRecord> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Expanded(child: SizedBox.shrink()),
-                        Expanded(child: Textt(text: 'Time')),
-                        Expanded(
+                        const Expanded(child: SizedBox.shrink()),
+                        const Expanded(child: Textt(text: 'Time')),
+                        const Expanded(
                           flex: 2,
                           child: Textt(
                             text: '00:44:24',
@@ -65,9 +65,9 @@ class _TopRecordState extends State<TopRecord> {
                             font: GoogleFonts.firaSans,
                           ),
                         ),
-                        Div(),
-                        Expanded(child: Textt(text: 'Drowsiness Level')),
-                        Expanded(
+                        const Div(),
+                        const Expanded(child: Textt(text: 'Drowsiness Level')),
+                        const Expanded(
                           flex: 3,
                           child: CircularSeekBar(
                             width: double.infinity,
@@ -95,9 +95,9 @@ class _TopRecordState extends State<TopRecord> {
                             ),
                           ),
                         ),
-                        Div(),
-                        Expanded(child: Textt(text: 'Distance')),
-                        Expanded(
+                        const Div(),
+                        const Expanded(child: Textt(text: 'Distance')),
+                        const Expanded(
                           flex: 2,
                           child: Textt(
                             text: '0.02',
@@ -105,7 +105,7 @@ class _TopRecordState extends State<TopRecord> {
                             font: GoogleFonts.firaSans,
                           ),
                         ),
-                        Expanded(child: Textt(text: 'Kilometers')),
+                        const Expanded(child: Textt(text: 'Kilometers')),
                       ],
                     ),
                   ),

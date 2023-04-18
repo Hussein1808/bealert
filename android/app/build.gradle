@@ -60,8 +60,6 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
-<<<<<<< HEAD
-=======
     }
     signingConfigs {
         release {
@@ -70,7 +68,7 @@ android {
             storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
             storePassword keystoreProperties['storePassword']
         }
->>>>>>> 93302ce8f6274f8dcc3dcd3113a5550b149d377a
+
     }
 
     buildTypes {
@@ -90,10 +88,6 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation platform('com.google.firebase:firebase-bom:31.2.3')
-<<<<<<< HEAD
-    implementation 'com.android.support:multidex:1.0.3'
-=======
     implementation "androidx.multidex:multidex:2.0.1"
     implementation "com.google.android.gms:play-services-base:18.2.0"
->>>>>>> 93302ce8f6274f8dcc3dcd3113a5550b149d377a
 }

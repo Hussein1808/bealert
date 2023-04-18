@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables,prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'bottom_edit_profilr.dart';
@@ -18,7 +18,7 @@ class _MainEditProfileState extends State<MainEditProfile> {
   Widget build(BuildContext context) {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
-    final screenheight = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -54,12 +54,12 @@ class _MainEditProfileState extends State<MainEditProfile> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 1, child: TopEditProfile()),
+            const Expanded(flex: 1, child: TopEditProfile()),
             // Expanded(flex:1, child: MidEditProfile()),
-            Expanded(
+            const Expanded(
                 flex: 3,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+                  padding:  EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: BottomEditProfile(),
                 ))
           ],

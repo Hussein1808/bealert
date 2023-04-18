@@ -137,7 +137,7 @@ class _BottomRecordState extends State<BottomRecord> {
                       mobileSnackBarPosition: MobileSnackBarPosition.bottom,
                       desktopSnackBarPosition:
                           DesktopSnackBarPosition.bottomLeft,
-                      duration: Duration(milliseconds: 300),
+                      duration:const  Duration(milliseconds: 300),
                     ).show(context);
                   });
                 },

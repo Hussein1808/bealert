@@ -1,5 +1,4 @@
 import 'package:bealert/Common_widgets/containerr.dart';
-//ignore_for_file:prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,7 +45,7 @@ class _TopHomeState extends State<TopHome> {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(40),
                 ),
               ),
@@ -141,7 +140,7 @@ class _TopHomeState extends State<TopHome> {
               child: Containerr(
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius: BorderRadius.only(
+                  borderRadius:const  BorderRadius.only(
                       bottomRight: Radius.circular(25),
                       topRight: Radius.circular(25)),
                 ),

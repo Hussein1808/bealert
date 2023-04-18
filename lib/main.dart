@@ -19,18 +19,18 @@ class BeAlert extends StatelessWidget {
       theme: ThemeData(
         //* Application colors
         // primaryColor: Color(0xFFF1F1F1),
-        primaryColor: Color(0xFFE5E5E5),
-        secondaryHeaderColor: Color(0xFF878787),
+        primaryColor: const Color(0xFFE5E5E5),
+        secondaryHeaderColor: const Color(0xFF878787),
         // scaffoldBackgroundColor: Color.fromARGB(255, 224, 224, 224),
-        scaffoldBackgroundColor: Color(0xFFF4F4F2),
-        splashColor: Color(0xFFec2f4b),
-        cardColor: Color(0xFFE5E5E5),
-        canvasColor: Color(0xFF373B44),
+        scaffoldBackgroundColor: const Color(0xFFF4F4F2),
+        splashColor: const Color(0xFFec2f4b),
+        cardColor: const Color(0xFFE5E5E5),
+        canvasColor: const Color(0xFF373B44),
 
-        colorScheme: ColorScheme.light(
-            primary: Color.fromARGB(255, 0, 0, 0),
+        colorScheme:const  ColorScheme.light(
+            primary:  Color.fromARGB(255, 0, 0, 0),
             secondary: Color(0xFF009fff)),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Color(0xFF4286f4),
         ),
       ),

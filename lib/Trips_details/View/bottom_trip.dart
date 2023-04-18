@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -16,7 +15,7 @@ class BottomTrip extends StatefulWidget {
 }
 
 class _BottomTripState extends State<BottomTrip> {
-  List<Color> gradientColors = [
+  List<Color> gradientColors = const [
     Color(0xFF009fff),
     Color(0xFFec2f4b),
   ];
@@ -37,7 +36,7 @@ class _BottomTripState extends State<BottomTrip> {
             width: screenwidth * 1,
             height: screenheight * 0.40,
             elevation: 0,
-            color: Color.fromARGB(140, 229, 229, 229),
+            color:  const Color.fromARGB(140, 229, 229, 229),
             padding: const EdgeInsets.all(8),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(50),
@@ -211,7 +210,7 @@ class _BottomTripState extends State<BottomTrip> {
       maxY: 10,
       lineBarsData: [
         LineChartBarData(
-          spots: [
+          spots: const [
             FlSpot(0, 2),
             FlSpot(1, 1),
             FlSpot(2, 10),

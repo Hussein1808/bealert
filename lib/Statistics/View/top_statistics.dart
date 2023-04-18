@@ -1,12 +1,7 @@
 import 'package:bealert/Common_widgets/containerr.dart';
-//ignore_for_file:prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
-import 'package:swipe/swipe.dart';
-import 'package:unicons/unicons.dart';
 import '../../Common_widgets/textt.dart';
 
 class TopStatistics extends StatefulWidget {
@@ -40,7 +35,7 @@ class _TopStatisticsState extends State<TopStatistics> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(25),
               ),
             ),
@@ -50,7 +45,7 @@ class _TopStatisticsState extends State<TopStatistics> {
             child: Containerr(
               decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     bottomRight: Radius.circular(25),
                     topRight: Radius.circular(25)),
               ),

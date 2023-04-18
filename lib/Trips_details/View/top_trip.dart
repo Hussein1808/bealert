@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../Common_widgets/textt.dart';
 
 class TopTrip extends StatefulWidget {
-  final drowsytimes;
+  final  drowsytimes;
   final date;
 
   const TopTrip({super.key, required this.drowsytimes, required this.date});

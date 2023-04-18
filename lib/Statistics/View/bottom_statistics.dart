@@ -1,9 +1,7 @@
-import 'package:bealert/Common_widgets/containerr.dart';
+
 import 'package:bealert/History/Data/tiles_data.dart';
-//ignore_for_file:prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../Common_widgets/textt.dart';
 import '../../History/Widgets/list_tile_history.dart';
 
@@ -22,8 +20,8 @@ class _BottomStatisticsState extends State<BottomStatistics> {
     final screenheight = MediaQuery.of(context).size.height;
     return ListView(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(4.0),
+        const Padding(
+          padding:  EdgeInsets.all(4.0),
           child: Textt(
             text: 'Events',
             size: 35.0,

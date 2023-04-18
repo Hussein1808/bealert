@@ -1,15 +1,11 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'dart:math';
 
 import 'package:bealert/Common_widgets/sizedboxx.dart';
-import 'package:bealert/Common_widgets/textt.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 class MidStatistics extends StatefulWidget {
-  MidStatistics({super.key});
+  const MidStatistics({super.key});
 
   @override
   State<StatefulWidget> createState() => MidStatisticsState();
@@ -101,7 +97,7 @@ class MidStatisticsState extends State<MidStatistics> {
                   }
                 },
                 controller: controller,
-                buttons: ['Week', 'Month'],
+                buttons:const  ['Week', 'Month'],
                 options: GroupButtonOptions(
                   elevation: 0,
                   selectedColor: Theme.of(context).colorScheme.secondary,
@@ -125,7 +121,7 @@ class MidStatisticsState extends State<MidStatistics> {
             ],
           ),
         ),
-        SizedBoxx(
+        const SizedBoxx(
           h: 32.0,
         ),
         Expanded(
@@ -143,7 +139,7 @@ class MidStatisticsState extends State<MidStatistics> {
                       maxY: 20,
                       barTouchData: BarTouchData(
                         touchTooltipData: BarTouchTooltipData(
-                          tooltipBgColor: Color.fromARGB(255, 255, 0, 0),
+                          tooltipBgColor: const Color.fromARGB(255, 255, 0, 0),
                           getTooltipItem: (a, b, c, d) => null,
                         ),
                         touchCallback: (FlTouchEvent event, response) {
@@ -234,7 +230,7 @@ class MidStatisticsState extends State<MidStatistics> {
                       maxY: 20,
                       barTouchData: BarTouchData(
                         touchTooltipData: BarTouchTooltipData(
-                          tooltipBgColor: Color.fromARGB(255, 255, 0, 0),
+                          tooltipBgColor: const Color.fromARGB(255, 255, 0, 0),
                           getTooltipItem: (a, b, c, d) => null,
                         ),
                         touchCallback: (FlTouchEvent event, response) {
@@ -472,7 +468,7 @@ class MidStatisticsState extends State<MidStatistics> {
       barRods: [
         BarChartRodData(
           toY: y1,
-          gradient: LinearGradient(
+          gradient:const  LinearGradient(
             colors: [
               Color(0xFF009fff),
               Color(0xFFec2f4b),
@@ -520,7 +516,7 @@ class MidStatisticsState extends State<MidStatistics> {
       barRods: [
         BarChartRodData(
           toY: y1,
-          gradient: LinearGradient(
+          gradient:const  LinearGradient(
             colors: [
               Color(0xFF009fff),
               Color(0xFFec2f4b),

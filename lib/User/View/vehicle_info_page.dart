@@ -326,7 +326,6 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
         email: widget.email,
         password: widget.password,
       );
-      User updateUser = FirebaseAuth.instance.currentUser!;
       userSetup(
           widget.userName,
           widget.fullName,

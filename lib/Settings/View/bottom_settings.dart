@@ -1,16 +1,6 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable,prefer_const_constructors
-import 'package:bealert/Common_widgets/containerr.dart';
+// ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable
 import 'package:bealert/Settings/Widgets/list_tile_settings.dart';
-import 'package:bealert/Common_widgets/sizedboxx.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
-import 'package:quiver/time.dart';
-import 'package:swipe/swipe.dart';
-import 'package:unicons/unicons.dart';
-import '../../Common_widgets/textt.dart';
 import '../Data/modals_data.dart';
 import '../Data/tiles_data.dart';
 import '../Widgets/list_modal_settings.dart';
@@ -34,7 +24,7 @@ class _BottomSettingsState extends State<BottomSettings> {
         children: <Widget>[
           ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics:const  NeverScrollableScrollPhysics(),
               itemCount: tiles.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
@@ -47,7 +37,7 @@ class _BottomSettingsState extends State<BottomSettings> {
                 );
               }),
           ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: modals.length,
               itemBuilder: (BuildContext context, int index) {

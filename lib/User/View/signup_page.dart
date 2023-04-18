@@ -51,14 +51,14 @@ class _SignUp_PageState extends State<SignUp_Page> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Expanded(child: SizedBox.shrink()),
+            const Expanded(child: SizedBox.shrink()),
             Expanded(
               flex: 8,
               child: Containerr(
                 w: screenwidth,
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(50.0),
                       topRight: Radius.circular(50.0)),
                 ),
@@ -66,16 +66,16 @@ class _SignUp_PageState extends State<SignUp_Page> {
                   padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
                   child: Center(
                     child: SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       child: Column(
                         children: [
                           //* Sign up text
-                          Textt(
+                          const Textt(
                             text: 'Sign up',
                             size: 48.0,
                             font: GoogleFonts.righteous,
                           ),
-                          SizedBoxx(h: 58.0),
+                          const SizedBoxx(h: 58.0),
                           //* Name field
                           Form(
                             key: formKey,
@@ -101,18 +101,18 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Username",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon:const  Icon(
                                   UniconsLine.user,
                                 ),
                               ),
                             ),
                           ),
-                          SizedBoxx(),
+                          const SizedBoxx(),
                           //* Email field
                           Form(
                             key: formKey2,
@@ -135,12 +135,12 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Email",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon:const  Icon(
                                   UniconsLine.envelope,
                                 ),
                               ),
@@ -170,12 +170,12 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Password",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon:const  Icon(
                                   UniconsLine.lock,
                                 ),
                                 suffixIcon: IconButton(
@@ -185,11 +185,11 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                     });
                                   },
                                   icon: _isVisible
-                                      ? Icon(
+                                      ? const Icon(
                                           Icons.visibility,
                                           color: Colors.black,
                                         )
-                                      : Icon(
+                                      : const Icon(
                                           Icons.visibility_off,
                                           color: Colors.grey,
                                         ),
@@ -218,12 +218,12 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Confirm password",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon:const  Icon(
                                   UniconsLine.lock_alt,
                                 ),
                                 suffixIcon: IconButton(
@@ -233,11 +233,11 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                     });
                                   },
                                   icon: _isVisible2
-                                      ? Icon(
+                                      ?const  Icon(
                                           Icons.visibility,
                                           color: Colors.black,
                                         )
-                                      : Icon(
+                                      :const  Icon(
                                           Icons.visibility_off,
                                           color: Colors.grey,
                                         ),
@@ -245,7 +245,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
                               ),
                             ),
                           ),
-                          SizedBoxx(h: 30.0),
+                          const SizedBoxx(h: 30.0),
                           //* Sign up button
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -297,8 +297,8 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                             });
                                       }
                                     },
-                                    child: Center(
-                                      child: Icon(
+                                    child: const Center(
+                                      child:  Icon(
                                         UniconsLine.arrow_right,
                                         size: 42.0,
                                       ),
@@ -318,7 +318,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
                               )
                             ],
                           ),
-                          SizedBoxx(h: 16.0),
+                          const SizedBoxx(h: 16.0),
                           //* login button
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

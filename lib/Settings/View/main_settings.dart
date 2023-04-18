@@ -1,18 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
-
-import 'package:bealert/Common_widgets/containerr.dart';
-import 'package:bealert/Home/View/mid_home.dart';
 import 'package:bealert/Settings/View/top_settings.dart';
-//ignore_for_file:prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
-import 'package:quiver/time.dart';
-import 'package:swipe/swipe.dart';
-import 'package:unicons/unicons.dart';
-import '../../Common_widgets/textt.dart';
-import '../../Home/View/bottom_home.dart';
-import '../../Home/View/top_home.dart';
 import 'bottom_settings.dart';
 
 class MainSettings extends StatefulWidget {
@@ -35,11 +23,11 @@ class _MainSettingsState extends State<MainSettings> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 1, child: TopSettings()),
-            Expanded(
+            const Expanded(flex: 1, child: TopSettings()),
+           const  Expanded(
                 flex: 3,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: BottomSettings(),
                 ))
           ],

@@ -22,22 +22,22 @@ class Start extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              SizedBoxx(h: 181.0),
+              const SizedBoxx(h: 181.0),
               Image.asset('assets/Logo.png', height: 147, width: 179),
-              SizedBoxx(h: 6.0),
+              const SizedBoxx(h: 6.0),
               Textt(
                 text: 'BE-ALERT',
                 color: Theme.of(context).primaryColor,
                 size: 48.0,
                 font: GoogleFonts.righteous,
               ),
-              SizedBoxx(h: 1.0),
+              const SizedBoxx(h: 1.0),
               Textt(
                 text: 'STAY AWAKE, DRIVE SAFE',
                 color: Theme.of(context).primaryColor,
                 size: 20.0,
               ),
-              SizedBoxx(h: 118.0),
+              const SizedBoxx(h: 118.0),
               StartButtons(
                 width: 180.0,
                 height: 52.0,
@@ -47,7 +47,7 @@ class Start extends StatelessWidget {
                 redirect: '/signup_page',
                 weight: FontWeight.bold,
               ),
-              SizedBoxx(h: 15.0),
+              const SizedBoxx(h: 15.0),
               StartButtons(
                 weight: FontWeight.bold,
                 width: 180.0,

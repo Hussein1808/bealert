@@ -12,7 +12,7 @@ class BottomHome extends StatefulWidget {
 }
 
 class _BottomHomeState extends State<BottomHome> {
-  List<Color> gradientColors = [
+  List<Color> gradientColors =const  [
     Color(0xFF009fff),
     Color(0xFFec2f4b),
   ];
@@ -197,7 +197,7 @@ class _BottomHomeState extends State<BottomHome> {
       maxY: 10,
       lineBarsData: [
         LineChartBarData(
-          spots: [
+          spots: const [
             FlSpot(0, 2),
             FlSpot(1, 1),
             FlSpot(2, 10),

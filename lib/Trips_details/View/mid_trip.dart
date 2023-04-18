@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:bealert/Common_widgets/textt.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
@@ -36,7 +35,7 @@ class _MidTripState extends State<MidTrip> {
                   width: screenwidth * 0.6,
                   height: screenheight * 0.11,
                   elevation: 0,
-                  color: Color.fromARGB(140, 229, 229, 229),
+                  color:const  Color.fromARGB(140, 229, 229, 229),
                   padding: const EdgeInsets.all(8),
                   borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(50),
@@ -47,8 +46,8 @@ class _MidTripState extends State<MidTrip> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
-                        children: [
-                          Expanded(
+                        children: const [
+                           Expanded(
                             flex: 1,
                             child: Textt(
                               text: 'Number of Times being drowsy',
@@ -62,7 +61,7 @@ class _MidTripState extends State<MidTrip> {
                   ),
                 ),
               ),
-              Expanded(flex: 1, child: SizedBox.shrink()),
+              const Expanded(flex: 1, child: SizedBox.shrink()),
               Expanded(
                 flex: 3,
                 child: BlurryContainer(
@@ -70,7 +69,7 @@ class _MidTripState extends State<MidTrip> {
                   width: screenwidth * 0.1,
                   height: screenheight * 0.11,
                   elevation: 0,
-                  color: Color.fromARGB(140, 229, 229, 229),
+                  color: const Color.fromARGB(140, 229, 229, 229),
                   padding: const EdgeInsets.all(8),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(50),
@@ -104,7 +103,7 @@ class _MidTripState extends State<MidTrip> {
             width: screenwidth * 0.9,
             height: screenheight * 0.11,
             elevation: 0,
-            color: Color.fromARGB(140, 229, 229, 229),
+            color: const Color.fromARGB(140, 229, 229, 229),
             padding: const EdgeInsets.all(8),
             borderRadius: const BorderRadius.only(
               topRight: Radius.circular(50),
@@ -117,7 +116,7 @@ class _MidTripState extends State<MidTrip> {
                 Row(
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Expanded(
+                    const Expanded(
                       flex: 3,
                       child: Textt(
                         text: 'Distance Travelled',

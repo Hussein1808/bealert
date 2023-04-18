@@ -75,7 +75,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Expanded(child: SizedBox.shrink()),
+            const Expanded(child:  SizedBox.shrink()),
             Expanded(
               flex: 8,
               child: Containerr(
@@ -90,7 +90,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                   padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
                   child: Center(
                     child: SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       child: Column(
                         children: [
                           Row(
@@ -99,18 +99,18 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                 IconButton(
                                   onPressed: (() =>
                                       GoRouter.of(context).go('/signup_page')),
-                                  icon: Icon(
+                                  icon:const  Icon(
                                     UniconsLine.angle_left,
                                   ),
                                   iconSize: 50,
                                 ),
-                                Textt(
+                                const Textt(
                                   text: 'Your Info',
                                   size: 48.0,
                                   font: GoogleFonts.righteous,
                                 ),
                               ]),
-                          SizedBoxx(
+                          const SizedBoxx(
                             h: 30.0,
                           ),
                           //* full name field
@@ -138,18 +138,18 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Full Name",
-                                hintStyle: TextStyle(
+                                hintStyle:const  TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon:const  Icon(
                                   UniconsLine.user,
                                 ),
                               ),
                             ),
                           ),
-                          SizedBoxx(),
+                          const SizedBoxx(),
                           //* Address field
                           Form(
                             key: formKey2,
@@ -170,12 +170,12 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Address",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon:const Icon(
                                   UniconsLine.location_point,
                                 ),
                               ),
@@ -206,12 +206,12 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "National ID",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon:const  Icon(
                                   UniconsLine.credit_card,
                                 ),
                               ),
@@ -233,11 +233,11 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   return null;
                                 }
                               },
-                              selectorConfig: SelectorConfig(
+                              selectorConfig: const SelectorConfig(
                                 selectorType:
                                     PhoneInputSelectorType.BOTTOM_SHEET,
                               ),
-                              selectorTextStyle: TextStyle(color: Colors.black),
+                              selectorTextStyle: const TextStyle(color: Colors.black),
                               ignoreBlank: false,
                               formatInput: true,
                               keyboardType: TextInputType.number,
@@ -246,7 +246,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                               ),
                             ),
                           ),
-                          SizedBoxx(),
+                          const SizedBoxx(),
                           //* Emergency contact
                           Form(
                             key: formKey5,
@@ -268,17 +268,17 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                     PhoneInputSelectorType.BOTTOM_SHEET,
                               ),
                               hintText: 'Emergency Contact',
-                              selectorTextStyle: TextStyle(color: Colors.black),
+                              selectorTextStyle:const  TextStyle(color: Colors.black),
                               ignoreBlank: false,
                               formatInput: true,
-                              keyboardType: TextInputType.numberWithOptions(
+                              keyboardType: const TextInputType.numberWithOptions(
                                   signed: true, decimal: true),
                               inputBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                             ),
                           ),
-                          SizedBoxx(),
+                          const SizedBoxx(),
                           //* Blood group
                           Form(
                             key: formKey6,
@@ -299,18 +299,18 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 hintText: "Blood Group",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   fontSize: 18.0,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
-                                prefixIcon: Icon(
+                                prefixIcon:const  Icon(
                                   UniconsLine.medical_drip,
                                 ),
                               ),
                             ),
                           ),
-                          SizedBoxx(h: 30.0),
+                          const SizedBoxx(h: 30.0),
                           //* Sign up button
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -324,7 +324,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                           Theme.of(context).splashColor,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(30.0),
+                                           BorderRadius.circular(30.0),
                                       ),
                                     ),
                                     onPressed: () {},
@@ -366,7 +366,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                           });
                                       // }
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       UniconsLine.arrow_right,
                                       size: 42.0,
                                     )),

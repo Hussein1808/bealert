@@ -1,4 +1,3 @@
-import 'package:bealert/History/View/main_history.dart';
 import 'package:bealert/Trips_details/View/trips_details.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +15,7 @@ final GoRouter router = GoRouter(
   routes: <GoRoute>[
     GoRoute(
       path: '/',
-      builder: (BuildContext context, GoRouterState state) => Auth(),
+      builder: (BuildContext context, GoRouterState state) => const Auth(),
       routes: <GoRoute>[
         GoRoute(
           path: 'info_screen',
@@ -24,15 +23,17 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: 'start_screen',
-          builder: (BuildContext context, GoRouterState state) => Start(),
+          builder: (BuildContext context, GoRouterState state) => const Start(),
         ),
         GoRoute(
           path: 'signup_page',
-          builder: (BuildContext context, GoRouterState state) => SignUp_Page(),
+          builder: (BuildContext context, GoRouterState state) =>
+              const SignUp_Page(),
         ),
         GoRoute(
           path: 'login_page',
-          builder: (BuildContext context, GoRouterState state) => Login_Page(),
+          builder: (BuildContext context, GoRouterState state) =>
+              const Login_Page(),
         ),
         GoRoute(
           name: "your_info_page",
@@ -70,7 +71,7 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: 'editprofile_page',
           builder: (BuildContext context, GoRouterState state) =>
-              MainEditProfile(),
+              const MainEditProfile(),
         ),
         GoRoute(
           name: "tripsdetails",
