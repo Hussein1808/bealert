@@ -63,7 +63,8 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
   final TextEditingController addresscontrolller = TextEditingController();
   final TextEditingController nationalIDcontrolller = TextEditingController();
   final TextEditingController phoneNumbercontrolller = TextEditingController();
-  final TextEditingController emergencyContactcontrolller = TextEditingController();
+  final TextEditingController emergencyContactcontrolller =
+      TextEditingController();
   final TextEditingController bloodGroupcontrolller = TextEditingController();
 
   @override
@@ -75,7 +76,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const Expanded(child:  SizedBox.shrink()),
+            const Expanded(child: SizedBox.shrink()),
             Expanded(
               flex: 8,
               child: Containerr(
@@ -99,7 +100,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                 IconButton(
                                   onPressed: (() =>
                                       GoRouter.of(context).go('/signup_page')),
-                                  icon:const  Icon(
+                                  icon: const Icon(
                                     UniconsLine.angle_left,
                                   ),
                                   iconSize: 50,
@@ -132,18 +133,60 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Full Name",
-                                hintStyle:const  TextStyle(
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon:const  Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.user,
                                 ),
                               ),
@@ -164,18 +207,60 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Address",
-                                hintStyle: const TextStyle(
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon:const Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.location_point,
                                 ),
                               ),
@@ -200,18 +285,60 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                 }
                               },
                               keyboardType: TextInputType.number,
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "National ID",
-                                hintStyle: const TextStyle(
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon:const  Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.credit_card,
                                 ),
                               ),
@@ -237,12 +364,17 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                 selectorType:
                                     PhoneInputSelectorType.BOTTOM_SHEET,
                               ),
-                              selectorTextStyle: const TextStyle(color: Colors.black),
+                              selectorTextStyle:
+                                  const TextStyle(color: Colors.black),
                               ignoreBlank: false,
                               formatInput: true,
                               keyboardType: TextInputType.number,
                               inputBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
+                                ),
                               ),
                             ),
                           ),
@@ -268,11 +400,13 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                     PhoneInputSelectorType.BOTTOM_SHEET,
                               ),
                               hintText: 'Emergency Contact',
-                              selectorTextStyle:const  TextStyle(color: Colors.black),
+                              selectorTextStyle:
+                                  const TextStyle(color: Colors.black),
                               ignoreBlank: false,
                               formatInput: true,
-                              keyboardType: const TextInputType.numberWithOptions(
-                                  signed: true, decimal: true),
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      signed: true, decimal: true),
                               inputBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
@@ -293,18 +427,60 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                 }
                                 return null;
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
-                                hintText: "Blood Group",
-                                hintStyle: const TextStyle(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
+                                hintText: "Blood group",
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon:const  Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.medical_drip,
                                 ),
                               ),
@@ -324,7 +500,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                           Theme.of(context).splashColor,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
-                                           BorderRadius.circular(30.0),
+                                            BorderRadius.circular(30.0),
                                       ),
                                     ),
                                     onPressed: () {},
@@ -354,15 +530,24 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                           'vehicle_info_page',
                                           params: {
                                             'username': userName,
-                                            'password': password, 
-                                            'email': email ,
-                                            'fullName': fullNamecontrolller.text.trim() ,
-                                            'address': addresscontrolller.text.trim(), 
-                                            'nationalID': nationalIDcontrolller.text.trim(),
-                                            'phoneNumber': phoneNumbercontrolller.text.trim(),
+                                            'password': password,
+                                            'email': email,
+                                            'fullName':
+                                                fullNamecontrolller.text.trim(),
+                                            'address':
+                                                addresscontrolller.text.trim(),
+                                            'nationalID': nationalIDcontrolller
+                                                .text
+                                                .trim(),
+                                            'phoneNumber':
+                                                phoneNumbercontrolller.text
+                                                    .trim(),
                                             'emergencyContact':
-                                                emergencyContactcontrolller.text.trim() ,
-                                            'bloodGroup': bloodGroupcontrolller.text.trim(),
+                                                emergencyContactcontrolller.text
+                                                    .trim(),
+                                            'bloodGroup': bloodGroupcontrolller
+                                                .text
+                                                .trim(),
                                           });
                                       // }
                                     },
