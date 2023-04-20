@@ -124,16 +124,58 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Owner's name",
                                 hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
                                 prefixIcon: Icon(
                                   UniconsLine.user,
@@ -156,16 +198,58 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Brand",
                                 hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
                                 prefixIcon: Icon(
                                   UniconsLine.car,
@@ -188,16 +272,58 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Color",
                                 hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
                                 prefixIcon: Icon(
                                   UniconsLine.palette,
@@ -233,16 +359,58 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Numbers",
                                 hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
                                 prefixIcon: Icon(
                                   Icons.numbers,
@@ -265,16 +433,58 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Letters",
                                 hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
                                 prefixIcon: Icon(
                                   UniconsLine.letter_english_a,
