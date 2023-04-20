@@ -55,24 +55,10 @@ class _TopHomeState extends State<TopHome> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //* Your Drowsy Days
-                    Expanded(
-                      flex: 1,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Textt(
-                            text: 'Your Drowsy Days',
-                            font: GoogleFonts.roboto,
-                            color: Theme.of(context).primaryColor,
-                            size: 24.0,
-                            weight: FontWeight.bold,
-                          ),
-                        ],
-                      ),
-                    ),
+                    Expanded(flex: 2, child: SizedBox.shrink()),
                     //* Number of Days in month
                     Expanded(
-                      flex: 2,
+                      flex: 4,
                       child: Row(
                         children: [
                           Column(
@@ -140,7 +126,7 @@ class _TopHomeState extends State<TopHome> {
               child: Containerr(
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius:const  BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(25),
                       topRight: Radius.circular(25)),
                 ),
