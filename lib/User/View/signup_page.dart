@@ -95,18 +95,60 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Username",
-                                hintStyle: const TextStyle(
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon:const  Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.user,
                                 ),
                               ),
@@ -129,18 +171,60 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Email",
-                                hintStyle: const TextStyle(
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon:const  Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.envelope,
                                 ),
                               ),
@@ -164,18 +248,60 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Password",
-                                hintStyle: const TextStyle(
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon:const  Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.lock,
                                 ),
                                 suffixIcon: IconButton(
@@ -212,18 +338,60 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
-                                hintText: "Confirm password",
-                                hintStyle: const TextStyle(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
+                                hintText: "Confirm Password",
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon:const  Icon(
+                                prefixIcon: const Icon(
                                   UniconsLine.lock_alt,
                                 ),
                                 suffixIcon: IconButton(
@@ -233,11 +401,11 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                     });
                                   },
                                   icon: _isVisible2
-                                      ?const  Icon(
+                                      ? const Icon(
                                           Icons.visibility,
                                           color: Colors.black,
                                         )
-                                      :const  Icon(
+                                      : const Icon(
                                           Icons.visibility_off,
                                           color: Colors.grey,
                                         ),
@@ -298,7 +466,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                       }
                                     },
                                     child: const Center(
-                                      child:  Icon(
+                                      child: Icon(
                                         UniconsLine.arrow_right,
                                         size: 42.0,
                                       ),
