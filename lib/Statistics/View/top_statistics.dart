@@ -25,7 +25,7 @@ class _TopStatisticsState extends State<TopStatistics> {
         children: [
           Containerr(
             w: screenwidth,
-            h: screenheight * 0.10,
+            h: screenheight * 0.12,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
