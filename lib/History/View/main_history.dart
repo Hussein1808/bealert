@@ -22,11 +22,11 @@ class _MainHistoryState extends State<MainHistory> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(flex: 1, child: TopHistory()),
+            const Expanded(flex: 2, child: TopHistory()),
             const Expanded(
-                flex: 7,
+                flex: 10,
                 child: Padding(
-                  padding:  EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: BottomHistory(),
                 ))
           ],

@@ -31,7 +31,7 @@ class _TopHistoryState extends State<TopHistory> {
               children: [
                 Containerr(
                   w: screenwidth,
-                  h: screenheight * 0.10,
+                  h: screenheight * 0.12,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
@@ -41,7 +41,7 @@ class _TopHistoryState extends State<TopHistory> {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
-                    borderRadius:const  BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(40),
                     ),
                   ),
@@ -51,7 +51,7 @@ class _TopHistoryState extends State<TopHistory> {
                   child: Containerr(
                     decoration: BoxDecoration(
                       color: Theme.of(context).scaffoldBackgroundColor,
-                      borderRadius:const  BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           bottomRight: Radius.circular(25),
                           topRight: Radius.circular(25)),
                     ),
