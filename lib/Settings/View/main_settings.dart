@@ -23,9 +23,9 @@ class _MainSettingsState extends State<MainSettings> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(flex: 1, child: TopSettings()),
-           const  Expanded(
-                flex: 3,
+            const Expanded(flex: 2, child: TopSettings()),
+            const Expanded(
+                flex: 6,
                 child: Padding(
                   padding: EdgeInsets.all(16.0),
                   child: BottomSettings(),

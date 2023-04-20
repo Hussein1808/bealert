@@ -50,20 +50,20 @@ class _TopSettingsState extends State<TopSettings> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 8.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Row(
                       children: [
-                        Containerr(
-                          w: screenwidth * 0.21,
-                          h: screenheight * 0.1,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            image: const DecorationImage(
-                                image: AssetImage('assets/settings.png')),
-                          ),
-                        ),
+                        // Containerr(
+                        //   w: screenwidth * 0.21,
+                        //   h: screenheight * 0.1,
+                        //   decoration: BoxDecoration(
+                        //     borderRadius: BorderRadius.circular(100),
+                        //     image: const DecorationImage(
+                        //         image: AssetImage('assets/settings.png')),
+                        //   ),
+                        // ),
                         Textt(
                           text: '$constt',
                           weight: FontWeight.bold,
