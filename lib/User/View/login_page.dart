@@ -1,22 +1,14 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:bealert/Common_widgets/formbuttons.dart';
-import 'package:bealert/Common_widgets/formfield.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
-import 'package:bealert/User/View/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
-
-import '../../pages.dart';
 
 class Login_Page extends StatefulWidget {
   const Login_Page({super.key});
@@ -26,6 +18,9 @@ class Login_Page extends StatefulWidget {
 }
 
 class _Login_PageState extends State<Login_Page> {
+  final FocusNode _focusNode = FocusNode();
+  bool _isFocused = false;
+
   bool _isVisible = false;
   final RegExp emailvalid = RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
   final RegExp passwordvalid =
@@ -34,12 +29,25 @@ class _Login_PageState extends State<Login_Page> {
   final formKey2 = GlobalKey<FormState>();
   final _emailcontroller = TextEditingController();
   final _passwordcontroller = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    _focusNode.addListener(_handleFocusChange);
+  }
 
   @override
   void dispose() {
+    _focusNode.removeListener(_handleFocusChange);
+    _focusNode.dispose();
     _emailcontroller.dispose();
     _passwordcontroller.dispose();
     super.dispose();
+  }
+
+  void _handleFocusChange() {
+    setState(() {
+      _isFocused = _focusNode.hasFocus;
+    });
   }
 
   @override
@@ -66,7 +74,7 @@ class _Login_PageState extends State<Login_Page> {
                   padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
                   child: Center(
                     child: SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       child: Column(
                         children: [
                           //* Login text
@@ -82,6 +90,7 @@ class _Login_PageState extends State<Login_Page> {
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             child: TextFormField(
+                              focusNode: _focusNode,
                               controller: _emailcontroller,
                               validator: (value2) {
                                 if (value2!.isEmpty) {
@@ -92,24 +101,67 @@ class _Login_PageState extends State<Login_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Email",
-                                hintStyle:const  TextStyle(
+                                hintStyle: TextStyle(
                                   fontSize: 18.0,
-                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
                                 ),
-                                prefixIcon: const Icon(
-                                  UniconsLine.envelope,
-                                ),
+                                prefixIcon: Icon(UniconsLine.envelope,
+                                    color: _isFocused
+                                        ? Theme.of(context).colorScheme.primary
+                                        : Theme.of(context).focusColor),
                               ),
                             ),
                           ),
-                          SizedBoxx(),
+                          const SizedBoxx(),
                           //* Password field
                           Form(
                             key: formKey2,
@@ -127,11 +179,53 @@ class _Login_PageState extends State<Login_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
                               decoration: InputDecoration(
                                 errorMaxLines: 2,
-                                border: OutlineInputBorder(
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
                                 hintText: "Password",
                                 hintStyle: const TextStyle(
                                   fontSize: 18.0,
@@ -228,7 +322,8 @@ class _Login_PageState extends State<Login_Page> {
                                   child: Textt(
                                     text: 'Sign up from here',
                                     color: Theme.of(context).splashColor,
-                                    size: 20.0,
+                                    size: 22.0,
+                                    weight: FontWeight.bold,
                                   ))
                             ],
                           ),
