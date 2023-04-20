@@ -12,12 +12,11 @@ final List<Tile> tiles = [
   Tile(
     title: 'Notifications',
     icon: UniconsLine.bell,
-    redirection: '/notifications_page',
+    redirection: '/editprofile_page',
   ),
   Tile(
     title: 'About',
     icon: UniconsLine.info_circle,
-    redirection: '/about_page',
+    redirection: '/editprofile_page',
   ),
 ];
-
