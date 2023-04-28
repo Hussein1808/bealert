@@ -4,13 +4,16 @@ import 'package:circular_seek_bar/circular_seek_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../Common_widgets/divider.dart';
 import '../../Common_widgets/textt.dart';
+import '../Providers/distance_providers.dart';
 
 class TopRecord extends StatefulWidget {
-  const TopRecord({super.key});
+  double distanceTravelled;
+  TopRecord({super.key, required this.distanceTravelled});
 
   @override
   State<TopRecord> createState() => _TopRecordState();
@@ -19,7 +22,6 @@ class TopRecord extends StatefulWidget {
 class _TopRecordState extends State<TopRecord> {
   @override
   Widget build(BuildContext context) {
-    
     final screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -40,7 +42,7 @@ class _TopRecordState extends State<TopRecord> {
             ),
             onPressed: () {
               showMaterialModalBottomSheet(
-                shape:const  RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
@@ -97,11 +99,10 @@ class _TopRecordState extends State<TopRecord> {
                         ),
                         const Div(),
                         const Expanded(child: Textt(text: 'Distance')),
-                        const Expanded(
+                        Expanded(
                           flex: 2,
                           child: Textt(
-                            text: '0.02',
-                            size: 72.0,
+                            text: '${context.watch<Distance>().dist}',
                             font: GoogleFonts.firaSans,
                           ),
                         ),
