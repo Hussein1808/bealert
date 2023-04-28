@@ -75,6 +75,11 @@ dependencies:
   firebase_core: ^2.7.1
   cloud_firestore: ^4.4.4
   rename: ^2.1.1
+  google_maps_flutter: ^2.2.5
+  geolocator: ^9.0.2
+  geocoding: ^2.1.0
+  provider: ^6.0.5
+  custom_timer: ^0.2.3
 
 dev_dependencies:
   flutter_test:
