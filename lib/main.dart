@@ -1,7 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bealert/Record/Providers/distance_providers.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'Record/Providers/pause_provider.dart';
+import 'Record/Providers/time_provider.dart';
 import 'Routing/app_routing.dart';
 
 class BeAlert extends StatelessWidget {
@@ -41,5 +45,12 @@ class BeAlert extends StatelessWidget {
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(BeAlert());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_)=>Distance()),
+    ChangeNotifierProvider(create: (_)=>Time()),
+    ChangeNotifierProvider(create: (_)=>Pause())
+
+
+  ],
+  child: BeAlert()));
 }
