@@ -14,6 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
+import '../../Const/constants.dart';
 import '../Data/auth_data.dart';
 
 class Vehicle_Info_Page extends StatefulWidget {
@@ -549,7 +550,12 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
           brand.text.trim(),
           color.text.trim(),
           plateletters.text.trim(),
-          int.parse(platenumbers.text));
+          int.parse(platenumbers.text)).then((value)async=>
+          getUser(value)
+              .then((value)
+          {
+            currUser=value;
+          }));
       // vehicleUpdate(ownername.text.trim(), brand.text.trim(), color.text.trim(),
       //     plateletters.text.trim(), int.parse(platenumbers.text));
       // var collection = FirebaseFirestore.instance.collection('Users');
@@ -557,6 +563,7 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
       // for (var doc in snapshots.docs) {
       //   await doc.reference.delete();
       // }
+
       GoRouter.of(context).go('/Login_page');
     } on FirebaseAuthException catch (e) {
       print(e);

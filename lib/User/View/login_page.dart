@@ -10,6 +10,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
+import '../../Const/constants.dart';
+import '../Data/auth_data.dart';
+
 class Login_Page extends StatefulWidget {
   const Login_Page({super.key});
 
@@ -341,7 +344,10 @@ class _Login_PageState extends State<Login_Page> {
   Future signIn() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailcontroller.text.trim(),
-        password: _passwordcontroller.text.trim());
+        password: _passwordcontroller.text.trim()).then((value) async => getUser(value.user!.uid).then((value) {
+      currUser=value;
+      // print(value.name);
+    }));
     FocusScope.of(context).unfocus();
     GoRouter.of(context).go('/home/0');
   }
