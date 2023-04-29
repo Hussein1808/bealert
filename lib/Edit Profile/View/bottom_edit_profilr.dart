@@ -1,4 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../Const/constants.dart';
+import '../../User/Data/UserData.dart';
+import '../../User/Data/auth_data.dart';
 
 class BottomEditProfile extends StatefulWidget {
   const BottomEditProfile({super.key});
@@ -8,51 +14,89 @@ class BottomEditProfile extends StatefulWidget {
 }
 
 class _BottomEditProfileState extends State<BottomEditProfile> {
-  TextEditingController textcontroller = TextEditingController();
+  TextEditingController usernamecontroller = TextEditingController();
+  TextEditingController fullnamecontroller = TextEditingController();
+  TextEditingController addresscontroller = TextEditingController();
+  TextEditingController nationalIDcontroller = TextEditingController();
+  TextEditingController phonenumbercontroller = TextEditingController();
+  TextEditingController emergencycontactcontroller = TextEditingController();
+  TextEditingController bloodgroupcontroller = TextEditingController();
+  String uid = ' ';
+  // Userr a= await getUser(uid);
+
+  @override
+  void initState() {
+    FirebaseAuth.instance.idTokenChanges().listen((User? user) {
+      if (user == null) {
+        print('User is currently signed out!');
+        // GoRouter.of(context).go('/login');
+        context.go('/login_page');
+      } else {
+        // setState(() {
+        uid = user.uid;
+
+        // });
+
+        print('User is signed in!');
+        usernamecontroller.text=currUser!.username;
+        fullnamecontroller.text=currUser!.fullname;
+        addresscontroller.text=currUser!.address;
+        nationalIDcontroller.text=currUser!.nationalID.toString();
+        phonenumbercontroller.text=currUser!.phonenumber;
+        emergencycontactcontroller.text=currUser!.emergencycontact;
+        bloodgroupcontroller.text=currUser!.bloodgroup;
+
+      }
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
-    textcontroller.text = 'This is a test';
+
     return Container(
       child: Form(
         child: ListView(
           children: [
             TextFormField(
-              controller: textcontroller,
+              controller: usernamecontroller,
               decoration: const InputDecoration(
                 labelText: 'Username',
               ),
             ),
             TextFormField(
-              controller: textcontroller,
+              controller: fullnamecontroller,
               decoration: const InputDecoration(
-                labelText: 'Email',
+                labelText: 'Full name',
               ),
             ),
             TextFormField(
-              controller: textcontroller,
+              controller: addresscontroller,
               decoration:const  InputDecoration(
-                labelText: 'Password',
+                labelText: 'Address',
                 focusColor: Colors.red,
               ),
             ),
             TextFormField(
-              controller: textcontroller,
+              controller: nationalIDcontroller,
               decoration:const  InputDecoration(
-                labelText: 'Address',
+                labelText: 'National ID',
               ),
             ),
             TextFormField(
+              controller: phonenumbercontroller,
               decoration:const  InputDecoration(
                 labelText: 'Mobile Number',
               ),
             ),
             TextFormField(
+              controller: emergencycontactcontroller,
               decoration:const  InputDecoration(
                 labelText: 'Emergency Contact',
               ),
             ),
             TextFormField(
+              controller: bloodgroupcontroller,
               decoration:const  InputDecoration(
                 labelText: 'Blood Group',
               ),
