@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-Future<void> userSetup(
+import 'UserData.dart';
+
+Future<String> userSetup(
     String username,
     String fullname,
     String address,
@@ -19,7 +21,7 @@ Future<void> userSetup(
   // String uid = auth.currentUser!.uid;
   final uid = FirebaseAuth.instance.currentUser!.uid;
 
-  users.doc(uid).collection('User Info').add({
+  users.doc(uid).collection('User Info').doc(uid).set({
     'Username': username,
     'uid': uid,
     'Fullname': fullname,
@@ -39,8 +41,9 @@ Future<void> userSetup(
   });
   // users.doc('vehicle').set({'Owner': owner, 'uid': uid, 'Brand': brand, 'Color': color, 'Letters': letters, 'Numbers': numbers });
 
-  return;
+  return uid;
 }
+
 // Future<void> vehicleUpdate(String owner, String brand, String color, String letters, int numbers ) async {
 //   CollectionReference users = FirebaseFirestore.instance.collection('Users');
 //   FirebaseAuth auth = FirebaseAuth.instance;
@@ -48,3 +51,27 @@ Future<void> userSetup(
 //   users.doc('vehicle').set({'Owner': owner, 'uid': uid, 'Brand': brand, 'Color': color, 'Letters': letters, 'Numbers': numbers });
 //   return;
 // }
+
+
+
+Future<void> delete(String id) async {
+  await FirebaseFirestore.instance.collection('Users').doc(id).delete();
+}
+
+Future<void> editUser(String id,Userr u) async {
+  await FirebaseFirestore.instance.collection('Users').doc(id).collection("User Info").doc(id).update(u.toMap());
+}
+
+Future<Userr> getUser(String id) async {
+  return await FirebaseFirestore.instance.collection('Users').doc(id).collection("User Info").doc(id). get().then((value) => Userr.fromMap(value.data()!));
+}
+Future<bool> findUser(String uid) async{
+  return await FirebaseFirestore.instance.collection('users').where("uid",isEqualTo: uid ).get().then((value) {
+    if (value.size==0)
+      return false;
+    else
+      return true;
+  });
+
+
+}
