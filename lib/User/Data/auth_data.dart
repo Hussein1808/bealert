@@ -15,9 +15,11 @@ Future<void> userSetup(
     String letters,
     int numbers) async {
   CollectionReference users = FirebaseFirestore.instance.collection('Users');
-  FirebaseAuth auth = FirebaseAuth.instance;
-  String uid = auth.currentUser!.uid.toString();
-  users.add({
+  // FirebaseAuth auth = FirebaseAuth.instance;
+  // String uid = auth.currentUser!.uid;
+  final uid = FirebaseAuth.instance.currentUser!.uid;
+
+  users.doc(uid).collection('User Info').add({
     'Username': username,
     'uid': uid,
     'Fullname': fullname,
