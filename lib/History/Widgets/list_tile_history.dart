@@ -3,18 +3,20 @@ import 'package:bealert/Common_widgets/textt.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class HistoryListTilee extends StatefulWidget {
-  final title;
-  final int trailing;
-  final int tripdistance;
+  final date;
+  final distance;
+  final time;
+  final drowsinesstimes;
 
   const HistoryListTilee({
     super.key,
-    required this.title,
-    required this.trailing,
-    required this.tripdistance,
-
+    required this.date,
+    required this.distance,
+    required this.time,
+    required this.drowsinesstimes,
   });
 
   @override
@@ -25,10 +27,14 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    String formatteddate = DateFormat.MMMd().format(widget.date);
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).pushNamed('tripsdetails',
-            params: {'title': widget.title, 'trailing': '${widget.trailing}', 'tripdistance': '${widget.tripdistance}'});
+        GoRouter.of(context).pushNamed('tripsdetails', params: {
+          'title': formatteddate,
+          'trailing': '${widget.drowsinesstimes}',
+          'tripdistance': '${widget.distance}'
+        });
       },
       child: Card(
         elevation: 0,
@@ -49,7 +55,7 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
             child: ListTile(
               minVerticalPadding: 15,
               title: Textt(
-                text: widget.title,
+                text: formatteddate.toString(),
                 color: Theme.of(context).colorScheme.primary,
                 size: 28.0,
                 font: GoogleFonts.roboto,
@@ -63,7 +69,7 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
               ),
               //space between title and subtitle
               trailing: Textt(
-                text: '${widget.trailing}',
+                text: '${widget.drowsinesstimes}',
                 size: 58.0,
                 color: Theme.of(context).colorScheme.secondary,
               ),
