@@ -79,7 +79,7 @@ final GoRouter router = GoRouter(
           builder: (BuildContext context, GoRouterState state) => TripDetails(
               title: state.params["title"]!,
               trailing: int.parse(state.params["trailing"]!),
-              tripdistance: int.parse(state.params["tripdistance"]!)),
+              tripdistance: double.parse(state.params["tripdistance"]!)),
         ),
       ],
     ),
