@@ -22,35 +22,35 @@ class _MainEditProfileState extends State<MainEditProfile> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: Theme.of(context).colorScheme.secondary,
-          title: Text(
-            'Edit Profile',
-            style: TextStyle(
-                color: Theme.of(context).scaffoldBackgroundColor,
-                fontSize: screenwidth * 0.05),
-          ),
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: Theme.of(context).scaffoldBackgroundColor,
-            ),
-            onPressed: () {
-              GoRouter.of(context).go('/home/4');
-            },
-          ),
-          actions: [
-            IconButton(
-              icon: Icon(
-                Icons.check,
-                color: Theme.of(context).scaffoldBackgroundColor,
-              ),
-              onPressed: () {},
-            ),
-          ],
-        ),
+        // appBar: AppBar(
+        //   elevation: 0.0,
+        //   backgroundColor: Theme.of(context).colorScheme.secondary,
+        //   title: Text(
+        //     'Edit Profile',
+        //     style: TextStyle(
+        //         color: Theme.of(context).scaffoldBackgroundColor,
+        //         fontSize: screenwidth * 0.05),
+        //   ),
+        //   centerTitle: true,
+        //   leading: IconButton(
+        //     icon: Icon(
+        //       Icons.arrow_back_ios,
+        //       color: Theme.of(context).scaffoldBackgroundColor,
+        //     ),
+        //     onPressed: () {
+        //       GoRouter.of(context).go('/home/4');
+        //     },
+        //   ),
+        //   actions: [
+        //     IconButton(
+        //       icon: Icon(
+        //         Icons.check,
+        //         color: Theme.of(context).scaffoldBackgroundColor,
+        //       ),
+        //       onPressed: () {},
+        //     ),
+        //   ],
+        // ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
