@@ -9,7 +9,9 @@ import 'package:provider/provider.dart';
 
 import '../../Common_widgets/containerr.dart';
 import '../../Common_widgets/textt.dart';
+import '../Domain/trip_data_domain.dart';
 import '../Providers/pause_provider.dart';
+import '../Repository/trip_data_repo.dart';
 
 class MidRecord extends StatefulWidget {
   const MidRecord({Key? key}) : super(key: key);
@@ -52,6 +54,16 @@ class _MidRecordState extends State<MidRecord>
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
+    String? _userId;
+    DateTime? _date;
+    double? _distance;
+    Duration? _time;
+    int? _drowsinessTimes;
+    DateTime now;
+
+    DateTime total_time = DateTime.now();
+    ;
+
     return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -86,6 +98,8 @@ class _MidRecordState extends State<MidRecord>
                   controller: _tcontroller,
                   builder: (state, time) {
                     // Build the widget you want!🎉
+                    // total_time = DateTime(
+                    //     int.parse(time.hours), int.parse(time.minutes));
                     return Text("${time.hours}:${time.minutes}:${time.seconds}",
                         style: TextStyle(fontSize: 24.0));
                   }),
@@ -192,10 +206,36 @@ class _MidRecordState extends State<MidRecord>
                                                 .secondary,
                                             onPressed: () {
                                               setState(() {
-                                                _tcontroller.reset();
-                                                //*------------------------------------------- Back end code
-                                                _distanceTravelled = 0;
+                                                now = DateTime.now();
 
+                                                //*------------------------------------------- Back end code
+                                                print(
+                                                    '------------------------------------------------------${total_time}');
+                                                print(
+                                                    '------------------------------------------------------${_distanceTravelled}');
+                                                print(
+                                                    '----------------------------------------------------${now}');
+
+                                                final newTrip = Trips(
+                                                  id: 1, // or generate a unique id
+                                                  userid: 'dasda',
+                                                  date: now,
+                                                  distance: double.parse(
+                                                      _distanceTravelled
+                                                          .toStringAsFixed(2)),
+                                                  time: total_time,
+                                                  drowsinesstimes: 5,
+                                                );
+                                                TripsRepository().addTrip(
+                                                    newTrip); // add the trip to the database
+                                                _tcontroller.reset();
+                                                _distanceTravelled = 0;
+                                                total_time = DateTime.now();
+                                                ;
+                                                print(
+                                                    '------------------------------------------------------${total_time}');
+                                                print(
+                                                    '------------------------------------------------------${_distanceTravelled}');
                                                 start = false;
                                                 choose = true;
                                               });
