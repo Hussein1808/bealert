@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_typing_uninitialized_variable, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../Common_widgets/textt.dart';
 import 'bottom_trip.dart';
 import 'mid_trip.dart';
 import 'top_trip.dart';

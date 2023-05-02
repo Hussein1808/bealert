@@ -1,13 +1,8 @@
 import 'package:animated_snack_bar/animated_snack_bar.dart';
-import 'package:animated_toast_list/animated_toast_list.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:custom_timer/custom_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:unicons/unicons.dart';
 
 import '../../Common_widgets/textt.dart';
 import '../Providers/pause_provider.dart';
@@ -26,8 +21,8 @@ class _BottomRecordState extends State<BottomRecord>
   late bool _ispaused;
   late CustomTimerController _controller = CustomTimerController(
       vsync: this,
-      begin: Duration(hours: 0, minutes: 0, seconds: 0),
-      end: Duration(hours: 24),
+      begin:const  Duration(hours: 0, minutes: 0, seconds: 0),
+      end:const  Duration(hours: 24),
       initialState: CustomTimerState.reset,
       interval: CustomTimerInterval.seconds);
   @override
@@ -41,7 +36,7 @@ class _BottomRecordState extends State<BottomRecord>
             builder: (state, time) {
               // Build the widget you want!🎉
               return Text("${time.hours}:${time.minutes}:${time.seconds}",
-                  style: TextStyle(fontSize: 24.0));
+                  style: const TextStyle(fontSize: 24.0));
             }),
         Containerr(
             w: screenwidth,
@@ -81,7 +76,7 @@ class _BottomRecordState extends State<BottomRecord>
                                             MobileSnackBarPosition.bottom,
                                         desktopSnackBarPosition:
                                             DesktopSnackBarPosition.bottomLeft,
-                                        duration: Duration(milliseconds: 300),
+                                        duration:const  Duration(milliseconds: 300),
                                       ).show(context);
                                     });
                                   },
@@ -127,7 +122,7 @@ class _BottomRecordState extends State<BottomRecord>
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 20,
                                   ),
                                   SizedBox(

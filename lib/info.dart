@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:unicons/unicons.dart';
 
-import 'Common_widgets/textt.dart';
 
 class Info extends StatelessWidget {
   Info({super.key});
