@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'bottom_statistics.dart';
 import 'mid_satistics.dart';
@@ -22,16 +21,16 @@ class _MainStatisticsState extends State<MainStatistics> {
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children:const [
-             Expanded(flex: 2, child: TopStatistics()),
-             Expanded(
-                flex: 7,
+          children: const [
+            Expanded(flex: 3, child: TopStatistics()),
+            Expanded(
+                flex: 10,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: MidStatistics(),
                 )),
-             Expanded(
-                flex: 5,
+            Expanded(
+                flex: 4,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: BottomStatistics(),

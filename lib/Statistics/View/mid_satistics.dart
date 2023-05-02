@@ -1,8 +1,10 @@
-
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:group_button/group_button.dart';
+
+import '../../Common_widgets/textt.dart';
 
 class MidStatistics extends StatefulWidget {
   const MidStatistics({super.key});
@@ -74,7 +76,7 @@ class MidStatisticsState extends State<MidStatistics> {
     return Column(
       children: [
         Expanded(
-          flex: 1,
+          flex: 3,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -97,7 +99,7 @@ class MidStatisticsState extends State<MidStatistics> {
                   }
                 },
                 controller: controller,
-                buttons:const  ['Week', 'Month'],
+                buttons: const ['Week', 'Month'],
                 options: GroupButtonOptions(
                   elevation: 0,
                   selectedColor: Theme.of(context).colorScheme.secondary,
@@ -125,7 +127,7 @@ class MidStatisticsState extends State<MidStatistics> {
           h: 32.0,
         ),
         Expanded(
-          flex: 5,
+          flex: 15,
           child: ListView(
             scrollDirection: Axis.horizontal,
             controller: _scrollController,
@@ -412,6 +414,19 @@ class MidStatisticsState extends State<MidStatistics> {
           //   },
           // ),
         ),
+        const Expanded(flex: 1, child: SizedBox.shrink()),
+        const Expanded(
+          flex: 3,
+          child: Padding(
+            padding: EdgeInsets.all(4.0),
+            child: Textt(
+              text: 'Events',
+              size: 35.0,
+              weight: FontWeight.w500,
+              font: GoogleFonts.righteous,
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -468,7 +483,7 @@ class MidStatisticsState extends State<MidStatistics> {
       barRods: [
         BarChartRodData(
           toY: y1,
-          gradient:const  LinearGradient(
+          gradient: const LinearGradient(
             colors: [
               Color(0xFF009fff),
               Color(0xFFec2f4b),
@@ -516,7 +531,7 @@ class MidStatisticsState extends State<MidStatistics> {
       barRods: [
         BarChartRodData(
           toY: y1,
-          gradient:const  LinearGradient(
+          gradient: const LinearGradient(
             colors: [
               Color(0xFF009fff),
               Color(0xFFec2f4b),

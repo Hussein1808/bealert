@@ -33,53 +33,39 @@ class _BottomStatisticsState extends State<BottomStatistics> {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    return ListView(
-      children: [
-        const Padding(
-          padding: EdgeInsets.all(4.0),
-          child: Textt(
-            text: 'Events',
-            size: 35.0,
-            weight: FontWeight.w500,
-            font: GoogleFonts.righteous,
-          ),
-        ),
-        Container(
-          height: screenheight,
-          width: screenwidth,
-          child: FutureBuilder<List<Trips>>(
-            future: _repository.getTrips(),
-            
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                _trips = snapshot.data!;
-                return ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: HistoryListTilee(
-                        date: snapshot.data![index].date,
-                        distance: snapshot.data![index].distance,
-                        drowsinesstimes: snapshot.data![index].drowsinesstimes,
-                        time: snapshot.data![index].time,
-                      ),
-                    );
-                  },
+    return Container(
+      height: screenheight,
+      width: screenwidth,
+      child: FutureBuilder<List<Trips>>(
+        future: _repository.getTrips(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            _trips = snapshot.data!;
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: HistoryListTilee(
+                    date: snapshot.data![index].date,
+                    distance: snapshot.data![index].distance,
+                    drowsinesstimes: snapshot.data![index].drowsinesstimes,
+                    time: snapshot.data![index].time,
+                  ),
                 );
-              } else if (snapshot.hasError) {
-                return  Center(
-                  child: Text('Error ${snapshot.error}'),
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            },
-          ),
-        ),
-      ],
+              },
+            );
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text('Error ${snapshot.error}'),
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
     );
   }
 }
