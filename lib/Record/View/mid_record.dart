@@ -45,6 +45,7 @@ class _MidRecordState extends State<MidRecord>
   @override
   void dispose() {
     _positionStreamSubscription.cancel();
+    _tcontroller.dispose();
     super.dispose();
   }
 
@@ -66,18 +67,18 @@ class _MidRecordState extends State<MidRecord>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GestureDetector(
-            child: Text(
-              'Distance Travelled: ${_distanceTravelled.toStringAsFixed(2)} kilometers',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-              ),
-            ),
-            onTap: () {},
-          ),
-          const SizedBox(height: 20.0),
+          // GestureDetector(
+          //   child: Text(
+          //     'Distance Travelled: ${_distanceTravelled.toStringAsFixed(2)} kilometers',
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 20.0,
+          //     ),
+          //   ),
+          //   onTap: () {},
+          // ),
           Expanded(
+            flex: 12,
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
                 target: _initialPosition,
@@ -90,183 +91,183 @@ class _MidRecordState extends State<MidRecord>
               },
             ),
           ),
-          Column(
-            children: [
-              CustomTimer(
+          Expanded(
+            child: Center(
+              child: CustomTimer(
                   controller: _tcontroller,
                   builder: (state, time) {
-                    // Build the widget you want!🎉
-                    // total_time = DateTime(
-                    //     int.parse(time.hours), int.parse(time.minutes));
                     return Text("${time.hours}:${time.minutes}:${time.seconds}",
-                        style:const  TextStyle(fontSize: 24.0));
+                        style: const TextStyle(
+                            fontSize: 24.0, fontWeight: FontWeight.bold));
                   }),
-              Containerr(
-                  w: screenwidth,
-                  decoration: BoxDecoration(
-                      border: Border(
-                    top: BorderSide(
-                      color: Theme.of(context).dividerColor,
-                      width: 2.0,
-                    ),
-                  )),
-                  child: start
-                      ? Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              choose
-                                  ? SizedBox(
-                                      width: screenwidth * 0.25,
-                                      child: FloatingActionButton(
-                                        elevation: 0.0,
-                                        backgroundColor: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        onPressed: () {
-                                          setState(() {
-                                            _tcontroller.pause();
-                                            choose = false;
-                                            // context
-                                            //     .read<Pause>()
-                                            //     .paused(_ispaused = false);
-                                            _ispaused = true;
-                                            print('$_ispaused');
-                                            AnimatedSnackBar.material(
-                                              'Paused',
-                                              type:
-                                                  AnimatedSnackBarType.warning,
-                                              mobileSnackBarPosition:
-                                                  MobileSnackBarPosition.bottom,
-                                              desktopSnackBarPosition:
-                                                  DesktopSnackBarPosition
-                                                      .bottomLeft,
-                                              duration:
-                                                  const Duration(milliseconds: 300),
-                                            ).show(context);
-                                          });
-                                        },
-                                        child: Icon(Icons.square,
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Containerr(
+                w: screenwidth,
+                decoration: BoxDecoration(
+                    border: Border(
+                  top: BorderSide(
+                    color: Theme.of(context).dividerColor,
+                    width: 2.0,
+                  ),
+                )),
+                child: start
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            choose
+                                ? SizedBox(
+                                    width: screenwidth * 0.25,
+                                    child: FloatingActionButton(
+                                      elevation: 0.0,
+                                      backgroundColor: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      onPressed: () {
+                                        setState(() {
+                                          _tcontroller.pause();
+                                          choose = false;
+                                          // context
+                                          //     .read<Pause>()
+                                          //     .paused(_ispaused = false);
+                                          _ispaused = true;
+                                          print('$_ispaused');
+                                          AnimatedSnackBar.material(
+                                            'Paused',
+                                            type: AnimatedSnackBarType.warning,
+                                            mobileSnackBarPosition:
+                                                MobileSnackBarPosition.bottom,
+                                            desktopSnackBarPosition:
+                                                DesktopSnackBarPosition
+                                                    .bottomLeft,
+                                            duration: const Duration(
+                                                milliseconds: 300),
+                                          ).show(context);
+                                        });
+                                      },
+                                      child: Icon(Icons.square,
+                                          color: Theme.of(context)
+                                              .scaffoldBackgroundColor,
+                                          size: 35),
+                                    ),
+                                  )
+                                : Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .secondary,
+                                                width: 3,
+                                                style: BorderStyle.solid)),
+                                        width: screenwidth * 0.235,
+                                        child: FloatingActionButton(
+                                          elevation: 0.0,
+                                          backgroundColor: Theme.of(context)
+                                              .scaffoldBackgroundColor,
+                                          onPressed: () {
+                                            setState(() {
+                                              _tcontroller.start();
+                                              choose = true;
+                                              // context
+                                              //     .read<Pause>()
+                                              //     .paused(_ispaused = false);
+                                              _ispaused = false;
+                                            });
+                                          },
+                                          child: Textt(
+                                            text: 'RESUME',
                                             color: Theme.of(context)
-                                                .scaffoldBackgroundColor,
-                                            size: 35),
-                                      ),
-                                    )
-                                  : Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.stretch,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                  color: Theme.of(context)
-                                                      .colorScheme
-                                                      .secondary,
-                                                  width: 3,
-                                                  style: BorderStyle.solid)),
-                                          width: screenwidth * 0.235,
-                                          child: FloatingActionButton(
-                                            elevation: 0.0,
-                                            backgroundColor: Theme.of(context)
-                                                .scaffoldBackgroundColor,
-                                            onPressed: () {
-                                              setState(() {
-                                                _tcontroller.start();
-                                                choose = true;
-                                                // context
-                                                //     .read<Pause>()
-                                                //     .paused(_ispaused = false);
-                                                _ispaused = false;
-                                              });
-                                            },
-                                            child: Textt(
-                                              text: 'RESUME',
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .secondary,
-                                              weight: FontWeight.w900,
-                                              size: 16.0,
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 20,
-                                        ),
-                                        SizedBox(
-                                          width: screenwidth * 0.235,
-                                          child: FloatingActionButton(
-                                            elevation: 0.0,
-                                            backgroundColor: Theme.of(context)
                                                 .colorScheme
                                                 .secondary,
-                                            onPressed: () {
-                                              setState(() {
-                                                now = DateTime.now();
-                                                //*------------------------------------------- Back end code
-                                                final newTrip = Trips(
-                                                  id: 1, // or generate a unique id
-                                                  userid: 'dasda',
-                                                  date: now,
-                                                  distance: double.parse(
-                                                      _distanceTravelled
-                                                          .toStringAsFixed(2)),
-                                                  time: total_time,
-                                                  drowsinesstimes: 5,
-                                                );
-                                                TripsRepository().addTrip(
-                                                    newTrip); // add the trip to the database
-                                                _tcontroller.reset();
-                                                _distanceTravelled = 0;
-                                                total_time = DateTime.now();
-                                                start = false;
-                                                choose = true;
-                                              });
-                                            },
-                                            child: Textt(
-                                              text: 'FINISH',
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                              weight: FontWeight.w900,
-                                              size: 16.0,
-                                            ),
+                                            weight: FontWeight.w900,
+                                            size: 16.0,
                                           ),
                                         ),
-                                      ],
-                                    ),
-                            ],
-                          ),
-                        )
-                      : FloatingActionButton(
-                          elevation: 0.0,
-                          backgroundColor:
-                              Theme.of(context).colorScheme.secondary,
-                          onPressed: () {
-                            setState(() {
-                              _tcontroller.start();
-                              // context.read<Pause>().paused(_ispaused = false);
-                              _ispaused = false;
-                              start = true;
-                              AnimatedSnackBar.material(
-                                'Trip started',
-                                type: AnimatedSnackBarType.warning,
-                                mobileSnackBarPosition:
-                                    MobileSnackBarPosition.bottom,
-                                desktopSnackBarPosition:
-                                    DesktopSnackBarPosition.bottomLeft,
-                                duration: const Duration(milliseconds: 300),
-                              ).show(context);
-                            });
-                          },
-                          child: Textt(
-                            text: 'Start',
-                            color: Theme.of(context).primaryColor,
-                            weight: FontWeight.w700,
-                          ),
-                        )),
-            ],
+                                      ),
+                                      const SizedBox(
+                                        width: 20,
+                                      ),
+                                      SizedBox(
+                                        width: screenwidth * 0.235,
+                                        child: FloatingActionButton(
+                                          elevation: 0.0,
+                                          backgroundColor: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
+                                          onPressed: () {
+                                            setState(() {
+                                              now = DateTime.now();
+                                              //*------------------------------------------- Back end code
+                                              final newTrip = Trips(
+                                                id: 1, // or generate a unique id
+                                                userid: 'dasda',
+                                                date: now,
+                                                distance: double.parse(
+                                                    _distanceTravelled
+                                                        .toStringAsFixed(2)),
+                                                time: total_time,
+                                                drowsinesstimes: 5,
+                                              );
+                                              TripsRepository().addTrip(
+                                                  newTrip); // add the trip to the database
+                                              _tcontroller.reset();
+                                              _distanceTravelled = 0;
+                                              total_time = DateTime.now();
+                                              start = false;
+                                              choose = true;
+                                            });
+                                          },
+                                          child: Textt(
+                                            text: 'FINISH',
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            weight: FontWeight.w900,
+                                            size: 16.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                          ],
+                        ),
+                      )
+                    : FloatingActionButton(
+                        elevation: 0.0,
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondary,
+                        onPressed: () {
+                          setState(() {
+                            _tcontroller.start();
+                            // context.read<Pause>().paused(_ispaused = false);
+                            _ispaused = false;
+                            start = true;
+                            AnimatedSnackBar.material(
+                              'Trip started',
+                              type: AnimatedSnackBarType.warning,
+                              mobileSnackBarPosition:
+                                  MobileSnackBarPosition.bottom,
+                              desktopSnackBarPosition:
+                                  DesktopSnackBarPosition.bottomLeft,
+                              duration: const Duration(milliseconds: 300),
+                            ).show(context);
+                          });
+                        },
+                        child: Textt(
+                          text: 'Start',
+                          color: Theme.of(context).primaryColor,
+                          weight: FontWeight.w700,
+                        ),
+                      )),
           )
         ],
       ),

@@ -22,7 +22,7 @@ class _MainRecordState extends State<MainRecord> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 3, child: TopRecord(distanceTravelled: 0)),
+            Expanded(flex: 2, child: TopRecord(distanceTravelled: 0)),
 
             const Expanded(flex: 24, child: MidRecord()),
             // Expanded(flex:1, child: MidEditProfile()),
