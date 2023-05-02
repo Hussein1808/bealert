@@ -3,6 +3,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
+import 'package:bealert/Record/Repository/trip_data_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -47,6 +48,13 @@ class _ModallState extends State<Modall> {
             confirmBtnText: 'yes',
             confirmBtnColor: Theme.of(context).splashColor,
             showCancelBtn: true,
+            onConfirmBtnTap: () {
+              TripsRepository().deleteTrips();
+              Navigator.pop(context);
+            },
+            onCancelBtnTap: () {
+              Navigator.pop(context);
+            },
           );
         } else if (widget.title == 'logout') {
           QuickAlert.show(
