@@ -54,12 +54,12 @@ class _MainEditProfileState extends State<MainEditProfile> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(flex: 1, child: TopEditProfile()),
+            // const Expanded(flex: 1, child: TopEditProfile()),
             // Expanded(flex:1, child: MidEditProfile()),
             const Expanded(
-                flex: 3,
+                flex: 10,
                 child: Padding(
-                  padding:  EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: BottomEditProfile(),
                 ))
           ],
