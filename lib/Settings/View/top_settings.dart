@@ -1,4 +1,5 @@
 import 'package:bealert/Common_widgets/containerr.dart';
+import 'package:bealert/Const/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,12 +18,20 @@ class _TopSettingsState extends State<TopSettings> {
   // final DateFormat _dateFormatter = DateFormat.MMMEd();
   // late var months = DateFormat.M().format(DateTime.now());
   late var daysinmonth = daysInMonth(DateTime.now().year, DateTime.now().month);
+  String constt = ' name';
+
+  @override
+  void initState() {
+    if (currUser!=null)
+    constt=currUser!.fullname;
+  }
+
   @override
   Widget build(BuildContext context) {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    const constt = ' This is a test';
+
     return SafeArea(
       child: Swipe(
         onSwipeUp: () {
