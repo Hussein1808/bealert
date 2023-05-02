@@ -22,7 +22,12 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
   TextEditingController emergencycontactcontroller = TextEditingController();
   TextEditingController bloodgroupcontroller = TextEditingController();
   String uid = ' ';
-  // Userr a= await getUser(uid);
+  final RegExp namevalid = RegExp(r'(^[a-zA-Z]+$)');
+  final bloodGroupRegex = RegExp(r'^(A|B|AB|O)[+-]$');
+  final RegExp nationalIdRegex = RegExp(r'^[0-9]{1,}$');
+  final formKey = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -79,63 +84,201 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
               Icons.check,
               color: Theme.of(context).scaffoldBackgroundColor,
             ),
-            onPressed: () async {
-              currUser!.username = usernamecontroller.text;
-              currUser!.fullname = fullnamecontroller.text;
-              currUser!.address = addresscontroller.text;
-              currUser!.nationalID = int.parse(nationalIDcontroller.text);
-              currUser!.phonenumber = phonenumbercontroller.text;
-              currUser!.emergencycontact = emergencycontactcontroller.text;
-              currUser!.bloodgroup = bloodgroupcontroller.text;
-              await editUser(currUser!.uid, currUser!);
+            onPressed: () async{
+              if( formKey.currentState!.validate()){
+                currUser!.username=usernamecontroller.text;
+                currUser!.fullname=fullnamecontroller.text;
+                currUser!.address=addresscontroller.text ;
+                currUser!.nationalID=int.parse(nationalIDcontroller.text );
+                currUser!.phonenumber=phonenumbercontroller.text ;
+                currUser!.emergencycontact=emergencycontactcontroller.text ;
+                currUser!.bloodgroup=bloodgroupcontroller.text ;
+                await editUser(currUser!.uid, currUser!);
+              }
+
             },
           ),
         ],
       ),
       body: Form(
+        key: formKey,
+        autovalidateMode:
+        AutovalidateMode.onUserInteraction,
         child: ListView(
           children: [
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Required';
+                } else if (!namevalid.hasMatch(value) &&
+                    !RegExp(r"\s").hasMatch(value)) {
+                  return 'Name must be alphabets';
+                } else if (value.length < 3) {
+                  return 'Name must be atleast 3 characters';
+                } else {
+                  return null;
+                }
+              },
               controller: usernamecontroller,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 labelText: 'Username',
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 3.0,
+                  ),
+                ),
+                errorStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Required';
+                } else {
+                  return null;
+                }
+              },
               controller: fullnamecontroller,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 labelText: 'Full name',
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 3.0,
+                  ),
+                ),
+                errorStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Required';
+                } else {
+                  return null;
+                }
+              },
               controller: addresscontroller,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 labelText: 'Address',
                 focusColor: Colors.red,
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 3.0,
+                  ),
+                ),
+                errorStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Required';
+                } else if (!nationalIdRegex.hasMatch(value)) {
+                  return 'Invalid National ID format';
+                } else {
+                  return null;
+                }
+              },
               controller: nationalIDcontroller,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 labelText: 'National ID',
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 3.0,
+                  ),
+                ),
+                errorStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Required';
+                } else {
+                  return null;
+                }
+              },
               controller: phonenumbercontroller,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 labelText: 'Mobile Number',
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 3.0,
+                  ),
+                ),
+                errorStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Required';
+                } else {
+                  return null;
+                }
+              },
               controller: emergencycontactcontroller,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 labelText: 'Emergency Contact',
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 3.0,
+                  ),
+                ),
+                errorStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             TextFormField(
+              validator: (value) {
+                if (!bloodGroupRegex.hasMatch('$value')) {
+                  return 'Invalid blood group format';
+                }
+                return null;
+              },
               controller: bloodgroupcontroller,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 labelText: 'Blood Group',
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                    width: 3.0,
+                  ),
+                ),
+                errorStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ],
