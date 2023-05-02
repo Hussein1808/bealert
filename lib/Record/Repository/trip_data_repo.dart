@@ -12,5 +12,8 @@ class TripsRepository {
   Future<List<Trips>> getTrips() async {
     return await _tripsData.getTrips();
   }
+  Future<void> deleteTrips() async {
+    await _tripsData.deleteAllTrips();
+  }
 }
  
