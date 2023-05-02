@@ -56,18 +56,18 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text(
           'Edit Profile',
           style: TextStyle(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              fontSize: screenwidth * 0.05),
+              color: Theme.of(context).colorScheme.primary,
+              fontSize: screenwidth * 0.06),
         ),
         centerTitle: true,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
-            color: Theme.of(context).scaffoldBackgroundColor,
+            color: Theme.of(context).colorScheme.primary,
           ),
           onPressed: () {
             GoRouter.of(context).go('/home/4');
@@ -79,14 +79,14 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
               Icons.check,
               color: Theme.of(context).scaffoldBackgroundColor,
             ),
-            onPressed: () async{
-               currUser!.username=usernamecontroller.text;
-               currUser!.fullname=fullnamecontroller.text;
-               currUser!.address=addresscontroller.text ;
-               currUser!.nationalID=int.parse(nationalIDcontroller.text );
-               currUser!.phonenumber=phonenumbercontroller.text ;
-               currUser!.emergencycontact=emergencycontactcontroller.text ;
-               currUser!.bloodgroup=bloodgroupcontroller.text ;
+            onPressed: () async {
+              currUser!.username = usernamecontroller.text;
+              currUser!.fullname = fullnamecontroller.text;
+              currUser!.address = addresscontroller.text;
+              currUser!.nationalID = int.parse(nationalIDcontroller.text);
+              currUser!.phonenumber = phonenumbercontroller.text;
+              currUser!.emergencycontact = emergencycontactcontroller.text;
+              currUser!.bloodgroup = bloodgroupcontroller.text;
               await editUser(currUser!.uid, currUser!);
             },
           ),
