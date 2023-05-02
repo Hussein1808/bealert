@@ -33,7 +33,8 @@ class _TopRecordState extends State<TopRecord> {
             Navigator.pop(context);
           },
         ),
-        title:const Center(child: Textt(text: 'Record', weight: FontWeight.bold)),
+        title:
+            const Center(child: Textt(text: 'Record', weight: FontWeight.bold)),
         actions: [
           IconButton(
             icon: Icon(
@@ -58,19 +59,25 @@ class _TopRecordState extends State<TopRecord> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Expanded(child: SizedBox.shrink()),
-                        const Expanded(child: Textt(text: 'Time')),
+                        // const Expanded(child: Textt(text: 'Time')),
+                        // const Expanded(
+                        //   flex: 2,
+                        //   child: Textt(
+                        //     text: '00:44:24',
+                        //     size: 72.0,
+                        //     font: GoogleFonts.firaSans,
+                        //   ),
+                        // ),
+                        // const Div(),
                         const Expanded(
-                          flex: 2,
-                          child: Textt(
-                            text: '00:44:24',
-                            size: 72.0,
-                            font: GoogleFonts.firaSans,
-                          ),
-                        ),
-                        const Div(),
-                        const Expanded(child: Textt(text: 'Drowsiness Level')),
+                            flex: 2,
+                            child: Textt(
+                              text: 'Drowsiness Level',
+                              weight: FontWeight.bold,
+                              size: 30.0,
+                            )),
                         const Expanded(
-                          flex: 3,
+                          flex: 5,
                           child: CircularSeekBar(
                             width: double.infinity,
                             height: 250,
@@ -98,15 +105,25 @@ class _TopRecordState extends State<TopRecord> {
                           ),
                         ),
                         const Div(),
-                        const Expanded(child: Textt(text: 'Distance')),
+                        const Expanded(flex: 1, child: SizedBox.shrink()),
+                        const Expanded(
+                            flex: 2,
+                            child: Textt(
+                              text: 'Distance',
+                              weight: FontWeight.bold,
+                              size: 30.0,
+                            )),
                         Expanded(
                           flex: 2,
                           child: Textt(
                             text: context.watch<Distance>().dist,
+                            size: 34.0,
                             font: GoogleFonts.firaSans,
+                            weight: FontWeight.bold,
                           ),
                         ),
-                        const Expanded(child: Textt(text: 'Kilometers')),
+                        const Expanded(
+                            flex: 2, child: Textt(text: 'Kilometers')),
                       ],
                     ),
                   ),
