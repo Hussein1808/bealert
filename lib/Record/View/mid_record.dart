@@ -141,7 +141,7 @@ class _MidRecordState extends State<MidRecord>
                                             'Paused',
                                             type: AnimatedSnackBarType.warning,
                                             mobileSnackBarPosition:
-                                                MobileSnackBarPosition.bottom,
+                                                MobileSnackBarPosition.top,
                                             desktopSnackBarPosition:
                                                 DesktopSnackBarPosition
                                                     .bottomLeft,
@@ -178,6 +178,18 @@ class _MidRecordState extends State<MidRecord>
                                             setState(() {
                                               _tcontroller.start();
                                               choose = true;
+                                              AnimatedSnackBar.material(
+                                                'Trip resumed',
+                                                type: AnimatedSnackBarType
+                                                    .warning,
+                                                mobileSnackBarPosition:
+                                                    MobileSnackBarPosition.top,
+                                                desktopSnackBarPosition:
+                                                    DesktopSnackBarPosition
+                                                        .topCenter,
+                                                duration: const Duration(
+                                                    milliseconds: 300),
+                                              ).show(context);
                                               // context
                                               //     .read<Pause>()
                                               //     .paused(_ispaused = false);
@@ -216,10 +228,22 @@ class _MidRecordState extends State<MidRecord>
                                                     _distanceTravelled
                                                         .toStringAsFixed(2)),
                                                 time: total_time,
-                                                drowsinesstimes: 5,
+                                                drowsinesstimes: 0,
                                               );
                                               TripsRepository().addTrip(
                                                   newTrip); // add the trip to the database
+                                              AnimatedSnackBar.material(
+                                                'Trip Saved',
+                                                type: AnimatedSnackBarType
+                                                    .warning,
+                                                mobileSnackBarPosition:
+                                                    MobileSnackBarPosition.top,
+                                                desktopSnackBarPosition:
+                                                    DesktopSnackBarPosition
+                                                        .bottomLeft,
+                                                duration: const Duration(
+                                                    milliseconds: 300),
+                                              ).show(context);
                                               _tcontroller.reset();
                                               _distanceTravelled = 0;
                                               total_time = DateTime.now();
@@ -255,7 +279,7 @@ class _MidRecordState extends State<MidRecord>
                               'Trip started',
                               type: AnimatedSnackBarType.warning,
                               mobileSnackBarPosition:
-                                  MobileSnackBarPosition.bottom,
+                                  MobileSnackBarPosition.top,
                               desktopSnackBarPosition:
                                   DesktopSnackBarPosition.bottomLeft,
                               duration: const Duration(milliseconds: 300),
