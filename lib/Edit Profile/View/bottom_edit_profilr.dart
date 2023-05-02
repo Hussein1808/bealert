@@ -79,7 +79,16 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
               Icons.check,
               color: Theme.of(context).scaffoldBackgroundColor,
             ),
-            onPressed: () {},
+            onPressed: () async{
+               currUser!.username=usernamecontroller.text;
+               currUser!.fullname=fullnamecontroller.text;
+               currUser!.address=addresscontroller.text ;
+               currUser!.nationalID=int.parse(nationalIDcontroller.text );
+               currUser!.phonenumber=phonenumbercontroller.text ;
+               currUser!.emergencycontact=emergencycontactcontroller.text ;
+               currUser!.bloodgroup=bloodgroupcontroller.text ;
+              await editUser(currUser!.uid, currUser!);
+            },
           ),
         ],
       ),

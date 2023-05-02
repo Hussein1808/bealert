@@ -1,8 +1,9 @@
 import 'dart:convert';
 class Userr{
-  Userr({required this.username,required this.fullname,required this.address,required this.nationalID, required this.phonenumber,required this.emergencycontact,required this.bloodgroup});
+  Userr({required this.username,required this.fullname,required this.address,required this.nationalID,required this.uid, required this.phonenumber,required this.emergencycontact,required this.bloodgroup});
   String username;
   String fullname;
+  String uid;
   String address;
   int nationalID;
   String phonenumber;
@@ -13,7 +14,7 @@ class Userr{
   Map<String, dynamic> toMap() {
     return {
       'Username': username,
-      // 'uid': uid,
+      'uid': uid,
       'Fullname': fullname,
       'Address': address,
       'NationalID': nationalID,
@@ -28,6 +29,7 @@ class Userr{
         username: map['Username'] ?? 'not specified',
         fullname: map['Fullname'] ?? "not specified",
         address: map['Address'] ?? 'not specified',
+        uid: map['uid'] ?? "not specified",
         nationalID: map['NationalID'] ?? "not specified",
         phonenumber: map['PhoneNumber'] ?? "not specified",
         emergencycontact: map['EmergencyContact']??'not specified',
