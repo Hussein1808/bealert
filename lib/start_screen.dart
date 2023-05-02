@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/startbuttons.dart';

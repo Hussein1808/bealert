@@ -1,8 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
-import 'bottom_record.dart';
 import 'mid_record.dart';
 import 'top_record.dart';
 

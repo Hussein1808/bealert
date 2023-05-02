@@ -28,12 +28,12 @@ class _TopRecordState extends State<TopRecord> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0.0,
         leading: IconButton(
-          icon: Icon(UniconsLine.arrow_left),
+          icon: const Icon(UniconsLine.arrow_left),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Center(child: Textt(text: 'Record', weight: FontWeight.bold)),
+        title:const Center(child: Textt(text: 'Record', weight: FontWeight.bold)),
         actions: [
           IconButton(
             icon: Icon(
@@ -102,7 +102,7 @@ class _TopRecordState extends State<TopRecord> {
                         Expanded(
                           flex: 2,
                           child: Textt(
-                            text: '${context.watch<Distance>().dist}',
+                            text: context.watch<Distance>().dist,
                             font: GoogleFonts.firaSans,
                           ),
                         ),

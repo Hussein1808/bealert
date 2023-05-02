@@ -1,23 +1,15 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 // ignore_for_file: prefer_const_constructors
 
-import 'package:bealert/Common_widgets/formbuttons.dart';
-import 'package:bealert/Common_widgets/formfield.dart';
 import 'package:bealert/Common_widgets/scaffoldd.dart';
 import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
-import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:bealert/Common_widgets/containerr.dart';
-import 'package:unicons/unicons.dart';
 
-import '../Data/auth_data.dart';
 
 class SignUp_Page extends StatefulWidget {
   const SignUp_Page({super.key});

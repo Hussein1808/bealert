@@ -6,11 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-
 import '../../Common_widgets/containerr.dart';
 import '../../Common_widgets/textt.dart';
 import '../Domain/trip_data_domain.dart';
-import '../Providers/pause_provider.dart';
 import '../Repository/trip_data_repo.dart';
 
 class MidRecord extends StatefulWidget {
@@ -22,7 +20,7 @@ class MidRecord extends StatefulWidget {
 
 class _MidRecordState extends State<MidRecord>
     with SingleTickerProviderStateMixin {
-  late LatLng _initialPosition = LatLng(0, 0);
+  late LatLng _initialPosition = const LatLng(0, 0);
   late GoogleMapController _controller;
   double zoomlvl = 16;
   late StreamSubscription<Position> _positionStreamSubscription;
@@ -78,7 +76,7 @@ class _MidRecordState extends State<MidRecord>
             ),
             onTap: () {},
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
           Expanded(
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
@@ -101,7 +99,7 @@ class _MidRecordState extends State<MidRecord>
                     // total_time = DateTime(
                     //     int.parse(time.hours), int.parse(time.minutes));
                     return Text("${time.hours}:${time.minutes}:${time.seconds}",
-                        style: TextStyle(fontSize: 24.0));
+                        style:const  TextStyle(fontSize: 24.0));
                   }),
               Containerr(
                   w: screenwidth,
@@ -146,7 +144,7 @@ class _MidRecordState extends State<MidRecord>
                                                   DesktopSnackBarPosition
                                                       .bottomLeft,
                                               duration:
-                                                  Duration(milliseconds: 300),
+                                                  const Duration(milliseconds: 300),
                                             ).show(context);
                                           });
                                         },
@@ -194,7 +192,7 @@ class _MidRecordState extends State<MidRecord>
                                             ),
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 20,
                                         ),
                                         SizedBox(
@@ -207,15 +205,7 @@ class _MidRecordState extends State<MidRecord>
                                             onPressed: () {
                                               setState(() {
                                                 now = DateTime.now();
-
                                                 //*------------------------------------------- Back end code
-                                                print(
-                                                    '------------------------------------------------------${total_time}');
-                                                print(
-                                                    '------------------------------------------------------${_distanceTravelled}');
-                                                print(
-                                                    '----------------------------------------------------${now}');
-
                                                 final newTrip = Trips(
                                                   id: 1, // or generate a unique id
                                                   userid: 'dasda',
@@ -231,11 +221,6 @@ class _MidRecordState extends State<MidRecord>
                                                 _tcontroller.reset();
                                                 _distanceTravelled = 0;
                                                 total_time = DateTime.now();
-                                                ;
-                                                print(
-                                                    '------------------------------------------------------${total_time}');
-                                                print(
-                                                    '------------------------------------------------------${_distanceTravelled}');
                                                 start = false;
                                                 choose = true;
                                               });

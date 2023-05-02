@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'bottom_statistics.dart';
@@ -23,15 +22,15 @@ class _MainStatisticsState extends State<MainStatistics> {
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Expanded(flex: 2, child: TopStatistics()),
-            const Expanded(
+          children:const [
+             Expanded(flex: 2, child: TopStatistics()),
+             Expanded(
                 flex: 7,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                   child: MidStatistics(),
                 )),
-            const Expanded(
+             Expanded(
                 flex: 5,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
