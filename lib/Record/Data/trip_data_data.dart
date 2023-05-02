@@ -6,8 +6,7 @@ import '../Domain/trip_data_domain.dart';
 class TripsData {
   final CollectionReference _tripsCollection =
       FirebaseFirestore.instance.collection('trips');
-      final uid = FirebaseAuth.instance.currentUser!.uid;
-
+  final uid = FirebaseAuth.instance.currentUser!.uid;
 
   Future<void> addTrip(Trips trip) async {
     try {
@@ -23,22 +22,36 @@ class TripsData {
       print(e);
     }
   }
-  
+
   Future<List<Trips>> getTrips() async {
     final uid = FirebaseAuth.instance.currentUser!.uid;
 
-    
+    final tripsQuerySnapshot = await FirebaseFirestore.instance
+        .collection('Users')
+        .doc(uid)
+        .collection('userTrips')
+        .get();
+
+    final tripsData =
+        tripsQuerySnapshot.docs.map((e) => Trips.fromMap(e)).toList();
+    return tripsData;
+  }
+
+  Future<void> deleteAllTrips() async {
+    try {
       final tripsQuerySnapshot = await FirebaseFirestore.instance
           .collection('Users')
           .doc(uid)
           .collection('userTrips')
           .get();
 
-      final tripsData = tripsQuerySnapshot.docs.map((e) =>Trips.fromMap(e)).toList();
-      return tripsData;
-          
-          
-    
+      final batch = FirebaseFirestore.instance.batch();
+      tripsQuerySnapshot.docs.forEach((doc) {
+        batch.delete(doc.reference);
+      });
+      await batch.commit();
+    } catch (e) {
+      print(e);
+    }
   }
 }
-
