@@ -10,6 +10,11 @@ import '../../Common_widgets/containerr.dart';
 import '../../Common_widgets/textt.dart';
 import '../Domain/trip_data_domain.dart';
 import '../Repository/trip_data_repo.dart';
+import '../api/notification_api.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 
 class MidRecord extends StatefulWidget {
   const MidRecord({Key? key}) : super(key: key);
@@ -40,6 +45,7 @@ class _MidRecordState extends State<MidRecord>
   void initState() {
     super.initState();
     _determinePosition();
+    Noti.initialize(flutterLocalNotificationsPlugin);
   }
 
   @override
@@ -253,6 +259,34 @@ class _MidRecordState extends State<MidRecord>
                                           },
                                           child: Textt(
                                             text: 'FINISH',
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            weight: FontWeight.w900,
+                                            size: 16.0,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 20,
+                                      ),
+                                      SizedBox(
+                                        width: screenwidth * 0.235,
+                                        child: FloatingActionButton(
+                                          elevation: 0.0,
+                                          backgroundColor: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
+                                          onPressed: () async {
+                                            // Create the notification details
+                                            Noti.showBigTextNotification(
+                                                title: "Warning",
+                                                body:
+                                                    " Please take a break and rest before continuing your journey",
+                                                fln:
+                                                    flutterLocalNotificationsPlugin);
+                                          },
+                                          child: Textt(
+                                            text: 'Test',
                                             color:
                                                 Theme.of(context).primaryColor,
                                             weight: FontWeight.w900,
