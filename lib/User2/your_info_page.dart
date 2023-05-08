@@ -9,10 +9,6 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:unicons/unicons.dart';
 
 
-
-
-
-
 class Your_Info_Page extends StatefulWidget {
   String userName;
   String email;
@@ -190,7 +186,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             ),
                           ),
                           const SizedBoxx(),
-                        //* Address field
+                          //* Address field
                           Form(
                             key: formKey2,
                             autovalidateMode:
@@ -226,3 +222,42 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                     width: 3.0,
                                   ),
                                 ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
+                                hintText: "Address",
+                                hintStyle: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
+                                ),
+                                prefixIcon: const Icon(
+                                  UniconsLine.location_point,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBoxx(),
+                          //* National ID field
