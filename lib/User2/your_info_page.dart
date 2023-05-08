@@ -232,14 +232,14 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                 errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                   borderSide: BorderSide(
-                                    color: Colors.red,
+                                    color: Colors.grey,
                                     width: 3.0,
                                   ),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                   borderSide: BorderSide(
-                                    color: Colors.red,
+                                    color: Colors.blue,
                                     width: 3.0,
                                   ),
                                 ),
