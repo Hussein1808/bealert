@@ -166,3 +166,41 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                     width: 3.0,
                                   ),
                                 ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
+                                hintText: "Full Name",
+                                hintStyle: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
+                                ),
+                                prefixIcon: const Icon(
+                                  UniconsLine.user,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBoxx(),
+                          //* Address field
+                          Form(
+                            key: formKey2,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            child: TextFormField(
+                              controller: addresscontrolller,
+                              validator: (value2) {
+                                if (value2!.isEmpty) {
+                                  return 'Required';
+                                } else {
+                                  return null;
+                                }
+                              },
