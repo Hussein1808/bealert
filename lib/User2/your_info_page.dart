@@ -407,3 +407,76 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                           ),
                           const SizedBoxx(),
                           //* Blood group
+                           Form(
+                            key: formKey6,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            child: TextFormField(
+                              controller: bloodGroupcontrolller,
+                              obscureText: !_isVisible2,
+                              validator: (value6) {
+                                if (!bloodGroupRegex.hasMatch('$value6')) {
+                                  return 'Invalid blood group format';
+                                }
+                                return null;
+                              },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
+                              decoration: InputDecoration(
+                                errorMaxLines: 2,
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
+                                hintText: "Blood group",
+                                hintStyle: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
+                                ),
+                                prefixIcon: const Icon(
+                                  UniconsLine.medical_drip,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBoxx(h: 30.0),
