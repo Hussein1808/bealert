@@ -381,11 +381,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                               autoValidateMode:
                                   AutovalidateMode.onUserInteraction,
                               validator: (value5) {
-                                if (value5!.isEmpty) {
-                                  return 'Required';
-                                } else {
-                                  return null;
-                                }
+                               
                               },
                               onInputValidated: (bool value) {},
                               selectorConfig: SelectorConfig(
@@ -496,3 +492,69 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                             BorderRadius.circular(30.0),
                                       ),
                                     ),
+                                      onPressed: () {},
+                                    child: Textt(
+                                        text: 'Auto fill',
+                                        size: 24.0,
+                                        color: Theme.of(context).primaryColor,
+                                        weight: FontWeight.bold)),
+                              ),
+                              SizedBox(
+                                height: 60.0,
+                                width: 90,
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Theme.of(context).splashColor,
+                                      shape: CircleBorder(),
+                                    ),
+                                    onPressed: () {
+                                      // if (formKey.currentState!.validate() &&
+                                      //     formKey2.currentState!.validate() &&
+                                      //     formKey3.currentState!.validate() &&
+                                      //     formKey4.currentState!.validate() &&
+                                      //     formKey5.currentState!.validate() &&
+                                      //     formKey6.currentState!.validate()) {
+                                      GoRouter.of(context).pushNamed(
+                                          'vehicle_info_page',
+                                          params: {
+                                            'username': userName,
+                                            'password': password,
+                                            'email': email,
+                                            'fullName':
+                                                fullNamecontrolller.text.trim(),
+                                            'address':
+                                                addresscontrolller.text.trim(),
+                                            'nationalID': nationalIDcontrolller
+                                                .text
+                                                .trim(),
+                                            'phoneNumber':
+                                                phoneNumbercontrolller.text
+                                                    .trim(),
+                                            'emergencyContact':
+                                                emergencyContactcontrolller.text
+                                                    .trim(),
+                                            'bloodGroup': bloodGroupcontrolller
+                                                .text
+                                                .trim(),
+                                          });
+                                      // }
+                                    },
+                                    child: const Icon(
+                                      UniconsLine.arrow_right,
+                                      size: 42.0,
+                                    )),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ));
+  }
+}
