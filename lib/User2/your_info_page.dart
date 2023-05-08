@@ -56,3 +56,10 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
   final formKey4 = GlobalKey<FormState>();
   final formKey5 = GlobalKey<FormState>();
   final formKey6 = GlobalKey<FormState>();
+ final TextEditingController fullNamecontrolller = TextEditingController();
+  final TextEditingController addresscontrolller = TextEditingController();
+  final TextEditingController nationalIDcontrolller = TextEditingController();
+  final TextEditingController phoneNumbercontrolller = TextEditingController();
+  final TextEditingController emergencyContactcontrolller =
+      TextEditingController();
+  final TextEditingController bloodGroupcontrolller = TextEditingController();
