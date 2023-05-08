@@ -84,3 +84,31 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                       topLeft: Radius.circular(50.0),
                       topRight: Radius.circular(50.0)),
                 ),
+                 child: Padding(
+                  padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
+                  child: Center(
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Column(
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                IconButton(
+                                  onPressed: (() =>
+                                      GoRouter.of(context).go('/signup_page')),
+                                  icon: const Icon(
+                                    UniconsLine.angle_left,
+                                  ),
+                                  iconSize: 50,
+                                ),
+                                const Textt(
+                                  text: 'Your Info',
+                                  size: 48.0,
+                                  font: GoogleFonts.righteous,
+                                ),
+                              ]),
+                          const SizedBoxx(
+                            h: 30.0,
+                          ),
+                          //* full name field
