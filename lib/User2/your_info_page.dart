@@ -310,19 +310,19 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                 errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                   borderSide: BorderSide(
-                                    color: Colors.red,
+                                    color: Colors.green,
                                     width: 3.0,
                                   ),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                   borderSide: BorderSide(
-                                    color: Colors.red,
+                                    color: Colors.grey,
                                     width: 3.0,
                                   ),
                                 ),
                                 errorStyle: TextStyle(
-                                    color: Colors.red,
+                                    color: Colors.blue,
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold),
                                 hintText: "National ID",
