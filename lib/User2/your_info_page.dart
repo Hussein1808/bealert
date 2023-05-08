@@ -190,7 +190,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             ),
                           ),
                           const SizedBoxx(),
-                          //* Address field
+                        //* Address field
                           Form(
                             key: formKey2,
                             autovalidateMode:
@@ -204,3 +204,25 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   return null;
                                 }
                               },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
+                              decoration: InputDecoration(
+                                errorMaxLines: 2,
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
