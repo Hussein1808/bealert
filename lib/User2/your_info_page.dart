@@ -480,3 +480,19 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             ),
                           ),
                           const SizedBoxx(h: 30.0),
+                              //* Sign up button
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                height: 60,
+                                width: 180,
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Theme.of(context).splashColor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                      ),
+                                    ),
