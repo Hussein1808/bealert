@@ -381,7 +381,11 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                               autoValidateMode:
                                   AutovalidateMode.onUserInteraction,
                               validator: (value5) {
-                               
+                                if (value5!.isEmpty) {
+                                  return 'Required';
+                                } else {
+                                  return null;
+                                }
                               },
                               onInputValidated: (bool value) {},
                               selectorConfig: SelectorConfig(
