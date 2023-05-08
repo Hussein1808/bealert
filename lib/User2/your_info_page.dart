@@ -112,3 +112,57 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                             h: 30.0,
                           ),
                           //* full name field
+                            Form(
+                            key: formKey,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            child: TextFormField(
+                              controller: fullNamecontrolller,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Required';
+                                } else if (!namevalid.hasMatch(value) &&
+                                    !RegExp(r"\s").hasMatch(value)) {
+                                  return 'Name must be alphabets';
+                                } else if (value.length < 3) {
+                                  return 'Name must be atleast 3 characters';
+                                } else {
+                                  return null;
+                                }
+                              },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
+                              decoration: InputDecoration(
+                                errorMaxLines: 2,
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
