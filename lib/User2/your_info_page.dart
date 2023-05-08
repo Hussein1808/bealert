@@ -92,7 +92,14 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                       child: Column(
                         children: [
                           Row(
-                              
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                IconButton(
+                                  onPressed: (() =>
+                                      GoRouter.of(context).go('/signup_page')),
+                                  icon: const Icon(
+                                    UniconsLine.angle_left,
+                                  ),
                                   iconSize: 50,
                                 ),
                                 const Textt(
