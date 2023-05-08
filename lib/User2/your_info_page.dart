@@ -337,3 +337,73 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                               ),
                             ),
                           ),
+                            SizedBoxx(),
+                          //* Mobile number
+                          Form(
+                            key: formKey4,
+                            child: InternationalPhoneNumberInput(
+                              textFieldController: phoneNumbercontrolller,
+                              onInputChanged: (PhoneNumber number) {},
+                              autoValidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (value4) {
+                                if (value4!.isEmpty) {
+                                  return 'Required';
+                                } else {
+                                  return null;
+                                }
+                              },
+                              selectorConfig: const SelectorConfig(
+                                selectorType:
+                                    PhoneInputSelectorType.BOTTOM_SHEET,
+                              ),
+                              selectorTextStyle:
+                                  const TextStyle(color: Colors.black),
+                              ignoreBlank: false,
+                              formatInput: true,
+                              keyboardType: TextInputType.number,
+                              inputBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBoxx(),
+                          //* Emergency contact
+                          Form(
+                            key: formKey5,
+                            child: InternationalPhoneNumberInput(
+                              textFieldController: emergencyContactcontrolller,
+                              onInputChanged: (PhoneNumber number) {},
+                              autoValidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (value5) {
+                                if (value5!.isEmpty) {
+                                  return 'Required';
+                                } else {
+                                  return null;
+                                }
+                              },
+                              onInputValidated: (bool value) {},
+                              selectorConfig: SelectorConfig(
+                                selectorType:
+                                    PhoneInputSelectorType.BOTTOM_SHEET,
+                              ),
+                              hintText: 'Emergency Contact',
+                              selectorTextStyle:
+                                  const TextStyle(color: Colors.black),
+                              ignoreBlank: false,
+                              formatInput: true,
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      signed: true, decimal: true),
+                              inputBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                            ),
+                          ),
+                          const SizedBoxx(),
+                          //* Blood group
