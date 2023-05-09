@@ -300,7 +300,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                     width: 3.0,
                                   ),
                                 ),
-                                focusedBorder: UnderlineInputBorder((
+                                focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                   borderSide: BorderSide(
                                     color: Colors.black,
@@ -311,7 +311,7 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                                   borderRadius: BorderRadius.circular(10.0),
                                   borderSide: BorderSide(
                                     color: Colors.red,
-                                    width: 4.0,
+                                    width: 3.0,
                                   ),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
