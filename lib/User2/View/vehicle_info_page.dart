@@ -13,6 +13,10 @@ class Vehicle_Info_Page extends StatefulWidget {
   String password;
   String fullName;
   String address;
+  int nationalID;
+  String phoneNumber;
+  String emergencyContact;
+  String bloodGroup;
  
   Vehicle_Info_Page(
       {required this.userName,
@@ -20,6 +24,10 @@ class Vehicle_Info_Page extends StatefulWidget {
       required this.password,
       required this.fullName,
       required this.address,
+      required this.nationalID,
+      required this.phoneNumber,
+      required this.emergencyContact,
+      required this.bloodGroup,
 
       super.key});
 
