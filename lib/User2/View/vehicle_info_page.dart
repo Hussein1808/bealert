@@ -8,6 +8,7 @@ import 'package:unicons/unicons.dart';
 
 import '../../Common_widgets/containerr.dart';
 import '../../Common_widgets/scaffoldd.dart';
+import '../../Common_widgets/sizedboxx.dart';
 import '../../Common_widgets/textt.dart';
 import '../../Const/constants.dart';
 import 'package:bealert/User/Data/auth_data.dart';
@@ -54,7 +55,14 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
 
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
+
+    final RegExp namevalid = RegExp(r'(^[a-zA-Z]+$)');
+
+    final RegExp number = RegExp(r'^\d{1,4}$');
     return Scaffoldd(
+        bcolor: Theme.of(context).colorScheme.secondary,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -91,6 +99,26 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                                   font: GoogleFonts.righteous,
                                 ),
                               ]),
+                              SizedBoxx(h: 30.0),
+                          //* Owner's name
+                          Form(
+                            key: formKey7,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            child: TextFormField(
+                              controller: ownername,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Required';
+                                } else if (!namevalid.hasMatch(value) &&
+                                    !RegExp(r"\s").hasMatch(value)) {
+                                  return 'Name must be alphabets';
+                                } else if (value.length < 3) {
+                                  return 'Name must be atleast 3 characters';
+                                } else {
+                                  return null;
+                                }
+                              },
                       ],
                     ),
                   ),
