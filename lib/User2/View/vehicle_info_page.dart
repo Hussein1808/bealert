@@ -182,163 +182,237 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                           ),
                         ),
                         SizedBoxx(),
-                          //* Brand
-                          Form(
-                            key: formKey8,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            child: TextFormField(
-                              controller: brand,
-                              validator: (value2) {
-                                if (value2!.isEmpty) {
-                                  return 'Required';
-                                } else {
-                                  return null;
-                                }
-                              },
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).colorScheme.primary,
-                                  decoration: TextDecoration.none),
-                              decoration: InputDecoration(
-                                errorMaxLines: 2,
-                                border: InputBorder.none,
-                                disabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.black,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorStyle: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold),
-                                hintText: "Brand",
-                                hintStyle: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
+                        //* Brand
+                        Form(
+                          key: formKey8,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: TextFormField(
+                            controller: brand,
+                            validator: (value2) {
+                              if (value2!.isEmpty) {
+                                return 'Required';
+                              } else {
+                                return null;
+                              }
+                            },
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary,
+                                decoration: TextDecoration.none),
+                            decoration: InputDecoration(
+                              errorMaxLines: 2,
+                              border: InputBorder.none,
+                              disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
                                   color: Theme.of(context).focusColor,
+                                  width: 3.0,
                                 ),
-                                prefixIcon: Icon(
-                                  UniconsLine.car,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
                                 ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.black,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorStyle: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold),
+                              hintText: "Brand",
+                              hintStyle: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).focusColor,
+                              ),
+                              prefixIcon: Icon(
+                                UniconsLine.car,
                               ),
                             ),
                           ),
-                          SizedBoxx(),
-                          //* Color
-                          Form(
-                            key: formKey9,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            child: TextFormField(
-                              controller: color,
-                              validator: (value3) {
-                                if (value3!.isEmpty) {
-                                  return 'Required';
-                                } else {
-                                  return null;
-                                }
-                              },
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).colorScheme.primary,
-                                  decoration: TextDecoration.none),
-                              decoration: InputDecoration(
-                                errorMaxLines: 2,
-                                border: InputBorder.none,
-                                disabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.black,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorStyle: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold),
-                                hintText: "Color",
-                                hintStyle: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
+                        ),
+                        SizedBoxx(),
+                        //* Color
+                        Form(
+                          key: formKey9,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: TextFormField(
+                            controller: color,
+                            validator: (value3) {
+                              if (value3!.isEmpty) {
+                                return 'Required';
+                              } else {
+                                return null;
+                              }
+                            },
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary,
+                                decoration: TextDecoration.none),
+                            decoration: InputDecoration(
+                              errorMaxLines: 2,
+                              border: InputBorder.none,
+                              disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
                                   color: Theme.of(context).focusColor,
+                                  width: 3.0,
                                 ),
-                                prefixIcon: Icon(
-                                  UniconsLine.palette,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
                                 ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.black,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorStyle: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold),
+                              hintText: "Color",
+                              hintStyle: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).focusColor,
+                              ),
+                              prefixIcon: Icon(
+                                UniconsLine.palette,
                               ),
                             ),
                           ),
-                           SizedBoxx(),
-                          Row(
-                            children: [
-                              Textt(
-                                text: 'License plate',
-                                size: 20.0,
-                                weight: FontWeight.bold,
+                        ),
+                        SizedBoxx(),
+                        Row(
+                          children: [
+                            Textt(
+                              text: 'License plate',
+                              size: 20.0,
+                              weight: FontWeight.bold,
+                            ),
+                          ],
+                        ),
+                        SizedBoxx(),
+                        //* Numbers
+                        Form(
+                          key: formKey10,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: TextFormField(
+                            controller: platenumbers,
+                            keyboardType: TextInputType.number,
+                            validator: (value4) {
+                              if (value4!.isEmpty) {
+                                return 'Required';
+                              } else if (!number.hasMatch(value4)) {
+                                return 'The number must have up to 4 digits and contain only numeric digits';
+                              } else {
+                                return null;
+                              }
+                            },
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary,
+                                decoration: TextDecoration.none),
+                            decoration: InputDecoration(
+                              errorMaxLines: 2,
+                              border: InputBorder.none,
+                              disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
+                                ),
                               ),
-                            ],
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.black,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorStyle: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold),
+                              hintText: "Numbers",
+                              hintStyle: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).focusColor,
+                              ),
+                              prefixIcon: Icon(
+                                Icons.numbers,
+                              ),
+                            ),
                           ),
+                        ),
                       ],
                     ),
                   ),
