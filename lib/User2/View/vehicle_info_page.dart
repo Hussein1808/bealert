@@ -414,105 +414,105 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                           ),
                         ),
                         SizedBoxx(),
-                          //* Letters
-                          Form(
-                            key: formKey11,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            child: TextFormField(
-                              controller: plateletters,
-                              validator: (value5) {
-                                if (value5!.isEmpty) {
-                                  return 'Required';
-                                } else {
-                                  return null;
-                                }
-                              },
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).colorScheme.primary,
-                                  decoration: TextDecoration.none),
-                              decoration: InputDecoration(
-                                errorMaxLines: 2,
-                                border: InputBorder.none,
-                                disabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.black,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorStyle: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold),
-                                hintText: "Letters",
-                                hintStyle: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
+                        //* Letters
+                        Form(
+                          key: formKey11,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: TextFormField(
+                            controller: plateletters,
+                            validator: (value5) {
+                              if (value5!.isEmpty) {
+                                return 'Required';
+                              } else {
+                                return null;
+                              }
+                            },
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary,
+                                decoration: TextDecoration.none),
+                            decoration: InputDecoration(
+                              errorMaxLines: 2,
+                              border: InputBorder.none,
+                              disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
                                   color: Theme.of(context).focusColor,
+                                  width: 3.0,
                                 ),
-                                prefixIcon: Icon(
-                                  UniconsLine.letter_english_a,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
                                 ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.black,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorStyle: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold),
+                              hintText: "Letters",
+                              hintStyle: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).focusColor,
+                              ),
+                              prefixIcon: Icon(
+                                UniconsLine.letter_english_a,
                               ),
                             ),
                           ),
-                          SizedBoxx(h: 32.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: SizedBox(
-                                  height: screenheight * 0.07,
-                                  child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor:
-                                            Theme.of(context).splashColor,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30.0),
-                                        ),
+                        ),
+                        SizedBoxx(h: 32.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: SizedBox(
+                                height: screenheight * 0.07,
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Theme.of(context).splashColor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
                                       ),
-                                      onPressed: signUp,
-                                      child: Textt(
-                                          text: 'Finish',
-                                          size: 24.0,
-                                          color: Theme.of(context).primaryColor,
-                                          weight: FontWeight.bold)),
-                                ),
-                              )
-                            ],
-                          ),
+                                    ),
+                                    onPressed: signUp,
+                                    child: Textt(
+                                        text: 'Finish',
+                                        size: 24.0,
+                                        color: Theme.of(context).primaryColor,
+                                        weight: FontWeight.bold)),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBoxx(h: 46.0),
                       ],
                     ),
                   ),
@@ -524,6 +524,7 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
       ),
     );
   }
+
   Future signUp() async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -531,24 +532,22 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
         password: widget.password,
       );
       userSetup(
-          widget.userName,
-          widget.fullName,
-          widget.address,
-          widget.nationalID,
-          widget.phoneNumber,
-          widget.emergencyContact,
-          widget.bloodGroup,
-          // ownername.text,
-          ownername.text.trim(),
-          brand.text.trim(),
-          color.text.trim(),
-          plateletters.text.trim(),
-          int.parse(platenumbers.text)).then((value)async=>
-          getUser(value)
-              .then((value)
-          {
-            currUser=value;
-          }));
+              widget.userName,
+              widget.fullName,
+              widget.address,
+              widget.nationalID,
+              widget.phoneNumber,
+              widget.emergencyContact,
+              widget.bloodGroup,
+              // ownername.text,
+              ownername.text.trim(),
+              brand.text.trim(),
+              color.text.trim(),
+              plateletters.text.trim(),
+              int.parse(platenumbers.text))
+          .then((value) async => getUser(value).then((value) {
+                currUser = value;
+              }));
       // vehicleUpdate(ownername.text.trim(), brand.text.trim(), color.text.trim(),
       //     plateletters.text.trim(), int.parse(platenumbers.text));
       // var collection = FirebaseFirestore.instance.collection('Users');
