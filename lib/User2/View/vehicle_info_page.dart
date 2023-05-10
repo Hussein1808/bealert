@@ -329,6 +329,16 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                               ),
                             ),
                           ),
+                           SizedBoxx(),
+                          Row(
+                            children: [
+                              Textt(
+                                text: 'License plate',
+                                size: 20.0,
+                                weight: FontWeight.bold,
+                              ),
+                            ],
+                          ),
                       ],
                     ),
                   ),
