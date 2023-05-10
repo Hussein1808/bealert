@@ -4,6 +4,7 @@ import 'package:bealert/Record/Providers/distance_providers.dart';
 import 'package:custom_timer/custom_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../Common_widgets/containerr.dart';
@@ -278,10 +279,12 @@ class _MidRecordState extends State<MidRecord>
                                               .secondary,
                                           onPressed: () async {
                                             // Create the notification details
+                                            GoRouter.of(context)
+                                                .push('/warning');
                                             Noti.showBigTextNotification(
-                                                title: "Warning",
+                                                title: "Warning ",
                                                 body:
-                                                    " Please take a break and rest before continuing your journey",
+                                                    " drowsiness detected Take a break ",
                                                 fln:
                                                     flutterLocalNotificationsPlugin);
                                           },
