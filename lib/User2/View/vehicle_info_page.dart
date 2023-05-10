@@ -1,15 +1,19 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bealert/Common_widgets/formbuttons.dart';
+import 'package:bealert/Common_widgets/formfield.dart';
+import 'package:bealert/Common_widgets/scaffoldd.dart';
+import 'package:bealert/Common_widgets/sizedboxx.dart';
+import 'package:bealert/Common_widgets/textt.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../Common_widgets/containerr.dart';
-import '../../Common_widgets/scaffoldd.dart';
-import '../../Common_widgets/sizedboxx.dart';
-import '../../Common_widgets/textt.dart';
 import '../../Const/constants.dart';
 import 'package:bealert/User/Data/auth_data.dart';
 
@@ -177,6 +181,80 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                             ),
                           ),
                         ),
+                        SizedBoxx(),
+                          //* Brand
+                          Form(
+                            key: formKey8,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            child: TextFormField(
+                              controller: brand,
+                              validator: (value2) {
+                                if (value2!.isEmpty) {
+                                  return 'Required';
+                                } else {
+                                  return null;
+                                }
+                              },
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  decoration: TextDecoration.none),
+                              decoration: InputDecoration(
+                                errorMaxLines: 2,
+                                border: InputBorder.none,
+                                disabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Theme.of(context).focusColor,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 3.0,
+                                  ),
+                                ),
+                                errorStyle: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
+                                hintText: "Brand",
+                                hintStyle: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).focusColor,
+                                ),
+                                prefixIcon: Icon(
+                                  UniconsLine.car,
+                                ),
+                              ),
+                            ),
+                          ),
                       ],
                     ),
                   ),
