@@ -487,6 +487,32 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                               ),
                             ),
                           ),
+                          SizedBoxx(h: 32.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: SizedBox(
+                                  height: screenheight * 0.07,
+                                  child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor:
+                                            Theme.of(context).splashColor,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30.0),
+                                        ),
+                                      ),
+                                      onPressed: signUp,
+                                      child: Textt(
+                                          text: 'Finish',
+                                          size: 24.0,
+                                          color: Theme.of(context).primaryColor,
+                                          weight: FontWeight.bold)),
+                                ),
+                              )
+                            ],
+                          ),
                       ],
                     ),
                   ),
@@ -497,5 +523,43 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
         ],
       ),
     );
+  }
+  Future signUp() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: widget.email,
+        password: widget.password,
+      );
+      userSetup(
+          widget.userName,
+          widget.fullName,
+          widget.address,
+          widget.nationalID,
+          widget.phoneNumber,
+          widget.emergencyContact,
+          widget.bloodGroup,
+          // ownername.text,
+          ownername.text.trim(),
+          brand.text.trim(),
+          color.text.trim(),
+          plateletters.text.trim(),
+          int.parse(platenumbers.text)).then((value)async=>
+          getUser(value)
+              .then((value)
+          {
+            currUser=value;
+          }));
+      vehicleUpdate(ownername.text.trim(), brand.text.trim(), color.text.trim(),
+          plateletters.text.trim(), int.parse(platenumbers.text));
+      var collection = FirebaseFirestore.instance.collection('Users');
+      var snapshots = await collection.get();
+      for (var doc in snapshots.docs) {
+        await doc.reference.delete();
+      }
+
+      GoRouter.of(context).go('/Login_page');
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
   }
 }
