@@ -36,6 +36,18 @@ class Vehicle_Info_Page extends StatefulWidget {
 }
 
 class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
+    static GlobalKey<FormState> formKey7 =  GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey8 =  GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey9 =  GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey10 =  GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey11 =  GlobalKey<FormState>();
+
+  final TextEditingController ownername = TextEditingController();
+  final TextEditingController brand = TextEditingController();
+  final TextEditingController color = TextEditingController();
+  final TextEditingController platenumbers = TextEditingController();
+  final TextEditingController plateletters = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
