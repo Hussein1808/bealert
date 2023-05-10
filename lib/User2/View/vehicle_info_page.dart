@@ -62,7 +62,7 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
 
     final RegExp number = RegExp(r'^\d{1,4}$');
     return Scaffoldd(
-        bcolor: Theme.of(context).colorScheme.secondary,
+      bcolor: Theme.of(context).colorScheme.secondary,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -83,42 +83,100 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                     child: Column(
                       children: [
                         Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                IconButton(
-                                  onPressed: (() => GoRouter.of(context)
-                                      .go('/your_info_page')),
-                                  icon: Icon(
-                                    UniconsLine.angle_left,
-                                  ),
-                                  iconSize: 50,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              IconButton(
+                                onPressed: (() =>
+                                    GoRouter.of(context).go('/your_info_page')),
+                                icon: Icon(
+                                  UniconsLine.angle_left,
                                 ),
-                                Textt(
-                                  text: 'Vehicle Info',
-                                  size: 48.0,
-                                  font: GoogleFonts.righteous,
+                                iconSize: 50,
+                              ),
+                              Textt(
+                                text: 'Vehicle Info',
+                                size: 48.0,
+                                font: GoogleFonts.righteous,
+                              ),
+                            ]),
+                        SizedBoxx(h: 30.0),
+                        //* Owner's name
+                        Form(
+                          key: formKey7,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: TextFormField(
+                            controller: ownername,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Required';
+                              } else if (!namevalid.hasMatch(value) &&
+                                  !RegExp(r"\s").hasMatch(value)) {
+                                return 'Name must be alphabets';
+                              } else if (value.length < 3) {
+                                return 'Name must be atleast 3 characters';
+                              } else {
+                                return null;
+                              }
+                            },
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary,
+                                decoration: TextDecoration.none),
+                            decoration: InputDecoration(
+                              errorMaxLines: 2,
+                              border: InputBorder.none,
+                              disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
                                 ),
-                              ]),
-                              SizedBoxx(h: 30.0),
-                          //* Owner's name
-                          Form(
-                            key: formKey7,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            child: TextFormField(
-                              controller: ownername,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Required';
-                                } else if (!namevalid.hasMatch(value) &&
-                                    !RegExp(r"\s").hasMatch(value)) {
-                                  return 'Name must be alphabets';
-                                } else if (value.length < 3) {
-                                  return 'Name must be atleast 3 characters';
-                                } else {
-                                  return null;
-                                }
-                              },
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Theme.of(context).focusColor,
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.black,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3.0,
+                                ),
+                              ),
+                              errorStyle: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold),
+                              hintText: "Owner's name",
+                              hintStyle: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).focusColor,
+                              ),
+                              prefixIcon: Icon(
+                                UniconsLine.user,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
