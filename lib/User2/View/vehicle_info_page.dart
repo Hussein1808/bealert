@@ -4,6 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
+import '../../Common_widgets/containerr.dart';
+import '../../Common_widgets/scaffoldd.dart';
 import '../../Const/constants.dart';
 import 'package:bealert/User/Data/auth_data.dart';
 
@@ -17,7 +19,7 @@ class Vehicle_Info_Page extends StatefulWidget {
   String phoneNumber;
   String emergencyContact;
   String bloodGroup;
- 
+
   Vehicle_Info_Page(
       {required this.userName,
       required this.email,
@@ -28,7 +30,6 @@ class Vehicle_Info_Page extends StatefulWidget {
       required this.phoneNumber,
       required this.emergencyContact,
       required this.bloodGroup,
-
       super.key});
 
   @override
@@ -36,22 +37,30 @@ class Vehicle_Info_Page extends StatefulWidget {
 }
 
 class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
-    static GlobalKey<FormState> formKey7 =  GlobalKey<FormState>();
-  static GlobalKey<FormState> formKey8 =  GlobalKey<FormState>();
-  static GlobalKey<FormState> formKey9 =  GlobalKey<FormState>();
-  static GlobalKey<FormState> formKey10 =  GlobalKey<FormState>();
-  static GlobalKey<FormState> formKey11 =  GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey7 = GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey8 = GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey9 = GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey10 = GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey11 = GlobalKey<FormState>();
 
   final TextEditingController ownername = TextEditingController();
   final TextEditingController brand = TextEditingController();
   final TextEditingController color = TextEditingController();
   final TextEditingController platenumbers = TextEditingController();
   final TextEditingController plateletters = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffoldd(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Expanded(
+            flex: 8,
+            child: Containerr(),
+          ),
+        ],
+      ),
+    );
   }
-
 }
