@@ -1,3 +1,4 @@
+import 'package:bealert/Record/View/warning.dart';
 import 'package:bealert/Trips_details/View/trips_details.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -80,6 +81,10 @@ final GoRouter router = GoRouter(
               title: state.params["title"]!,
               trailing: int.parse(state.params["trailing"]!),
               tripdistance: double.parse(state.params["tripdistance"]!)),
+        ),
+        GoRoute(
+          path: 'warning',
+          builder: (BuildContext context, GoRouterState state) => ColorScreen(),
         ),
       ],
     ),
