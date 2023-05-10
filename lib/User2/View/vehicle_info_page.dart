@@ -12,12 +12,15 @@ class Vehicle_Info_Page extends StatefulWidget {
   String email;
   String password;
   String fullName;
+  String address;
  
   Vehicle_Info_Page(
       {required this.userName,
       required this.email,
       required this.password,
       required this.fullName,
+      required this.address,
+
       super.key});
 
   @override
