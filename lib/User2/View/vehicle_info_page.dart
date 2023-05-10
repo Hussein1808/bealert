@@ -549,13 +549,13 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
           {
             currUser=value;
           }));
-      vehicleUpdate(ownername.text.trim(), brand.text.trim(), color.text.trim(),
-          plateletters.text.trim(), int.parse(platenumbers.text));
-      var collection = FirebaseFirestore.instance.collection('Users');
-      var snapshots = await collection.get();
-      for (var doc in snapshots.docs) {
-        await doc.reference.delete();
-      }
+      // vehicleUpdate(ownername.text.trim(), brand.text.trim(), color.text.trim(),
+      //     plateletters.text.trim(), int.parse(platenumbers.text));
+      // var collection = FirebaseFirestore.instance.collection('Users');
+      // var snapshots = await collection.get();
+      // for (var doc in snapshots.docs) {
+      //   await doc.reference.delete();
+      // }
 
       GoRouter.of(context).go('/Login_page');
     } on FirebaseAuthException catch (e) {
