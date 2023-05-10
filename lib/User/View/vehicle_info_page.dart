@@ -15,7 +15,7 @@ import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../Const/constants.dart';
-import '../Data/auth_data.dart';
+import 'package:bealert/User/Data/auth_data.dart';
 
 class Vehicle_Info_Page extends StatefulWidget {
   String userName;
@@ -44,11 +44,11 @@ class Vehicle_Info_Page extends StatefulWidget {
 }
 
 class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
-  static GlobalKey<FormState> formKey7 =  GlobalKey<FormState>();
-  static GlobalKey<FormState> formKey8 =  GlobalKey<FormState>();
-  static GlobalKey<FormState> formKey9 =  GlobalKey<FormState>();
-  static GlobalKey<FormState> formKey10 =  GlobalKey<FormState>();
-  static GlobalKey<FormState> formKey11 =  GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey7 = GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey8 = GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey9 = GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey10 = GlobalKey<FormState>();
+  static GlobalKey<FormState> formKey11 = GlobalKey<FormState>();
 
   final TextEditingController ownername = TextEditingController();
   final TextEditingController brand = TextEditingController();
@@ -538,24 +538,22 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
         password: widget.password,
       );
       userSetup(
-          widget.userName,
-          widget.fullName,
-          widget.address,
-          widget.nationalID,
-          widget.phoneNumber,
-          widget.emergencyContact,
-          widget.bloodGroup,
-          // ownername.text,
-          ownername.text.trim(),
-          brand.text.trim(),
-          color.text.trim(),
-          plateletters.text.trim(),
-          int.parse(platenumbers.text)).then((value)async=>
-          getUser(value)
-              .then((value)
-          {
-            currUser=value;
-          }));
+              widget.userName,
+              widget.fullName,
+              widget.address,
+              widget.nationalID,
+              widget.phoneNumber,
+              widget.emergencyContact,
+              widget.bloodGroup,
+              // ownername.text,
+              ownername.text.trim(),
+              brand.text.trim(),
+              color.text.trim(),
+              plateletters.text.trim(),
+              int.parse(platenumbers.text))
+          .then((value) async => getUser(value).then((value) {
+                currUser = value;
+              }));
       // vehicleUpdate(ownername.text.trim(), brand.text.trim(), color.text.trim(),
       //     plateletters.text.trim(), int.parse(platenumbers.text));
       // var collection = FirebaseFirestore.instance.collection('Users');
