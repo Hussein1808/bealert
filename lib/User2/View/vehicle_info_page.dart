@@ -57,7 +57,43 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
         children: [
           Expanded(
             flex: 8,
-            child: Containerr(),
+            child: Containerr(
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50.0),
+                    topRight: Radius.circular(50.0)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(30.0, 30.0, 35.0, 5.0),
+                child: Center(
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: Column(
+                      children: [
+                        Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                IconButton(
+                                  onPressed: (() => GoRouter.of(context)
+                                      .go('/your_info_page')),
+                                  icon: Icon(
+                                    UniconsLine.angle_left,
+                                  ),
+                                  iconSize: 50,
+                                ),
+                                Textt(
+                                  text: 'Vehicle Info',
+                                  size: 48.0,
+                                  font: GoogleFonts.righteous,
+                                ),
+                              ]),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
