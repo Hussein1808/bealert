@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:bealert/Record/Providers/distance_providers.dart';
+import 'package:bealert/Routing/app_routing.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:custom_timer/custom_timer.dart';
 import 'package:flutter/material.dart';
@@ -395,7 +396,27 @@ class _MidRecordState extends State<MidRecord>
       if (_ispaused == false) {
         if (_previousPosition != null) {
           getData();
-     print(valueFromFirebase??=00);
+     print(valueFromFirebase??=99);
+     if (valueFromFirebase==1){
+       router.go('/warning');
+       Noti.showBigTextNotification(
+           title: "Warning ",
+           body:
+           " drowsiness detected Take a break ",
+           fln:
+           flutterLocalNotificationsPlugin);
+       FlutterRingtonePlayer.play(
+         android: AndroidSounds.ringtone,
+         ios: IosSounds.alarm,
+         looping:
+         true, // Android only - API >= 28
+         volume:
+         5.0, // Android only - API >= 28
+         asAlarm:
+         true, // Android only - all APIs
+       );
+     }
+
           var distance = Geolocator.distanceBetween(
             _previousPosition!.latitude,
             _previousPosition!.longitude,
