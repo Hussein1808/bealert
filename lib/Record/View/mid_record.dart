@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:animated_snack_bar/animated_snack_bar.dart';
+import 'package:bealert/Const/constants.dart';
 import 'package:bealert/Record/Providers/distance_providers.dart';
 import 'package:bealert/Routing/app_routing.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -46,6 +47,7 @@ class _MidRecordState extends State<MidRecord>
       initialState: CustomTimerState.reset,
       interval: CustomTimerInterval.seconds);
   int? valueFromFirebase;
+  int counter=0;
 
   @override
   void initState() {
@@ -235,13 +237,13 @@ class _MidRecordState extends State<MidRecord>
                                               //*------------------------------------------- Back end code
                                               final newTrip = Trips(
                                                 id: 1, // or generate a unique id
-                                                userid: 'dasda',
+                                                userid: currUser!.uid,
                                                 date: now,
                                                 distance: double.parse(
                                                     _distanceTravelled
                                                         .toStringAsFixed(2)),
                                                 time: total_time,
-                                                drowsinesstimes: 0,
+                                                drowsinesstimes: counter,
                                               );
                                               TripsRepository().addTrip(
                                                   newTrip); // add the trip to the database
@@ -398,6 +400,7 @@ class _MidRecordState extends State<MidRecord>
           getData();
      print(valueFromFirebase??=99);
      if (valueFromFirebase==1){
+       counter++;
        router.go('/warning');
        Noti.showBigTextNotification(
            title: "Warning ",
