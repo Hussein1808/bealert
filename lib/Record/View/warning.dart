@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,6 +56,7 @@ class _ColorScreenState extends State<ColorScreen> {
                 child: Text('OK'),
                 onPressed: () {
                   GoRouter.of(context).pop();
+                  FlutterRingtonePlayer.stop();
                 },
               ),
             ],

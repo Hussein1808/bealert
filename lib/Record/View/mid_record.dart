@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:bealert/Record/Providers/distance_providers.dart';
 import 'package:custom_timer/custom_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -279,6 +281,13 @@ class _MidRecordState extends State<MidRecord>
                                               .secondary,
                                           onPressed: () async {
                                             // Create the notification details
+                                            // Schedule the alarm to trigger in 5 seconds
+                                            // AndroidAlarmManager.oneShot(
+                                            //   const Duration(seconds: 5),
+                                            //   0,
+                                            //   () => playAlarm(),
+                                            // );
+
                                             GoRouter.of(context)
                                                 .push('/warning');
                                             Noti.showBigTextNotification(
@@ -287,6 +296,16 @@ class _MidRecordState extends State<MidRecord>
                                                     " drowsiness detected Take a break ",
                                                 fln:
                                                     flutterLocalNotificationsPlugin);
+                                            FlutterRingtonePlayer.play(
+                                              android: AndroidSounds.ringtone,
+                                              ios: IosSounds.alarm,
+                                              looping:
+                                                  true, // Android only - API >= 28
+                                              volume:
+                                                  5.0, // Android only - API >= 28
+                                              asAlarm:
+                                                  true, // Android only - all APIs
+                                            );
                                           },
                                           child: Textt(
                                             text: 'Test',
@@ -399,4 +418,14 @@ class _MidRecordState extends State<MidRecord>
       );
     });
   }
+
+  // void playAlarm() {
+  //   // Play the alarm sound
+  //   FlutterRingtonePlayer.play(
+  //     android: AndroidSounds.alarm,
+  //     ios: IosSounds.horn,
+  //     looping: false, // Set to true if you want the alarm to loop
+  //     volume: 5.0, // Set the alarm volume (0.0 - 1.0)
+  //   );
+  // }
 }
