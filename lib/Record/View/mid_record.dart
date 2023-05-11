@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:bealert/Record/Providers/distance_providers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:custom_timer/custom_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
@@ -43,6 +44,7 @@ class _MidRecordState extends State<MidRecord>
       end: Duration(hours: 24),
       initialState: CustomTimerState.reset,
       interval: CustomTimerInterval.seconds);
+  int? valueFromFirebase;
 
   @override
   void initState() {
@@ -68,6 +70,7 @@ class _MidRecordState extends State<MidRecord>
     Duration? _time;
     int? _drowsinessTimes;
     DateTime now;
+
 
     DateTime total_time = DateTime.now();
     ;
@@ -391,6 +394,8 @@ class _MidRecordState extends State<MidRecord>
 
       if (_ispaused == false) {
         if (_previousPosition != null) {
+          getData();
+     print(valueFromFirebase??=00);
           var distance = Geolocator.distanceBetween(
             _previousPosition!.latitude,
             _previousPosition!.longitude,
@@ -419,6 +424,13 @@ class _MidRecordState extends State<MidRecord>
     });
   }
 
+
+  Future<int?> getData() async{
+    var a =  await FirebaseFirestore.instance.collection('classifications').doc("1").get();
+    setState(() {
+      valueFromFirebase= a['classification'];
+    });
+  }
   // void playAlarm() {
   //   // Play the alarm sound
   //   FlutterRingtonePlayer.play(
