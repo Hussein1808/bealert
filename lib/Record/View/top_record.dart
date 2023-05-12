@@ -1,5 +1,6 @@
 // ignore_for_file:,prefer_const_literals_to_create_immutables
 
+import 'package:bealert/Record/Providers/drowsiness_provider.dart';
 import 'package:circular_seek_bar/circular_seek_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -76,28 +77,34 @@ class _TopRecordState extends State<TopRecord> {
                               weight: FontWeight.bold,
                               size: 30.0,
                             )),
-                        const Expanded(
+                        Expanded(
                           flex: 5,
                           child: CircularSeekBar(
                             width: double.infinity,
                             height: 250,
-                            progress: 100,
+                            progress: (double.parse(
+                                        context.watch<Drowsiness>().drow) +
+                                    1) *
+                                25,
                             barWidth: 9,
                             startAngle: 90,
                             sweepAngle: 180,
                             strokeCap: StrokeCap.round,
                             progressGradientColors: [
-                              Color.fromARGB(255, 68, 243, 33),
-                              Color.fromARGB(255, 255, 234, 0),
-                              Color.fromARGB(255, 255, 183, 0),
-                              Color.fromARGB(255, 255, 0, 0)
+                              const Color.fromARGB(255, 68, 243, 33),
+                              const Color.fromARGB(255, 255, 234, 0),
+                              const Color.fromARGB(255, 255, 183, 0),
+                              const Color.fromARGB(255, 255, 0, 0)
                             ],
                             dashWidth: 37,
                             dashGap: 10,
                             animation: true,
                             child: Center(
                               child: Textt(
-                                text: '4',
+                                text: (int.parse(
+                                            context.watch<Drowsiness>().drow) +
+                                        1)
+                                    .toString(),
                                 size: 56.0,
                                 font: GoogleFonts.firaSans,
                               ),
