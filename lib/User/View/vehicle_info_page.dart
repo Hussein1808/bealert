@@ -64,7 +64,6 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
     final RegExp namevalid = RegExp(r'(^[a-zA-Z]+$)');
 
     final RegExp number = RegExp(r'^\d{1,4}$');
-
     return Scaffoldd(
         bcolor: Theme.of(context).colorScheme.secondary,
         body: Column(
@@ -92,8 +91,14 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 IconButton(
-                                  onPressed: (() => GoRouter.of(context)
-                                      .go('/your_info_page')),
+                                  onPressed: (() => GoRouter.of(context).pushNamed(
+                                            'your_info_page',
+                                            params: {
+                                              'username': widget.userName,
+                                              'email':
+                                                  widget.email,
+                                              'password': widget.password,
+                                            })),
                                   icon: Icon(
                                     UniconsLine.angle_left,
                                   ),
@@ -531,7 +536,7 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
         ));
   }
 
-  Future signUp() async {
+  Future<String?> signUp() async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: widget.email,
@@ -564,7 +569,34 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
 
       GoRouter.of(context).go('/Login_page');
     } on FirebaseAuthException catch (e) {
-      print(e);
+      String message;
+      if (e.code == 'weak-password') {
+        message = 'The password provided is too weak.';
+        errorDialog(context, message);
+      } else if (e.code == 'email-already-in-use') {
+        message = 'The account already exists for that email.';
+        errorDialog(context, message);
+      } else {}
+    } catch (e) {
+      return e.toString();
     }
   }
+
+  void errorDialog(BuildContext context, String error) => showDialog(
+      context: context,
+      // context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Error"),
+          content: Text(error),
+          actions: <Widget>[
+            TextButton(
+              child: Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      });
 }

@@ -40,6 +40,7 @@ class _MidRecordState extends State<MidRecord>
   bool start = false;
   bool choose = true;
   bool _ispaused = true;
+  int noti = 0;
   late CustomTimerController _tcontroller = CustomTimerController(
       vsync: this,
       begin: Duration(hours: 0, minutes: 0, seconds: 0),
@@ -47,7 +48,7 @@ class _MidRecordState extends State<MidRecord>
       initialState: CustomTimerState.reset,
       interval: CustomTimerInterval.seconds);
   int? valueFromFirebase;
-  int counter=0;
+  int counter = 0;
 
   @override
   void initState() {
@@ -73,7 +74,6 @@ class _MidRecordState extends State<MidRecord>
     Duration? _time;
     int? _drowsinessTimes;
     DateTime now;
-
 
     DateTime total_time = DateTime.now();
     ;
@@ -275,53 +275,53 @@ class _MidRecordState extends State<MidRecord>
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(
-                                        width: 20,
-                                      ),
-                                      SizedBox(
-                                        width: screenwidth * 0.235,
-                                        child: FloatingActionButton(
-                                          elevation: 0.0,
-                                          backgroundColor: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                          onPressed: () async {
-                                            // Create the notification details
-                                            // Schedule the alarm to trigger in 5 seconds
-                                            // AndroidAlarmManager.oneShot(
-                                            //   const Duration(seconds: 5),
-                                            //   0,
-                                            //   () => playAlarm(),
-                                            // );
+                                      // const SizedBox(
+                                      //   width: 20,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: screenwidth * 0.235,
+                                      //   child: FloatingActionButton(
+                                      //     elevation: 0.0,
+                                      //     backgroundColor: Theme.of(context)
+                                      //         .colorScheme
+                                      //         .secondary,
+                                      //     onPressed: () async {
+                                      //       // Create the notification details
+                                      //       // Schedule the alarm to trigger in 5 seconds
+                                      //       // AndroidAlarmManager.oneShot(
+                                      //       //   const Duration(seconds: 5),
+                                      //       //   0,
+                                      //       //   () => playAlarm(),
+                                      //       // );
 
-                                            GoRouter.of(context)
-                                                .push('/warning');
-                                            Noti.showBigTextNotification(
-                                                title: "Warning ",
-                                                body:
-                                                    " drowsiness detected Take a break ",
-                                                fln:
-                                                    flutterLocalNotificationsPlugin);
-                                            FlutterRingtonePlayer.play(
-                                              android: AndroidSounds.ringtone,
-                                              ios: IosSounds.alarm,
-                                              looping:
-                                                  true, // Android only - API >= 28
-                                              volume:
-                                                  5.0, // Android only - API >= 28
-                                              asAlarm:
-                                                  true, // Android only - all APIs
-                                            );
-                                          },
-                                          child: Textt(
-                                            text: 'Test',
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            weight: FontWeight.w900,
-                                            size: 16.0,
-                                          ),
-                                        ),
-                                      ),
+                                      //       GoRouter.of(context)
+                                      //           .push('/warning');
+                                      //       Noti.showBigTextNotification(
+                                      //           title: "Warning ",
+                                      //           body:
+                                      //               " drowsiness detected Take a break ",
+                                      //           fln:
+                                      //               flutterLocalNotificationsPlugin);
+                                      //       FlutterRingtonePlayer.play(
+                                      //         android: AndroidSounds.ringtone,
+                                      //         ios: IosSounds.alarm,
+                                      //         looping:
+                                      //             true, // Android only - API >= 28
+                                      //         volume:
+                                      //             5.0, // Android only - API >= 28
+                                      //         asAlarm:
+                                      //             true, // Android only - all APIs
+                                      //       );
+                                      //     },
+                                      //     child: Textt(
+                                      //       text: 'Test',
+                                      //       color:
+                                      //           Theme.of(context).primaryColor,
+                                      //       weight: FontWeight.w900,
+                                      //       size: 16.0,
+                                      //     ),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                           ],
@@ -398,27 +398,33 @@ class _MidRecordState extends State<MidRecord>
       if (_ispaused == false) {
         if (_previousPosition != null) {
           getData();
-     print(valueFromFirebase??=99);
-     if (valueFromFirebase==1){
-       counter++;
-       router.go('/warning');
-       Noti.showBigTextNotification(
-           title: "Warning ",
-           body:
-           " drowsiness detected Take a break ",
-           fln:
-           flutterLocalNotificationsPlugin);
-       FlutterRingtonePlayer.play(
-         android: AndroidSounds.ringtone,
-         ios: IosSounds.alarm,
-         looping:
-         true, // Android only - API >= 28
-         volume:
-         5.0, // Android only - API >= 28
-         asAlarm:
-         true, // Android only - all APIs
-       );
-     }
+          print(valueFromFirebase ??= 99);
+          if (valueFromFirebase == 0) {
+            noti = 1;
+          }
+          if (valueFromFirebase == 1 && noti == 1) {
+            noti = 0;
+            counter++;
+            Noti.showBigTextNotification(
+                title: "Warning ",
+                body: " drowsiness detected Take a break ",
+                fln: flutterLocalNotificationsPlugin);
+          }
+          if (valueFromFirebase == 2) {
+            noti = 1;
+
+            router.go('/warning');
+            FlutterRingtonePlayer.play(
+              android: AndroidSounds.ringtone,
+              ios: IosSounds.alarm,
+              looping: true, // Android only - API >= 28
+              volume: 5.0, // Android only - API >= 28
+              asAlarm: true, // Android only - all APIs
+            );
+          }
+          //* back end code for sending msg to emergency contact
+          //* if( valueFromFirebase == 3){
+          //*   noti = 1;}
 
           var distance = Geolocator.distanceBetween(
             _previousPosition!.latitude,
@@ -448,11 +454,13 @@ class _MidRecordState extends State<MidRecord>
     });
   }
 
-
-  Future<int?> getData() async{
-    var a =  await FirebaseFirestore.instance.collection('classifications').doc("1").get();
+  Future<int?> getData() async {
+    var a = await FirebaseFirestore.instance
+        .collection('classifications')
+        .doc("1")
+        .get();
     setState(() {
-      valueFromFirebase= a['classification'];
+      valueFromFirebase = a['classification'];
     });
   }
   // void playAlarm() {
