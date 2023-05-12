@@ -402,9 +402,12 @@ class _MidRecordState extends State<MidRecord>
           print(valueFromFirebase ??= 0);
           if (valueFromFirebase == 0) {
             noti = 1;
+            FlutterRingtonePlayer.stop();
           }
           if (valueFromFirebase == 1 && noti == 1) {
             noti = 0;
+            FlutterRingtonePlayer.stop();
+
             counter++;
             Noti.showBigTextNotification(
                 title: "Warning ",

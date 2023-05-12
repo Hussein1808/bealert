@@ -342,13 +342,47 @@ class _Login_PageState extends State<Login_Page> {
   }
 
   Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailcontroller.text.trim(),
-        password: _passwordcontroller.text.trim()).then((value) async => getUser(value.user!.uid).then((value) {
-      currUser=value;
-      // print(value.name);
-    }));
-    FocusScope.of(context).unfocus();
-    GoRouter.of(context).go('/home/0');
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: _emailcontroller.text.trim(),
+              password: _passwordcontroller.text.trim())
+          .then((value) async => getUser(value.user!.uid).then((value) {
+                currUser = value;
+                // print(value.name);
+              }));
+
+      FocusScope.of(context).unfocus();
+      GoRouter.of(context).go('/home/0');
+    } on FirebaseAuthException catch (e) {
+      String message;
+      if (e.code == 'user-not-found') {
+        message = 'No user found for that email.';
+        errorDialog(context, message);
+      } else if (e.code == 'wrong-password') {
+        message = 'Wrong password provided for that user.';
+        errorDialog(context, message);
+      } else {}
+    } catch (e) {
+      return e.toString();
+    }
   }
+
+  void errorDialog(BuildContext context, String error) => showDialog(
+      context: context,
+      // context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Error"),
+          content: Text(error),
+          actions: <Widget>[
+            TextButton(
+              child: Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      });
 }
