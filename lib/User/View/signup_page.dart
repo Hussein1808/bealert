@@ -10,7 +10,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:unicons/unicons.dart';
 
-
 class SignUp_Page extends StatefulWidget {
   const SignUp_Page({super.key});
 
@@ -408,27 +407,27 @@ class _SignUp_PageState extends State<SignUp_Page> {
                           const SizedBoxx(h: 30.0),
                           //* Sign up button
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              SizedBox(
-                                height: 60,
-                                width: 180,
-                                child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          Theme.of(context).splashColor,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(30.0),
-                                      ),
-                                    ),
-                                    onPressed: () {},
-                                    child: Textt(
-                                        text: 'Auto fill',
-                                        size: 24.0,
-                                        color: Theme.of(context).primaryColor,
-                                        weight: FontWeight.bold)),
-                              ),
+                              // SizedBox(
+                              //   height: 60,
+                              //   width: 180,
+                              //   child: ElevatedButton(
+                              //       style: ElevatedButton.styleFrom(
+                              //         backgroundColor:
+                              //             Theme.of(context).splashColor,
+                              //         shape: RoundedRectangleBorder(
+                              //           borderRadius:
+                              //               BorderRadius.circular(30.0),
+                              //         ),
+                              //       ),
+                              //       onPressed: () {},
+                              //       child: Textt(
+                              //           text: 'Auto fill',
+                              //           size: 24.0,
+                              //           color: Theme.of(context).primaryColor,
+                              //           weight: FontWeight.bold)),
+                              // ),
                               SizedBox(
                                 height: 60.0,
                                 width: 90,

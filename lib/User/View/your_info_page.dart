@@ -486,27 +486,27 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
                           const SizedBoxx(h: 30.0),
                           //* Sign up button
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              SizedBox(
-                                height: 60,
-                                width: 180,
-                                child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          Theme.of(context).splashColor,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(30.0),
-                                      ),
-                                    ),
-                                    onPressed: () {},
-                                    child: Textt(
-                                        text: 'Auto fill',
-                                        size: 24.0,
-                                        color: Theme.of(context).primaryColor,
-                                        weight: FontWeight.bold)),
-                              ),
+                              // SizedBox(
+                              //   height: 60,
+                              //   width: 180,
+                              //   child: ElevatedButton(
+                              //       style: ElevatedButton.styleFrom(
+                              //         backgroundColor:
+                              //             Theme.of(context).splashColor,
+                              //         shape: RoundedRectangleBorder(
+                              //           borderRadius:
+                              //               BorderRadius.circular(30.0),
+                              //         ),
+                              //       ),
+                              //       onPressed: () {},
+                              //       child: Textt(
+                              //           text: 'Auto fill',
+                              //           size: 24.0,
+                              //           color: Theme.of(context).primaryColor,
+                              //           weight: FontWeight.bold)),
+                              // ),
                               SizedBox(
                                 height: 60.0,
                                 width: 90,

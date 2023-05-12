@@ -82,28 +82,26 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
           IconButton(
             icon: Icon(
               Icons.check,
-              color: Theme.of(context).scaffoldBackgroundColor,
+              color: Theme.of(context).colorScheme.primary,
             ),
-            onPressed: () async{
-              if( formKey.currentState!.validate()){
-                currUser!.username=usernamecontroller.text;
-                currUser!.fullname=fullnamecontroller.text;
-                currUser!.address=addresscontroller.text ;
-                currUser!.nationalID=int.parse(nationalIDcontroller.text );
-                currUser!.phonenumber=phonenumbercontroller.text ;
-                currUser!.emergencycontact=emergencycontactcontroller.text ;
-                currUser!.bloodgroup=bloodgroupcontroller.text ;
+            onPressed: () async {
+              if (formKey.currentState!.validate()) {
+                currUser!.username = usernamecontroller.text;
+                currUser!.fullname = fullnamecontroller.text;
+                currUser!.address = addresscontroller.text;
+                currUser!.nationalID = int.parse(nationalIDcontroller.text);
+                currUser!.phonenumber = phonenumbercontroller.text;
+                currUser!.emergencycontact = emergencycontactcontroller.text;
+                currUser!.bloodgroup = bloodgroupcontroller.text;
                 await editUser(currUser!.uid, currUser!);
               }
-
             },
           ),
         ],
       ),
       body: Form(
         key: formKey,
-        autovalidateMode:
-        AutovalidateMode.onUserInteraction,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: ListView(
           children: [
             TextFormField(
@@ -120,7 +118,7 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
                 }
               },
               controller: usernamecontroller,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Username',
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -144,7 +142,7 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
                 }
               },
               controller: fullnamecontroller,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Full name',
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -168,7 +166,7 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
                 }
               },
               controller: addresscontroller,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Address',
                 focusColor: Colors.red,
                 errorBorder: OutlineInputBorder(
@@ -195,7 +193,7 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
                 }
               },
               controller: nationalIDcontroller,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'National ID',
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -219,7 +217,7 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
                 }
               },
               controller: phonenumbercontroller,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Mobile Number',
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -243,7 +241,7 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
                 }
               },
               controller: emergencycontactcontroller,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Emergency Contact',
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -266,7 +264,7 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
                 return null;
               },
               controller: bloodgroupcontroller,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Blood Group',
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
