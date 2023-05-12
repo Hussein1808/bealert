@@ -15,6 +15,7 @@ import 'package:provider/provider.dart';
 import '../../Common_widgets/containerr.dart';
 import '../../Common_widgets/textt.dart';
 import '../Domain/trip_data_domain.dart';
+import '../Providers/drowsiness_provider.dart';
 import '../Repository/trip_data_repo.dart';
 import '../api/notification_api.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -398,7 +399,7 @@ class _MidRecordState extends State<MidRecord>
       if (_ispaused == false) {
         if (_previousPosition != null) {
           getData();
-          print(valueFromFirebase ??= 99);
+          print(valueFromFirebase ??= 0);
           if (valueFromFirebase == 0) {
             noti = 1;
           }
@@ -437,6 +438,9 @@ class _MidRecordState extends State<MidRecord>
             context
                 .read<Distance>()
                 .updatedistance(_distanceTravelled.toStringAsFixed(2));
+            context
+                .read<Drowsiness>()
+                .updatedrowsiness(valueFromFirebase.toString());
           });
         }
       }

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bealert/Record/Providers/distance_providers.dart';
+import 'package:bealert/Record/Providers/drowsiness_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -48,7 +49,9 @@ Future main() async {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_)=>Distance()),
     ChangeNotifierProvider(create: (_)=>Time()),
-    ChangeNotifierProvider(create: (_)=>Pause())
+    ChangeNotifierProvider(create: (_)=>Pause()),
+    ChangeNotifierProvider(create: (_)=>Drowsiness()),
+
 
 
   ],
