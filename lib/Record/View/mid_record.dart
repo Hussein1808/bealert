@@ -416,7 +416,7 @@ class _MidRecordState extends State<MidRecord>
           }
           if (valueFromFirebase == 2) {
             noti = 1;
-
+            counter++;
             router.go('/warning');
             FlutterRingtonePlayer.play(
               android: AndroidSounds.ringtone,
