@@ -37,6 +37,8 @@ class _ModallState extends State<Modall> {
 
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
     return InkWell(
       onTap: () {
         if (widget.title == 'Clear History') {
@@ -79,7 +81,11 @@ class _ModallState extends State<Modall> {
           minLeadingWidth: 10,
           leading: Icon(widget.icon),
           title: Textt(
-              text: widget.title, color: Theme.of(context).colorScheme.primary),
+            text: widget.title,
+            color: Theme.of(context).colorScheme.primary,
+            weight: FontWeight.w600,
+            size: screenwidth * 0.04,
+          ),
         ),
       ),
     );

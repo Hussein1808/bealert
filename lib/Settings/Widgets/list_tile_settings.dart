@@ -28,6 +28,8 @@ class _ListTileeState extends State<ListTilee> {
 
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
     return InkWell(
       onTap: () {
         context.go(widget.redirection);
@@ -40,7 +42,11 @@ class _ListTileeState extends State<ListTilee> {
           minLeadingWidth: 10,
           leading: Icon(widget.icon),
           title: Textt(
-              text: widget.title, color: Theme.of(context).colorScheme.primary),
+            text: widget.title,
+            color: Theme.of(context).colorScheme.primary,
+            size: screenwidth * 0.04,
+            weight: FontWeight.w600,
+          ),
         ),
       ),
     );
