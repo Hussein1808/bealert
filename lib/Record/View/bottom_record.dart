@@ -21,8 +21,8 @@ class _BottomRecordState extends State<BottomRecord>
   late bool _ispaused;
   late CustomTimerController _controller = CustomTimerController(
       vsync: this,
-      begin:const  Duration(hours: 0, minutes: 0, seconds: 0),
-      end:const  Duration(hours: 24),
+      begin: const Duration(hours: 0, minutes: 0, seconds: 0),
+      end: const Duration(hours: 24),
       initialState: CustomTimerState.reset,
       interval: CustomTimerInterval.seconds);
   @override
@@ -76,7 +76,8 @@ class _BottomRecordState extends State<BottomRecord>
                                             MobileSnackBarPosition.bottom,
                                         desktopSnackBarPosition:
                                             DesktopSnackBarPosition.bottomLeft,
-                                        duration:const  Duration(milliseconds: 300),
+                                        duration:
+                                            const Duration(milliseconds: 300),
                                       ).show(context);
                                     });
                                   },
@@ -173,6 +174,7 @@ class _BottomRecordState extends State<BottomRecord>
                     },
                     child: Textt(
                       text: 'Start',
+                      size: 20.0,
                       color: Theme.of(context).primaryColor,
                       weight: FontWeight.w700,
                     ),

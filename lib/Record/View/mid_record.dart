@@ -130,203 +130,198 @@ class _MidRecordState extends State<MidRecord>
                   ),
                 )),
                 child: start
-                    ? Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            choose
-                                ? SizedBox(
-                                    width: screenwidth * 0.25,
-                                    child: FloatingActionButton(
-                                      elevation: 0.0,
-                                      backgroundColor: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                      onPressed: () {
-                                        setState(() {
-                                          _tcontroller.pause();
-                                          choose = false;
-                                          // context
-                                          //     .read<Pause>()
-                                          //     .paused(_ispaused = false);
-                                          _ispaused = true;
-                                          print('$_ispaused');
-                                          AnimatedSnackBar.material(
-                                            'Paused',
-                                            type: AnimatedSnackBarType.warning,
-                                            mobileSnackBarPosition:
-                                                MobileSnackBarPosition.top,
-                                            desktopSnackBarPosition:
-                                                DesktopSnackBarPosition
-                                                    .bottomLeft,
-                                            duration: const Duration(
-                                                milliseconds: 300),
-                                          ).show(context);
-                                        });
-                                      },
-                                      child: Icon(Icons.square,
+                    ? Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          choose
+                              ? SizedBox(
+                                  width: screenwidth * 0.25,
+                                  child: FloatingActionButton(
+                                    elevation: 0.0,
+                                    backgroundColor:
+                                        Theme.of(context).colorScheme.secondary,
+                                    onPressed: () {
+                                      setState(() {
+                                        _tcontroller.pause();
+                                        choose = false;
+                                        // context
+                                        //     .read<Pause>()
+                                        //     .paused(_ispaused = false);
+                                        _ispaused = true;
+                                        print('$_ispaused');
+                                        AnimatedSnackBar.material(
+                                          'Paused',
+                                          type: AnimatedSnackBarType.warning,
+                                          mobileSnackBarPosition:
+                                              MobileSnackBarPosition.top,
+                                          desktopSnackBarPosition:
+                                              DesktopSnackBarPosition
+                                                  .bottomLeft,
+                                          duration:
+                                              const Duration(milliseconds: 300),
+                                        ).show(context);
+                                      });
+                                    },
+                                    child: Icon(Icons.square,
+                                        color: Theme.of(context)
+                                            .scaffoldBackgroundColor,
+                                        size: 35),
+                                  ),
+                                )
+                              : Row(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
+                                              width: 3,
+                                              style: BorderStyle.solid)),
+                                      width: screenwidth * 0.235,
+                                      child: FloatingActionButton(
+                                        elevation: 0.0,
+                                        backgroundColor: Theme.of(context)
+                                            .scaffoldBackgroundColor,
+                                        onPressed: () {
+                                          setState(() {
+                                            _tcontroller.start();
+                                            choose = true;
+                                            AnimatedSnackBar.material(
+                                              'Trip resumed',
+                                              type:
+                                                  AnimatedSnackBarType.warning,
+                                              mobileSnackBarPosition:
+                                                  MobileSnackBarPosition.top,
+                                              desktopSnackBarPosition:
+                                                  DesktopSnackBarPosition
+                                                      .topCenter,
+                                              duration: const Duration(
+                                                  milliseconds: 300),
+                                            ).show(context);
+                                            // context
+                                            //     .read<Pause>()
+                                            //     .paused(_ispaused = false);
+                                            _ispaused = false;
+                                          });
+                                        },
+                                        child: Textt(
+                                          text: 'RESUME',
                                           color: Theme.of(context)
-                                              .scaffoldBackgroundColor,
-                                          size: 35),
-                                    ),
-                                  )
-                                : Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                                width: 3,
-                                                style: BorderStyle.solid)),
-                                        width: screenwidth * 0.235,
-                                        child: FloatingActionButton(
-                                          elevation: 0.0,
-                                          backgroundColor: Theme.of(context)
-                                              .scaffoldBackgroundColor,
-                                          onPressed: () {
-                                            setState(() {
-                                              _tcontroller.start();
-                                              choose = true;
-                                              AnimatedSnackBar.material(
-                                                'Trip resumed',
-                                                type: AnimatedSnackBarType
-                                                    .warning,
-                                                mobileSnackBarPosition:
-                                                    MobileSnackBarPosition.top,
-                                                desktopSnackBarPosition:
-                                                    DesktopSnackBarPosition
-                                                        .topCenter,
-                                                duration: const Duration(
-                                                    milliseconds: 300),
-                                              ).show(context);
-                                              // context
-                                              //     .read<Pause>()
-                                              //     .paused(_ispaused = false);
-                                              _ispaused = false;
-                                            });
-                                          },
-                                          child: Textt(
-                                            text: 'RESUME',
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
-                                            weight: FontWeight.w900,
-                                            size: 16.0,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 20,
-                                      ),
-                                      SizedBox(
-                                        width: screenwidth * 0.235,
-                                        child: FloatingActionButton(
-                                          elevation: 0.0,
-                                          backgroundColor: Theme.of(context)
                                               .colorScheme
                                               .secondary,
-                                          onPressed: () {
-                                            setState(() {
-                                              now = DateTime.now();
-                                              //*------------------------------------------- Back end code
-                                              final newTrip = Trips(
-                                                id: 1, // or generate a unique id
-                                                userid: currUser!.uid,
-                                                date: now,
-                                                distance: double.parse(
-                                                    _distanceTravelled
-                                                        .toStringAsFixed(2)),
-                                                time: total_time,
-                                                drowsinesstimes: counter,
-                                              );
-                                              TripsRepository().addTrip(
-                                                  newTrip); // add the trip to the database
-                                              AnimatedSnackBar.material(
-                                                'Trip Saved',
-                                                type: AnimatedSnackBarType
-                                                    .warning,
-                                                mobileSnackBarPosition:
-                                                    MobileSnackBarPosition.top,
-                                                desktopSnackBarPosition:
-                                                    DesktopSnackBarPosition
-                                                        .bottomLeft,
-                                                duration: const Duration(
-                                                    milliseconds: 300),
-                                              ).show(context);
-                                              _tcontroller.reset();
-                                              _distanceTravelled = 0;
-                                              total_time = DateTime.now();
-                                              start = false;
-                                              choose = true;
-                                            });
-                                          },
-                                          child: Textt(
-                                            text: 'FINISH',
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            weight: FontWeight.w900,
-                                            size: 16.0,
-                                          ),
+                                          weight: FontWeight.w900,
+                                          size: screenwidth * 0.025,
                                         ),
                                       ),
-                                      // const SizedBox(
-                                      //   width: 20,
-                                      // ),
-                                      // SizedBox(
-                                      //   width: screenwidth * 0.235,
-                                      //   child: FloatingActionButton(
-                                      //     elevation: 0.0,
-                                      //     backgroundColor: Theme.of(context)
-                                      //         .colorScheme
-                                      //         .secondary,
-                                      //     onPressed: () async {
-                                      //       // Create the notification details
-                                      //       // Schedule the alarm to trigger in 5 seconds
-                                      //       // AndroidAlarmManager.oneShot(
-                                      //       //   const Duration(seconds: 5),
-                                      //       //   0,
-                                      //       //   () => playAlarm(),
-                                      //       // );
+                                    ),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    SizedBox(
+                                      width: screenwidth * 0.235,
+                                      child: FloatingActionButton(
+                                        elevation: 0.0,
+                                        backgroundColor: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        onPressed: () {
+                                          setState(() {
+                                            now = DateTime.now();
+                                            //*------------------------------------------- Back end code
+                                            final newTrip = Trips(
+                                              id: 1, // or generate a unique id
+                                              userid: currUser!.uid,
+                                              date: now,
+                                              distance: double.parse(
+                                                  _distanceTravelled
+                                                      .toStringAsFixed(2)),
+                                              time: total_time,
+                                              drowsinesstimes: counter,
+                                            );
+                                            TripsRepository().addTrip(
+                                                newTrip); // add the trip to the database
+                                            AnimatedSnackBar.material(
+                                              'Trip Saved',
+                                              type:
+                                                  AnimatedSnackBarType.warning,
+                                              mobileSnackBarPosition:
+                                                  MobileSnackBarPosition.top,
+                                              desktopSnackBarPosition:
+                                                  DesktopSnackBarPosition
+                                                      .bottomLeft,
+                                              duration: const Duration(
+                                                  milliseconds: 300),
+                                            ).show(context);
+                                            _tcontroller.reset();
+                                            _distanceTravelled = 0;
+                                            total_time = DateTime.now();
+                                            start = false;
+                                            choose = true;
+                                          });
+                                        },
+                                        child: Textt(
+                                          text: 'FINISH',
+                                          color: Theme.of(context).primaryColor,
+                                          weight: FontWeight.w900,
+                                          size: screenwidth * 0.025,
+                                        ),
+                                      ),
+                                    ),
+                                    // const SizedBox(
+                                    //   width: 20,
+                                    // ),
+                                    // SizedBox(
+                                    //   width: screenwidth * 0.235,
+                                    //   child: FloatingActionButton(
+                                    //     elevation: 0.0,
+                                    //     backgroundColor: Theme.of(context)
+                                    //         .colorScheme
+                                    //         .secondary,
+                                    //     onPressed: () async {
+                                    //       // Create the notification details
+                                    //       // Schedule the alarm to trigger in 5 seconds
+                                    //       // AndroidAlarmManager.oneShot(
+                                    //       //   const Duration(seconds: 5),
+                                    //       //   0,
+                                    //       //   () => playAlarm(),
+                                    //       // );
 
-                                      //       GoRouter.of(context)
-                                      //           .push('/warning');
-                                      //       Noti.showBigTextNotification(
-                                      //           title: "Warning ",
-                                      //           body:
-                                      //               " drowsiness detected Take a break ",
-                                      //           fln:
-                                      //               flutterLocalNotificationsPlugin);
-                                      //       FlutterRingtonePlayer.play(
-                                      //         android: AndroidSounds.ringtone,
-                                      //         ios: IosSounds.alarm,
-                                      //         looping:
-                                      //             true, // Android only - API >= 28
-                                      //         volume:
-                                      //             5.0, // Android only - API >= 28
-                                      //         asAlarm:
-                                      //             true, // Android only - all APIs
-                                      //       );
-                                      //     },
-                                      //     child: Textt(
-                                      //       text: 'Test',
-                                      //       color:
-                                      //           Theme.of(context).primaryColor,
-                                      //       weight: FontWeight.w900,
-                                      //       size: 16.0,
-                                      //     ),
-                                      //   ),
-                                      // ),
-                                    ],
-                                  ),
-                          ],
-                        ),
+                                    //       GoRouter.of(context)
+                                    //           .push('/warning');
+                                    //       Noti.showBigTextNotification(
+                                    //           title: "Warning ",
+                                    //           body:
+                                    //               " drowsiness detected Take a break ",
+                                    //           fln:
+                                    //               flutterLocalNotificationsPlugin);
+                                    //       FlutterRingtonePlayer.play(
+                                    //         android: AndroidSounds.ringtone,
+                                    //         ios: IosSounds.alarm,
+                                    //         looping:
+                                    //             true, // Android only - API >= 28
+                                    //         volume:
+                                    //             5.0, // Android only - API >= 28
+                                    //         asAlarm:
+                                    //             true, // Android only - all APIs
+                                    //       );
+                                    //     },
+                                    //     child: Textt(
+                                    //       text: 'Test',
+                                    //       color:
+                                    //           Theme.of(context).primaryColor,
+                                    //       weight: FontWeight.w900,
+                                    //       size: 16.0,
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                  ],
+                                ),
+                        ],
                       )
                     : FloatingActionButton(
                         elevation: 0.0,
@@ -351,6 +346,7 @@ class _MidRecordState extends State<MidRecord>
                         },
                         child: Textt(
                           text: 'Start',
+                          size: screenwidth * 0.045,
                           color: Theme.of(context).primaryColor,
                           weight: FontWeight.w700,
                         ),
