@@ -24,6 +24,7 @@ class _TopRecordState extends State<TopRecord> {
   @override
   Widget build(BuildContext context) {
     final screenheight = MediaQuery.of(context).size.height;
+    final screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -70,12 +71,12 @@ class _TopRecordState extends State<TopRecord> {
                         //   ),
                         // ),
                         // const Div(),
-                        const Expanded(
+                        Expanded(
                             flex: 2,
                             child: Textt(
                               text: 'Drowsiness Level',
                               weight: FontWeight.bold,
-                              size: 30.0,
+                              size: screenwidth * 0.06,
                             )),
                         Expanded(
                           flex: 5,
@@ -113,24 +114,28 @@ class _TopRecordState extends State<TopRecord> {
                         ),
                         const Div(),
                         const Expanded(flex: 1, child: SizedBox.shrink()),
-                        const Expanded(
+                        Expanded(
                             flex: 2,
                             child: Textt(
                               text: 'Distance',
                               weight: FontWeight.bold,
-                              size: 30.0,
+                              size: screenwidth * 0.06,
                             )),
                         Expanded(
                           flex: 2,
                           child: Textt(
                             text: context.watch<Distance>().dist,
-                            size: 34.0,
+                            size: screenwidth * 0.06,
                             font: GoogleFonts.firaSans,
                             weight: FontWeight.bold,
                           ),
                         ),
-                        const Expanded(
-                            flex: 2, child: Textt(text: 'Kilometers')),
+                        Expanded(
+                            flex: 2,
+                            child: Textt(
+                              text: 'Kilometers',
+                              size: screenwidth * 0.06,
+                            )),
                       ],
                     ),
                   ),
