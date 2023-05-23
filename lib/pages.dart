@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Center(
@@ -57,32 +58,40 @@ class _HomePageState extends State<HomePage> {
         selectedIndex: selectedIndex,
         showElevation: false,
         onItemSelected: (index) => setState(() {
+          print("selectedIndex: ${screenwidth * 0.155}");
           selectedIndex = index;
         }),
         items: [
           FlashyTabBarItem(
             icon: const Icon(UniconsLine.estate),
-            title: const Text('Home'),
+            title:
+                Text('Home', style: TextStyle(fontSize: screenwidth * 0.025)),
             activeColor: Theme.of(context).colorScheme.secondary,
           ),
           FlashyTabBarItem(
             icon: const Icon(UniconsLine.history),
-            title:const  Text('History'),
+            title: Text('History',
+                style: TextStyle(fontSize: screenwidth * 0.025)),
             activeColor: Theme.of(context).colorScheme.secondary,
           ),
           FlashyTabBarItem(
             icon: const Icon(UniconsLine.record_audio),
-            title: const Text('Record'),
+            title: Text(
+              'Record',
+              style: TextStyle(fontSize: screenwidth * 0.025),
+            ),
             activeColor: Theme.of(context).colorScheme.secondary,
           ),
           FlashyTabBarItem(
             icon: const Icon(UniconsLine.comparison),
-            title: const Text('Statistics'),
+            title: Text('Statistics',
+                style: TextStyle(fontSize: screenwidth * 0.025)),
             activeColor: Theme.of(context).colorScheme.secondary,
           ),
           FlashyTabBarItem(
             icon: const Icon(Icons.settings),
-            title: const Text('Settings'),
+            title: Text('Settings',
+                style: TextStyle(fontSize: screenwidth * 0.025)),
             activeColor: Theme.of(context).colorScheme.secondary,
           ),
         ],
