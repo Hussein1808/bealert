@@ -22,8 +22,7 @@ class _TopSettingsState extends State<TopSettings> {
 
   @override
   void initState() {
-    if (currUser!=null)
-    constt=currUser!.fullname;
+    if (currUser != null) constt = currUser!.fullname;
   }
 
   @override
@@ -93,7 +92,7 @@ class _TopSettingsState extends State<TopSettings> {
                       bottomRight: Radius.circular(25),
                       topRight: Radius.circular(25)),
                 ),
-                w: screenwidth * 0.35,
+                w: screenwidth * 0.43,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -103,7 +102,7 @@ class _TopSettingsState extends State<TopSettings> {
                         text: 'Settings',
                         font: GoogleFonts.roboto,
                         color: Theme.of(context).colorScheme.primary,
-                        size: 24.0,
+                        size: screenwidth * 0.05,
                         weight: FontWeight.bold,
                       ),
                     ),
