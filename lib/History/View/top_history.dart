@@ -55,7 +55,7 @@ class _TopHistoryState extends State<TopHistory> {
                           bottomRight: Radius.circular(25),
                           topRight: Radius.circular(25)),
                     ),
-                    w: screenwidth * 0.35,
+                    w: screenwidth * 0.43,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -65,7 +65,7 @@ class _TopHistoryState extends State<TopHistory> {
                             text: 'History',
                             font: GoogleFonts.roboto,
                             color: Theme.of(context).colorScheme.primary,
-                            size: 24.0,
+                            size: screenwidth * 0.05,
                             weight: FontWeight.bold,
                           ),
                         ),
