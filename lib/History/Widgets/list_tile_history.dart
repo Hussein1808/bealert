@@ -27,6 +27,8 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final screenwidth = MediaQuery.of(context).size.width;
+    final screenheight = MediaQuery.of(context).size.height;
     String formatteddate = DateFormat.MMMd().format(widget.date);
     return GestureDetector(
       onTap: () {
@@ -57,20 +59,20 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
               title: Textt(
                 text: formatteddate.toString(),
                 color: Theme.of(context).colorScheme.primary,
-                size: 28.0,
+                size: screenwidth * 0.04,
                 font: GoogleFonts.roboto,
                 weight: FontWeight.bold,
               ),
               subtitle: Textt(
                 text: 'Number of times being drowsy ',
-                size: 16.0,
+                size: screenwidth * 0.03,
                 color: Theme.of(context).secondaryHeaderColor,
                 weight: FontWeight.bold,
               ),
               //space between title and subtitle
               trailing: Textt(
                 text: '${widget.drowsinesstimes}',
-                size: 58.0,
+                size: screenwidth * 0.1,
                 color: Theme.of(context).colorScheme.secondary,
               ),
             ),
