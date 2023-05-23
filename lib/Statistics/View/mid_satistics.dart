@@ -105,12 +105,12 @@ class MidStatisticsState extends State<MidStatistics> {
                   selectedColor: Theme.of(context).colorScheme.secondary,
                   selectedTextStyle: TextStyle(
                     color: Theme.of(context).scaffoldBackgroundColor,
-                    fontSize: 16,
+                    fontSize: screenwidth * 0.04,
                     fontWeight: FontWeight.bold,
                   ),
                   unselectedTextStyle: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
-                    fontSize: 16,
+                    fontSize: screenwidth * 0.03,
                     fontWeight: FontWeight.bold,
                   ),
                   unselectedColor: Colors.transparent,
@@ -415,13 +415,13 @@ class MidStatisticsState extends State<MidStatistics> {
           // ),
         ),
         const Expanded(flex: 1, child: SizedBox.shrink()),
-        const Expanded(
+        Expanded(
           flex: 3,
           child: Padding(
             padding: EdgeInsets.all(4.0),
             child: Textt(
               text: 'Events',
-              size: 35.0,
+              size: screenwidth * 0.07,
               weight: FontWeight.w500,
               font: GoogleFonts.righteous,
             ),
@@ -435,7 +435,7 @@ class MidStatisticsState extends State<MidStatistics> {
     final style = TextStyle(
       color: Theme.of(context).secondaryHeaderColor,
       fontWeight: FontWeight.bold,
-      fontSize: 14,
+      fontSize: 10,
     );
     String text;
     if (value == 0) {
@@ -462,7 +462,7 @@ class MidStatisticsState extends State<MidStatistics> {
       style: TextStyle(
         color: Theme.of(context).secondaryHeaderColor,
         fontWeight: FontWeight.bold,
-        fontSize: 14,
+        fontSize: 10,
       ),
     );
 
@@ -510,7 +510,7 @@ class MidStatisticsState extends State<MidStatistics> {
       style: TextStyle(
         color: Theme.of(context).secondaryHeaderColor,
         fontWeight: FontWeight.bold,
-        fontSize: 14,
+        fontSize: 10,
       ),
     );
 
