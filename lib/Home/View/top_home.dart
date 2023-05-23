@@ -55,10 +55,10 @@ class _TopHomeState extends State<TopHome> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //* Your Drowsy Days
-                    Expanded(flex: 2, child: SizedBox.shrink()),
+                    Expanded(flex: 4, child: SizedBox.shrink()),
                     //* Number of Days in month
                     Expanded(
-                      flex: 4,
+                      flex: 8,
                       child: Row(
                         children: [
                           Column(
@@ -68,7 +68,7 @@ class _TopHomeState extends State<TopHome> {
                                 font: GoogleFonts.righteous,
                                 color:
                                     Theme.of(context).scaffoldBackgroundColor,
-                                size: 96.0,
+                                size: screenwidth * 0.18,
                               ),
                             ],
                           ),
@@ -83,7 +83,7 @@ class _TopHomeState extends State<TopHome> {
                                   font: GoogleFonts.righteous,
                                   color:
                                       Theme.of(context).scaffoldBackgroundColor,
-                                  size: 56.0,
+                                  size: screenwidth * 0.1,
                                 ),
                               ],
                             ),
@@ -92,7 +92,7 @@ class _TopHomeState extends State<TopHome> {
                       ),
                     ),
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -104,7 +104,7 @@ class _TopHomeState extends State<TopHome> {
                                 text: 'View History',
                                 font: GoogleFonts.roboto,
                                 color: Theme.of(context).primaryColor,
-                                size: 20.0,
+                                size: screenwidth * 0.04,
                                 weight: FontWeight.bold,
                               ),
                               Icon(
@@ -130,7 +130,7 @@ class _TopHomeState extends State<TopHome> {
                       bottomRight: Radius.circular(25),
                       topRight: Radius.circular(25)),
                 ),
-                w: screenwidth * 0.6,
+                w: screenwidth * 0.73,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -140,7 +140,7 @@ class _TopHomeState extends State<TopHome> {
                         text: 'Your Drowsy Days',
                         font: GoogleFonts.roboto,
                         color: Theme.of(context).colorScheme.primary,
-                        size: 24.0,
+                        size: screenwidth * 0.05,
                         weight: FontWeight.bold,
                       ),
                     ),

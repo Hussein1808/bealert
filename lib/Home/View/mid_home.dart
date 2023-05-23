@@ -29,24 +29,24 @@ class _MidHomeState extends State<MidHome> {
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Row(
           children: [
-            const Textt(
+            Textt(
               text: 'Your statistics',
               font: GoogleFonts.righteous,
-              size: 36.0,
+              size: screenwidth * 0.06,
             ),
           ],
         ),
         Row(
           children: [
-            const Textt(
+            Textt(
               text: 'for today, ',
               font: GoogleFonts.roboto,
-              size: 16.0,
+              size: screenwidth * 0.04,
             ),
             Textt(
               text: '$month_day',
               font: GoogleFonts.roboto,
-              size: 16.0,
+              size: screenwidth * 0.04,
               weight: FontWeight.bold,
             ),
           ],

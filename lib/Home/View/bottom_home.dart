@@ -12,7 +12,7 @@ class BottomHome extends StatefulWidget {
 }
 
 class _BottomHomeState extends State<BottomHome> {
-  List<Color> gradientColors =const  [
+  List<Color> gradientColors = const [
     Color(0xFF009fff),
     Color(0xFFec2f4b),
   ];
@@ -49,14 +49,14 @@ class _BottomHomeState extends State<BottomHome> {
                           font: GoogleFonts.roboto,
                           color: Theme.of(context).colorScheme.primary,
                           weight: FontWeight.bold,
-                          size: 26.0,
+                          size: screenwidth * 0.05,
                         ),
                         Textt(
                           text: 'Non-attentive Driving time',
                           font: GoogleFonts.roboto,
                           color: Theme.of(context).colorScheme.primary,
                           weight: FontWeight.normal,
-                          size: 20.0,
+                          size: screenwidth * 0.03,
                         ),
                       ],
                     ),
@@ -88,7 +88,7 @@ class _BottomHomeState extends State<BottomHome> {
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     final style = TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 16,
+        fontSize: 10,
         color: Theme.of(context).secondaryHeaderColor);
     Widget text;
     switch (value.toInt()) {
@@ -128,7 +128,7 @@ class _BottomHomeState extends State<BottomHome> {
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     final style = TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 15,
+        fontSize: 10,
         color: Theme.of(context).secondaryHeaderColor);
 
     String text;
