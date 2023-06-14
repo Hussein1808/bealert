@@ -1,4 +1,3 @@
-
 import 'package:bealert/Common_widgets/textt.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -15,6 +14,7 @@ class StartButtons extends StatelessWidget {
   final icon;
   final icolor;
   final weight;
+  final size;
 
   const StartButtons(
       {super.key,
@@ -22,6 +22,7 @@ class StartButtons extends StatelessWidget {
       this.height = 52.0,
       this.redirect,
       this.text,
+      this.size,
       this.bcolor,
       this.tcolor,
       this.border,
@@ -49,6 +50,7 @@ class StartButtons extends StatelessWidget {
               text: text,
               color: tcolor,
               weight: weight,
+              size: size,
             ),
             Icon(
               icon,
