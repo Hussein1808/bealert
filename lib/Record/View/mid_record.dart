@@ -14,8 +14,10 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../Common_widgets/containerr.dart';
 import '../../Common_widgets/textt.dart';
+import '../Domain/noti_domain.dart';
 import '../Domain/trip_data_domain.dart';
 import '../Providers/drowsiness_provider.dart';
+import '../Repository/noti_data_repository.dart';
 import '../Repository/trip_data_repo.dart';
 import '../api/notification_api.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -233,8 +235,9 @@ class _MidRecordState extends State<MidRecord>
                                           setState(() {
                                             now = DateTime.now();
                                             //*------------------------------------------- Back end code
+                                            final tripid = 1;
                                             final newTrip = Trips(
-                                              id: 1, // or generate a unique id
+                                              id: tripid, // or generate a unique id
                                               userid: currUser!.uid,
                                               date: now,
                                               distance: double.parse(
@@ -409,6 +412,15 @@ class _MidRecordState extends State<MidRecord>
                 title: "Warning ",
                 body: " drowsiness detected Take a break ",
                 fln: flutterLocalNotificationsPlugin);
+            final now = DateTime.now();
+
+            final newnotification = Notifications(
+              id: 1,
+              userId: currUser!.uid,
+              date: now,
+              tripId: counter,
+            );
+            NotificationsRepository().addNotification(newnotification); // add
           }
           if (valueFromFirebase == 2) {
             noti = 1;
