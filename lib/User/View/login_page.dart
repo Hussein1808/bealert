@@ -63,9 +63,10 @@ class _Login_PageState extends State<Login_Page> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             const Expanded(child: SizedBox.shrink()),
-            Expanded(
-              flex: 8,
+            Flexible(
+              flex: 10,
               child: Containerr(
+                h: screenheight * 0.85,
                 w: screenwidth,
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
@@ -74,19 +75,19 @@ class _Login_PageState extends State<Login_Page> {
                       topRight: Radius.circular(50.0)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(35.0, 30.0, 35.0, 5.0),
+                  padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 5.0),
                   child: Center(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
                       child: Column(
                         children: [
                           //* Login text
-                          const Textt(
+                          Textt(
                             text: 'LOGIN',
-                            size: 48.0,
+                            size: screenwidth * 0.1,
                             font: GoogleFonts.righteous,
                           ),
-                          const SizedBoxx(h: 58.0),
+                          const SizedBoxx(h: 40.0),
                           //* Email field
                           Form(
                             key: formKey,
@@ -109,59 +110,8 @@ class _Login_PageState extends State<Login_Page> {
                                   fontWeight: FontWeight.bold,
                                   color: Theme.of(context).colorScheme.primary,
                                   decoration: TextDecoration.none),
-                              decoration: InputDecoration(
-                                errorMaxLines: 2,
-                                border: InputBorder.none,
-                                disabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.black,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorStyle: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold),
-                                hintText: "Email",
-                                hintStyle: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).focusColor,
-                                ),
-                                prefixIcon: Icon(UniconsLine.envelope,
-                                    color: _isFocused
-                                        ? Theme.of(context).colorScheme.primary
-                                        : Theme.of(context).focusColor),
-                              ),
+                              decoration: dec(context,
+                                  hint: "Email", icon: UniconsLine.envelope),
                             ),
                           ),
                           const SizedBoxx(),
@@ -187,57 +137,10 @@ class _Login_PageState extends State<Login_Page> {
                                   fontWeight: FontWeight.bold,
                                   color: Theme.of(context).colorScheme.primary,
                                   decoration: TextDecoration.none),
-                              decoration: InputDecoration(
-                                errorMaxLines: 2,
-                                border: InputBorder.none,
-                                disabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).focusColor,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.black,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 3.0,
-                                  ),
-                                ),
-                                errorStyle: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold),
-                                hintText: "Password",
-                                hintStyle: const TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                prefixIcon: const Icon(
-                                  UniconsLine.lock,
-                                ),
+                              decoration: dec(
+                                context,
+                                hint: "Password",
+                                icon: UniconsLine.lock_alt,
                                 suffixIcon: IconButton(
                                   onPressed: () {
                                     setState(() {
@@ -257,7 +160,8 @@ class _Login_PageState extends State<Login_Page> {
                               ),
                             ),
                           ),
-                          const SizedBoxx(h: 120.0),
+
+                          const SizedBoxx(h: 80.0),
                           //* Login button
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -275,33 +179,16 @@ class _Login_PageState extends State<Login_Page> {
                                         ),
                                       ),
                                       onPressed: signIn,
-
-                                      // () async {
-                                      //   if (formKey.currentState!.validate() &&
-                                      //       formKey2.currentState!.validate()) {
-                                      //     signIn();
-                                      //     // StreamBuilder<User?>(
-                                      //     //     stream: FirebaseAuth.instance
-                                      //     //         .authStateChanges(),
-                                      //     //     builder: (context, snapshot) {
-                                      //     //       if (snapshot.hasData) {
-                                      //     //         return SignUp_Page();
-                                      //     //       } else {
-                                      //     //         return SignUp_Page();
-                                      //     //       }
-                                      //     //     });
-                                      //   }
-                                      // },
                                       child: Textt(
                                           text: 'Login',
-                                          size: 24.0,
+                                          size: screenwidth * 0.05,
                                           color: Theme.of(context).primaryColor,
                                           weight: FontWeight.bold)),
                                 ),
                               )
                             ],
                           ),
-                          const SizedBoxx(h: 80.0),
+                          const SizedBoxx(h: 40.0),
                           //* Don't have an account
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -309,11 +196,11 @@ class _Login_PageState extends State<Login_Page> {
                               Textt(
                                 text: "Don't have an account ?",
                                 color: Theme.of(context).colorScheme.primary,
-                                size: 20.0,
+                                size: screenwidth * 0.05,
                               )
                             ],
                           ),
-                          const SizedBoxx(h: 16.0),
+                          const SizedBoxx(h: 8.0),
                           //* Sign up button
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -325,7 +212,7 @@ class _Login_PageState extends State<Login_Page> {
                                   child: Textt(
                                     text: 'Sign up from here',
                                     color: Theme.of(context).splashColor,
-                                    size: 22.0,
+                                    size: screenwidth * 0.04,
                                     weight: FontWeight.bold,
                                   ))
                             ],
@@ -339,6 +226,66 @@ class _Login_PageState extends State<Login_Page> {
             ),
           ],
         ));
+  }
+
+  InputDecoration dec(BuildContext context,
+      {String? hint, IconData? icon, Widget? suffixIcon}) {
+    return InputDecoration(
+      isDense: true,
+      contentPadding: EdgeInsets.all(12),
+      errorMaxLines: 4,
+      border: InputBorder.none,
+      disabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50.0),
+        borderSide: BorderSide(
+          color: Theme.of(context).focusColor,
+          width: 3.0,
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50.0),
+        borderSide: BorderSide(
+          color: Theme.of(context).focusColor,
+          width: 3.0,
+        ),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50.0),
+        borderSide: BorderSide(
+          color: Colors.black,
+          width: 3.0,
+        ),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50.0),
+        borderSide: BorderSide(
+          color: Colors.red,
+          width: 3.0,
+        ),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(50.0),
+        borderSide: BorderSide(
+          color: Colors.red,
+          width: 3.0,
+        ),
+      ),
+      errorStyle: TextStyle(
+          color: Colors.red, fontSize: 14.0, fontWeight: FontWeight.bold),
+      hintText: "$hint",
+      hintStyle: TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+        color: Theme.of(context).focusColor,
+      ),
+      prefixIcon: Icon(icon,
+          // prefixIcon: Icon(UniconsLine.envelope,
+
+          color: _isFocused
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).focusColor),
+      suffixIcon: suffixIcon,
+    );
   }
 
   Future signIn() async {
