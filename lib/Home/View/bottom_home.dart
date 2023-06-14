@@ -4,6 +4,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../Record/Domain/trip_data_domain.dart';
+import '../../Record/Repository/trip_data_repo.dart';
+
 class BottomHome extends StatefulWidget {
   const BottomHome({super.key});
 
@@ -12,15 +15,25 @@ class BottomHome extends StatefulWidget {
 }
 
 class _BottomHomeState extends State<BottomHome> {
+  final TripsRepository _repository = TripsRepository();
+   List<Trips> _trips = [];
   List<Color> gradientColors = const [
     Color(0xFF009fff),
     Color(0xFFec2f4b),
   ];
+  Future<void> _getTrips() async {
+    final trip=await _repository.getTrips();
+    setState(() {
+      _trips = trip;
+    });
+
+  }
 
   bool showAvg = false;
 
   @override
   Widget build(BuildContext context) {
+    _getTrips();
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
     return Card(
@@ -152,6 +165,12 @@ class _BottomHomeState extends State<BottomHome> {
   }
 
   LineChartData mainData() {
+    // late final dynamic x;
+ int x= _trips[0].time!.hour;
+ // print(x);
+    // const y=realtime(x);
+    int d=_trips[0].drowsinesstimes!;
+     // const y = x;
     return LineChartData(
       gridData: FlGridData(
         show: true,
@@ -197,18 +216,21 @@ class _BottomHomeState extends State<BottomHome> {
       maxY: 10,
       lineBarsData: [
         LineChartBarData(
-          spots: const [
-            FlSpot(0, 2),
-            FlSpot(1, 1),
-            FlSpot(2, 10),
+          spots:  [
+
+
+
+            FlSpot(1, 0),
+            FlSpot(2, 5),
             FlSpot(3, 2),
-            FlSpot(4, 5),
-            FlSpot(5, 5),
-            FlSpot(6, 5),
-            FlSpot(7, 3),
-            FlSpot(8, 4),
-            FlSpot(9, 3),
-            FlSpot(10, 4),
+            FlSpot(x.toDouble()%12,2 ),
+            // FlSpot(4, 5),
+            // FlSpot(5, 5),
+            // FlSpot(6, 5),
+            // FlSpot(7, 3),
+            // FlSpot(8, 4),
+            // FlSpot(9, 3),
+            // FlSpot(10, 4),
             FlSpot(11, 4),
             FlSpot(12, 4),
           ],
@@ -233,4 +255,10 @@ class _BottomHomeState extends State<BottomHome> {
       ],
     );
   }
+}
+
+class realtime{
+  final dynamic d;
+  const realtime(this.d);
+
 }
