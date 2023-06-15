@@ -11,12 +11,14 @@ class TripDetails extends StatefulWidget {
   final title;
   final trailing;
   final tripdistance;
+  final date;
 
   const TripDetails(
       {super.key,
       required this.title,
       required this.trailing,
-      required this.tripdistance});
+      required this.tripdistance,
+      required this.date});
 
   @override
   State<TripDetails> createState() => _TripDetailsState();
@@ -86,11 +88,13 @@ class _TripDetailsState extends State<TripDetails> {
                           drowsytimes: widget.trailing,
                           tripdistance: widget.tripdistance),
                     )),
-                const Expanded(
+                 Expanded(
                     flex: 4,
                     child: Padding(
                       padding:  EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 16.0),
-                      child:  BottomTrip(),
+                      child:  BottomTrip(
+                        date: widget.date,
+                      ),
                     ))
               ],
             ),
