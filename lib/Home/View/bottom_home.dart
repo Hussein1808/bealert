@@ -29,11 +29,17 @@ class _BottomHomeState extends State<BottomHome> {
 
   }
 
+  @override
+  void initState() {
+    _getTrips();
+
+  }
+
   bool showAvg = false;
 
   @override
   Widget build(BuildContext context) {
-    _getTrips();
+
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
     return Card(
@@ -165,13 +171,11 @@ class _BottomHomeState extends State<BottomHome> {
   }
 
   LineChartData mainData() {
-    // late final dynamic x;
- int x= _trips[0].time!.hour;
- // print(x);
-    // const y=realtime(x);
-    int d=_trips[0].drowsinesstimes!;
-     // const y = x;
+
+
     return LineChartData(
+
+
       gridData: FlGridData(
         show: true,
         drawVerticalLine: true,
@@ -216,23 +220,23 @@ class _BottomHomeState extends State<BottomHome> {
       maxY: 10,
       lineBarsData: [
         LineChartBarData(
+          // show: false,
           spots:  [
 
 
-
-            FlSpot(1, 0),
-            FlSpot(2, 5),
-            FlSpot(3, 2),
-            FlSpot(x.toDouble()%12,2 ),
-            // FlSpot(4, 5),
-            // FlSpot(5, 5),
-            // FlSpot(6, 5),
-            // FlSpot(7, 3),
-            // FlSpot(8, 4),
-            // FlSpot(9, 3),
-            // FlSpot(10, 4),
-            FlSpot(11, 4),
-            FlSpot(12, 4),
+            FlSpot(0, checkdrowsy(0)),
+            FlSpot(1, checkdrowsy(1)),
+            FlSpot(2, checkdrowsy(2)),
+            FlSpot(3, checkdrowsy(3)),
+            FlSpot(4, checkdrowsy(4)),
+            FlSpot(5, checkdrowsy(5)),
+            FlSpot(6, checkdrowsy(6)),
+            FlSpot(7, checkdrowsy(7)),
+            FlSpot(8, checkdrowsy(8)),
+            FlSpot(9, checkdrowsy(9)),
+            FlSpot(10, checkdrowsy(10)),
+            FlSpot(11, checkdrowsy(11)),
+            FlSpot(12, checkdrowsy(12)),
           ],
           isCurved: true,
           gradient: LinearGradient(
@@ -255,10 +259,20 @@ class _BottomHomeState extends State<BottomHome> {
       ],
     );
   }
+  double checkdrowsy(int x){
+    for (var i in _trips){
+      if(i.time!.day==DateTime.now().day){
+      if (i.time!.hour%12==x){
+        if (i.drowsinesstimes!>0){
+          return 10;
+      }
+      }
+    }
+    }
+    return 1;
+
+  }
 }
 
-class realtime{
-  final dynamic d;
-  const realtime(this.d);
 
-}
+
