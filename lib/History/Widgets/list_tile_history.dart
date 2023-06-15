@@ -34,6 +34,7 @@ class _HistoryListTileeState extends State<HistoryListTilee> {
       onTap: () {
         GoRouter.of(context).pushNamed('tripsdetails', params: {
           'title': formatteddate,
+          'date':  '${widget.date}',
           'trailing': '${widget.drowsinesstimes}',
           'tripdistance': '${widget.distance}'
         });
