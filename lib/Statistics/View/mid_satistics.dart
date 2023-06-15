@@ -566,7 +566,7 @@ class MidStatisticsState extends State<MidStatistics> {
   double checkdrowsymonth(int x){
     List<int> weeksinmonth = getWeekNumbersInMonth(DateTime.now().year, DateTime.now().month);
     int index = x * 7;
-    print('Week numbers in month: $weeksinmonth');
+    // print('Week numbers in month: $weeksinmonth');
     for (var i in _trips){
      // if (weeksinmonth.contains(int.parse(_getWeekNumber(i.time!)))){
        if (int.parse(_getWeekNumber(i.time!))==weeksinmonth[index]){
