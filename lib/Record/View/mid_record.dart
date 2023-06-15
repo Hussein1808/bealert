@@ -36,6 +36,7 @@ class _MidRecordState extends State<MidRecord>
     with SingleTickerProviderStateMixin {
   late LatLng _initialPosition = const LatLng(0, 0);
   late GoogleMapController _controller;
+  Completer<GoogleMapController> mapController = Completer();
   double zoomlvl = 16;
   late StreamSubscription<Position> _positionStreamSubscription;
   double _distanceTravelled = 0;
@@ -64,6 +65,7 @@ class _MidRecordState extends State<MidRecord>
   void dispose() {
     _positionStreamSubscription.cancel();
     _tcontroller.dispose();
+    mapController = Completer();
     super.dispose();
   }
 
@@ -106,6 +108,9 @@ class _MidRecordState extends State<MidRecord>
               myLocationEnabled: true,
               onMapCreated: (GoogleMapController controller) {
                 _controller = controller;
+                if(!mapController.isCompleted){
+                  mapController.complete(controller);
+                }
               },
             ),
           ),
