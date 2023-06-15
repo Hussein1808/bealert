@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../Common_widgets/textt.dart';
+import '../../Record/Domain/trip_data_domain.dart';
+import '../../Record/Repository/trip_data_repo.dart';
 
 class BottomTrip extends StatefulWidget {
   const BottomTrip({super.key});
@@ -14,12 +16,26 @@ class BottomTrip extends StatefulWidget {
 }
 
 class _BottomTripState extends State<BottomTrip> {
+  final TripsRepository _repository = TripsRepository();
+  List<Trips> _trips = [];
   List<Color> gradientColors = const [
     Color(0xFF009fff),
     Color(0xFFec2f4b),
   ];
 
   bool showAvg = false;
+  Future<void> _getTrips() async {
+    final trip=await _repository.getTrips();
+    setState(() {
+      _trips = trip;
+    });
+
+  }
+  @override
+  void initState() {
+    _getTrips();
+
+  }
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
@@ -209,20 +225,20 @@ class _BottomTripState extends State<BottomTrip> {
       maxY: 10,
       lineBarsData: [
         LineChartBarData(
-          spots: const [
-            FlSpot(0, 2),
-            FlSpot(1, 1),
-            FlSpot(2, 10),
-            FlSpot(3, 2),
-            FlSpot(4, 5),
-            FlSpot(5, 5),
-            FlSpot(6, 5),
-            FlSpot(7, 3),
-            FlSpot(8, 4),
-            FlSpot(9, 3),
-            FlSpot(10, 4),
-            FlSpot(11, 4),
-            FlSpot(12, 4),
+          spots:  [
+            FlSpot(0, checkdrowsy(0)),
+            FlSpot(1, checkdrowsy(1)),
+            FlSpot(2, checkdrowsy(2)),
+            FlSpot(3, checkdrowsy(3)),
+            FlSpot(4, checkdrowsy(4)),
+            FlSpot(5, checkdrowsy(5)),
+            FlSpot(6, checkdrowsy(6)),
+            FlSpot(7, checkdrowsy(7)),
+            FlSpot(8, checkdrowsy(8)),
+            FlSpot(9, checkdrowsy(9)),
+            FlSpot(10, checkdrowsy(10)),
+            FlSpot(11, checkdrowsy(11)),
+            FlSpot(12, checkdrowsy(12)),
           ],
           isCurved: true,
           gradient: LinearGradient(
@@ -244,5 +260,16 @@ class _BottomTripState extends State<BottomTrip> {
         ),
       ],
     );
+  }
+  double checkdrowsy(int x){
+    for (var i in _trips){
+      if (i.time!.hour%12==x){
+        if (i.drowsinesstimes!>0){
+          return 10;
+        }
+      }
+    }
+    return 1;
+
   }
 }
