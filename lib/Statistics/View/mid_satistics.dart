@@ -3,8 +3,10 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:group_button/group_button.dart';
-
+import 'package:intl/intl.dart';
 import '../../Common_widgets/textt.dart';
+import '../../Record/Domain/trip_data_domain.dart';
+import '../../Record/Repository/trip_data_repo.dart';
 
 class MidStatistics extends StatefulWidget {
   const MidStatistics({super.key});
@@ -16,6 +18,9 @@ class MidStatistics extends StatefulWidget {
 class MidStatisticsState extends State<MidStatistics> {
   final double width = 7;
 
+  final TripsRepository _repository = TripsRepository();
+  List<Trips> _trips = [];
+
   late List<BarChartGroupData> rawBarGroups;
   late List<BarChartGroupData> showingBarGroups;
 
@@ -23,17 +28,32 @@ class MidStatisticsState extends State<MidStatistics> {
   late List<BarChartGroupData> showingBarGroupsmon;
 
   int touchedGroupIndex = -1;
+  Future<void> _getTrips() async {
+    final trip=await _repository.getTrips();
+    setState(() {
+      _trips = trip;
+    });
 
+  }
   @override
   void initState() {
     super.initState();
-    final barGroup1 = makeGroupData(0, 5);
-    final barGroup2 = makeGroupData(1, 16);
-    final barGroup3 = makeGroupData(2, 18);
-    final barGroup4 = makeGroupData(3, 20);
-    final barGroup5 = makeGroupData(4, 17);
-    final barGroup6 = makeGroupData(5, 19);
-    final barGroup7 = makeGroupData(6, 10);
+    _getTrips();
+
+
+
+  }
+
+  final ScrollController _scrollController = ScrollController();
+  @override
+  Widget build(BuildContext context) {
+    final barGroup1 = makeGroupData(0, checkdrowsyweek(0));
+    final barGroup2 = makeGroupData(1, checkdrowsyweek(1));
+    final barGroup3 = makeGroupData(2, checkdrowsyweek(2));
+    final barGroup4 = makeGroupData(3, checkdrowsyweek(3));
+    final barGroup5 = makeGroupData(4, checkdrowsyweek(4));
+    final barGroup6 = makeGroupData(5, checkdrowsyweek(5));
+    final barGroup7 = makeGroupData(6, checkdrowsyweek(6));
 
     final items = [
       barGroup1,
@@ -64,11 +84,7 @@ class MidStatisticsState extends State<MidStatistics> {
     rawBarGroupsmon = itemsmon;
 
     showingBarGroupsmon = rawBarGroupsmon;
-  }
 
-  final ScrollController _scrollController = ScrollController();
-  @override
-  Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
     bool week = true;
@@ -544,4 +560,76 @@ class MidStatisticsState extends State<MidStatistics> {
       ],
     );
   }
+  double checkdrowsymonth(int x){
+    for (var i in _trips){
+      if(i.time!.day==DateTime.now().day){
+        if (i.time!.hour%12==x){
+          if (i.drowsinesstimes!>0){
+            return 10;
+          }
+        }
+      }
+    }
+    return 1;
+
+  }
+  String _getWeekNumber(DateTime date) {
+    int weekNumber = ((date.difference(DateTime.utc(date.year, 1, 1)).inDays / 7) + 1).floor();
+    return weekNumber.toString();
+  }
+  double checkdrowsyweek(int x){
+int? y;
+      // Get the current date and time
+    DateTime now = DateTime.now();
+
+    String weekNumberString = _getWeekNumber(now);
+
+    // Parse the week number string as an integer
+    int weekNumber = int.parse(weekNumberString);
+      // Print the current week number
+      // print('Current week number: $weekNumber');
+
+
+      switch (x){
+        case 0:
+          y=6;
+          break;
+        case 1:
+          y=7;
+          break;
+        case 2:
+          y=1;
+          break;
+        case 3:
+          y=2;
+          break;
+        case 4:
+          y=3;
+          break;
+        case 5:
+          y=4;
+          break;
+        case 6:
+          y=5;
+          break;
+
+
+
+      }
+
+    for (var i in _trips){
+      if(int.parse(_getWeekNumber(i.time!))==weekNumber){
+        if (i.time!.weekday==y){
+          if (i.drowsinesstimes!>0){
+            return 20;
+          }
+        }
+      }
+    }
+    return 1;
+
+  }
+
+
+
 }
