@@ -69,10 +69,10 @@ class MidStatisticsState extends State<MidStatistics> {
 
     showingBarGroups = rawBarGroups;
 
-    final barGroupmon1 = makeGroupData(0, 5);
-    final barGroupmon2 = makeGroupData(1, 16);
-    final barGroupmon3 = makeGroupData(2, 18);
-    final barGroupmon4 = makeGroupData(3, 20);
+    final barGroupmon1 = makeGroupData(0, checkdrowsymonth( 0));
+    final barGroupmon2 = makeGroupData(1, checkdrowsymonth(1));
+    final barGroupmon3 = makeGroupData(2, checkdrowsymonth(2));
+    final barGroupmon4 = makeGroupData(3, checkdrowsymonth(3));
 
     final itemsmon = [
       barGroupmon1,
@@ -560,14 +560,21 @@ class MidStatisticsState extends State<MidStatistics> {
       ],
     );
   }
+
+
+
   double checkdrowsymonth(int x){
+    List<int> weeksinmonth = getWeekNumbersInMonth(DateTime.now().year, DateTime.now().month);
+    int index = x * 7;
+    print('Week numbers in month: $weeksinmonth');
     for (var i in _trips){
-      if(i.time!.day==DateTime.now().day){
-        if (i.time!.hour%12==x){
+     // if (weeksinmonth.contains(int.parse(_getWeekNumber(i.time!)))){
+       if (int.parse(_getWeekNumber(i.time!))==weeksinmonth[index]){
+
           if (i.drowsinesstimes!>0){
-            return 10;
+            return 20;
           }
-        }
+
       }
     }
     return 1;
@@ -576,6 +583,23 @@ class MidStatisticsState extends State<MidStatistics> {
   String _getWeekNumber(DateTime date) {
     int weekNumber = ((date.difference(DateTime.utc(date.year, 1, 1)).inDays / 7) + 1).floor();
     return weekNumber.toString();
+  }
+  List<int> getWeekNumbersInMonth(int year, int month) {
+    // Calculate the start and end dates of the month
+    DateTime startDate = DateTime(year, month);
+    DateTime endDate = DateTime(year, month + 1, 0);
+
+    // Calculate the week number for each day of the month
+    List<int> weekNumbers = [];
+    DateTime date = startDate;
+    while (date.isBefore(endDate)) {
+      int weekNumber = int.parse(_getWeekNumber(date));
+      weekNumbers.add(weekNumber);
+      date = date.add(Duration(days: 1));
+    }
+
+    // Return the list of week numbers
+    return weekNumbers;
   }
   double checkdrowsyweek(int x){
 int? y;
