@@ -9,13 +9,19 @@ import '../../Record/Domain/trip_data_domain.dart';
 import '../../Record/Repository/trip_data_repo.dart';
 
 class BottomTrip extends StatefulWidget {
-  const BottomTrip({super.key});
+  final date;
+  const BottomTrip({super.key,
+  required this.date});
 
   @override
-  State<BottomTrip> createState() => _BottomTripState();
+  State<BottomTrip> createState() => _BottomTripState(date: date,);
 }
 
 class _BottomTripState extends State<BottomTrip> {
+  final date;
+  _BottomTripState({
+    required this.date,
+  }) : super();
   final TripsRepository _repository = TripsRepository();
   List<Trips> _trips = [];
   List<Color> gradientColors = const [
@@ -262,8 +268,9 @@ class _BottomTripState extends State<BottomTrip> {
     );
   }
   double checkdrowsy(int x){
+
     for (var i in _trips){
-      if(i.time!.day==DateTime.now().day){
+      if(i.time!.day ==date.day){
         if (i.time!.hour%12==x){
           if (i.drowsinesstimes!>0){
             return 10;
