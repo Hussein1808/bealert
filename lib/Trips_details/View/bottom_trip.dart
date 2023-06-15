@@ -263,9 +263,11 @@ class _BottomTripState extends State<BottomTrip> {
   }
   double checkdrowsy(int x){
     for (var i in _trips){
-      if (i.time!.hour%12==x){
-        if (i.drowsinesstimes!>0){
-          return 10;
+      if(i.time!.day==DateTime.now().day){
+        if (i.time!.hour%12==x){
+          if (i.drowsinesstimes!>0){
+            return 10;
+          }
         }
       }
     }
