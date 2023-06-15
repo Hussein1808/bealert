@@ -76,11 +76,14 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           name: "tripsdetails",
-          path: 'tripsdetails/:title/:trailing/:tripdistance',
+          path: 'tripsdetails/:title/:trailing/:tripdistance/:date',
           builder: (BuildContext context, GoRouterState state) => TripDetails(
               title: state.params["title"]!,
               trailing: int.parse(state.params["trailing"]!),
-              tripdistance: double.parse(state.params["tripdistance"]!)),
+              tripdistance: double.parse(state.params["tripdistance"]!),
+              date: DateTime.parse(state.params["date"]!)),
+
+
         ),
         GoRoute(
           path: 'warning',
