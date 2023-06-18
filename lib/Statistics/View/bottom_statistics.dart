@@ -1,7 +1,4 @@
-import 'package:bealert/History/Data/tiles_data.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../../Common_widgets/textt.dart';
 import '../../History/Widgets/list_tile_history.dart';
 import '../../Record/Domain/trip_data_domain.dart';
 import '../../Record/Repository/trip_data_repo.dart';
@@ -33,7 +30,7 @@ class _BottomStatisticsState extends State<BottomStatistics> {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    return Container(
+    return SizedBox(
       height: screenheight,
       width: screenwidth,
       child: FutureBuilder<List<Trips>>(
