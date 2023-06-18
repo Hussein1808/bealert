@@ -11,7 +11,7 @@ final List<Tile> tiles = [
   Tile(
     title: 'Notifications',
     icon: UniconsLine.bell,
-    redirection: '/editprofile_page',
+    redirection: '/notification_page',
   ),
   Tile(
     title: 'About',
