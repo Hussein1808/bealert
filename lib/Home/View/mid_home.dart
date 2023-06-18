@@ -44,7 +44,7 @@ class _MidHomeState extends State<MidHome> {
               size: screenwidth * 0.04,
             ),
             Textt(
-              text: '$month_day',
+              text: month_day,
               font: GoogleFonts.roboto,
               size: screenwidth * 0.04,
               weight: FontWeight.bold,

@@ -46,9 +46,9 @@ class TripsData {
           .get();
 
       final batch = FirebaseFirestore.instance.batch();
-      tripsQuerySnapshot.docs.forEach((doc) {
+      for (var doc in tripsQuerySnapshot.docs) {
         batch.delete(doc.reference);
-      });
+      }
       await batch.commit();
     } catch (e) {
       print(e);
