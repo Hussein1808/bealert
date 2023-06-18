@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'bottom_edit_profilr.dart';
-import 'top_edit_profile.dart';
 
 class MainEditProfile extends StatefulWidget {
   const MainEditProfile({super.key});
@@ -19,7 +17,7 @@ class _MainEditProfileState extends State<MainEditProfile> {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
 
-    return SafeArea(
+    return  SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         // appBar: AppBar(
@@ -56,7 +54,7 @@ class _MainEditProfileState extends State<MainEditProfile> {
           children: [
             // const Expanded(flex: 1, child: TopEditProfile()),
             // Expanded(flex:1, child: MidEditProfile()),
-            const Expanded(
+            Expanded(
                 flex: 10,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),

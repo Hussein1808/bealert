@@ -1,4 +1,3 @@
-import 'package:bealert/History/Data/tiles_data.dart';
 import 'package:flutter/material.dart';
 import '../../Record/Domain/trip_data_domain.dart';
 import '../../Record/Repository/trip_data_repo.dart';
