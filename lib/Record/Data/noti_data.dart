@@ -20,7 +20,7 @@ class NotificationsData {
     }
   }
 
-  Future<List> getNotification() async {
+  Future<List<Notifications>> getNotification() async {
   final String uid = FirebaseAuth.instance.currentUser!.uid;
 
   final notificationQuerySnapshot = await FirebaseFirestore.instance
