@@ -2,11 +2,12 @@ import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:swipe/swipe.dart';
 import 'package:unicons/unicons.dart';
 import '../../Common_widgets/textt.dart';
+import '../../Record/Domain/trip_data_domain.dart';
+import '../../Record/Repository/trip_data_repo.dart';
 
 class TopHome extends StatefulWidget {
   const TopHome({super.key});
@@ -18,7 +19,26 @@ class TopHome extends StatefulWidget {
 class _TopHomeState extends State<TopHome> {
   // final DateFormat _dateFormatter = DateFormat.MMMEd();
   // late var months = DateFormat.M().format(DateTime.now());
+  final TripsRepository _repository = TripsRepository();
+  List<Trips> _trips = [];
   late var daysinmonth = daysInMonth(DateTime.now().year, DateTime.now().month);
+
+  Future<void> _getTrips() async {
+    final trip=await _repository.getTrips();
+    setState(() {
+      _trips = trip;
+    });
+
+  }
+  @override
+  void initState() {
+    super.initState();
+    _getTrips();
+
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     //* Screen size
@@ -55,7 +75,7 @@ class _TopHomeState extends State<TopHome> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //* Your Drowsy Days
-                    Expanded(flex: 4, child: SizedBox.shrink()),
+                    const Expanded(flex: 4, child: SizedBox.shrink()),
                     //* Number of Days in month
                     Expanded(
                       flex: 8,
@@ -64,7 +84,7 @@ class _TopHomeState extends State<TopHome> {
                           Column(
                             children: [
                               Textt(
-                                text: '$daysinmonth',
+                                text: checkdrowsy().toString()??'0',
                                 font: GoogleFonts.righteous,
                                 color:
                                     Theme.of(context).scaffoldBackgroundColor,
@@ -152,5 +172,20 @@ class _TopHomeState extends State<TopHome> {
         ),
       ),
     );
+  }
+  int checkdrowsy(){
+    int counter=0;
+
+    for (var i in _trips){
+     if (i.time!.month==DateTime.now().month){
+
+        if (i.drowsinesstimes!>0){
+          counter++;
+        }
+
+      }
+    }
+    return counter;
+
   }
 }
