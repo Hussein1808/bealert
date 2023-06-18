@@ -5,12 +5,14 @@ class Notifications {
   String? userId;
   DateTime? date;
   int? tripId;
+  String? info;
 
   Notifications({
     this.id,
     this.userId,
     this.date,
     this.tripId,
+    this.info
   });
 
   Map<String, dynamic> toJson() {
@@ -19,6 +21,7 @@ class Notifications {
       'user id': userId,
       'date': date,
       'tripid': tripId,
+      'info':info
     };
   }
 
@@ -29,6 +32,7 @@ class Notifications {
       userId: data['user id'],
       date: data['date']?.toDate(), // Convert timestamp to DateTime
       tripId: data['tripid'],
+      info: data['info']
     );
   }
 }
