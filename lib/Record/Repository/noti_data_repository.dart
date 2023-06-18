@@ -1,5 +1,5 @@
+import '../Data/noti_data.dart';
 import '../Domain/noti_domain.dart';
-import '../Data/noti_data';
 
 class NotificationsRepository {
   final NotificationsData notificationData = NotificationsData();
@@ -8,7 +8,7 @@ class NotificationsRepository {
     await notificationData.addNotification(notification);
   }
 
-  Future<List> getNotification() async {
+  Future<List<Notifications>> getNotification() async {
     return await notificationData.getNotification();
   }
 
