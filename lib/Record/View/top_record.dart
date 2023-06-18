@@ -4,10 +4,9 @@ import 'package:bealert/Record/Providers/drowsiness_provider.dart';
 import 'package:circular_seek_bar/circular_seek_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart' as modal;
 import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
-
 import '../../Common_widgets/divider.dart';
 import '../../Common_widgets/textt.dart';
 import '../Providers/distance_providers.dart';
@@ -44,7 +43,8 @@ class _TopRecordState extends State<TopRecord> {
               color: Theme.of(context).colorScheme.secondary,
             ),
             onPressed: () {
-              showMaterialModalBottomSheet(
+              modal.showCupertinoModalBottomSheet (
+                // showMaterialModalBottomSheet
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
@@ -54,8 +54,8 @@ class _TopRecordState extends State<TopRecord> {
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 context: context,
                 builder: (context) => SingleChildScrollView(
-                  controller: ModalScrollController.of(context),
-                  child: Container(
+                  controller: modal.ModalScrollController.of(context),
+                  child: SizedBox(
                     height: screenheight * 0.85,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
