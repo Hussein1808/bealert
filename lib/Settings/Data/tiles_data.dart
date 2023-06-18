@@ -16,6 +16,6 @@ final List<Tile> tiles = [
   Tile(
     title: 'About',
     icon: UniconsLine.info_circle,
-    redirection: '/editprofile_page',
+    redirection: '/about_page',
   ),
 ];
