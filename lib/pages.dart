@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   }) : super();
 
   // int _selectedIndex = 0;
-  static List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     const MainHome(),
     const MainHistory(),
     const MainRecord(),

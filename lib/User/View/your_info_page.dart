@@ -40,8 +40,8 @@ class _Your_Info_PageState extends State<Your_Info_Page> {
     required this.password,
   });
 
-  bool _isVisible = false;
-  bool _isVisible2 = false;
+  final bool _isVisible = false;
+  final bool _isVisible2 = false;
   final RegExp namevalid = RegExp(r'(^[a-zA-Z]+$)');
   final RegExp emailvalid = RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
   final RegExp passwordvalid =

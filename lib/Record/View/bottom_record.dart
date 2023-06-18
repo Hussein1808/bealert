@@ -19,7 +19,7 @@ class _BottomRecordState extends State<BottomRecord>
   bool start = false;
   bool choose = true;
   late bool _ispaused;
-  late CustomTimerController _controller = CustomTimerController(
+  late final CustomTimerController _controller = CustomTimerController(
       vsync: this,
       begin: const Duration(hours: 0, minutes: 0, seconds: 0),
       end: const Duration(hours: 24),
