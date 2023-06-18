@@ -1,17 +1,12 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:bealert/Common_widgets/scaffoldd.dart';
-import 'package:bealert/Common_widgets/sizedboxx.dart';
 import 'package:bealert/Common_widgets/textt.dart';
+import 'package:bealert/Const/constants.dart';
 import 'package:bealert/Record/Repository/trip_data_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:quickalert/quickalert.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:unicons/unicons.dart';
 
 class Modall extends StatefulWidget {
   final title;
@@ -68,6 +63,7 @@ class _ModallState extends State<Modall> {
             onConfirmBtnTap: () {
               Navigator.pop(context);
               FirebaseAuth.instance.signOut();
+              currUser=null;
               GoRouter.of(context).go('/login_page');
             },
           );
