@@ -434,14 +434,14 @@ class _MidRecordState extends State<MidRecord>
               userId: uid,
               date: now,
               tripId: counter,
-              info: "Drowsiness detected at $formattedDate",
+              info: "Drowsiness level 2 detected at $formattedDate",
             );
             NotificationsRepository().addNotification(newnotification); // add
           }
           if (valueFromFirebase == 2) {
             noti = 1;
             counter++;
-            router.go('/warning');
+            router.push('/warning');
             FlutterRingtonePlayer.play(
               android: AndroidSounds.ringtone,
               ios: IosSounds.alarm,
@@ -449,6 +449,16 @@ class _MidRecordState extends State<MidRecord>
               volume: 5.0, // Android only - API >= 28
               asAlarm: true, // Android only - all APIs
             );
+            DateTime now = DateTime.now();
+            String formattedDate = DateFormat.jm().format(now);
+            final newnotification = Notifications(
+              id: 1,
+              userId: uid,
+              date: now,
+              tripId: counter,
+              info: "Drowsiness level 3 detected at $formattedDate",
+            );
+            NotificationsRepository().addNotification(newnotification);
           }
           // back end code for sending msg to emergency contact
           if (valueFromFirebase == 3) {
@@ -460,17 +470,20 @@ class _MidRecordState extends State<MidRecord>
                   title: "Warning ",
                   body: " emergency contacts notified of current location ",
                   fln: flutterLocalNotificationsPlugin);
-              final now = DateTime.now();
+              DateTime now = DateTime.now();
+              String formattedDate = DateFormat.jm().format(now);
               counter++;
-              final newnoti = Notifications(
+
+              final newnotification = Notifications(
                 id: 1,
                 userId: uid,
                 date: now,
                 tripId: counter,
+                info: "Drowsiness level 4 detected at $formattedDate",
               );
-              NotificationsRepository().addNotification(newnoti);
+              NotificationsRepository().addNotification(newnotification);
             } else {
-              router.go('/warning');
+              router.push('/warning');
               FlutterRingtonePlayer.play(
                 android: AndroidSounds.ringtone,
                 ios: IosSounds.alarm,
