@@ -12,6 +12,7 @@ import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:flutter_sms/flutter_sms.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,6 @@ import '../Repository/noti_data_repository.dart';
 import '../Repository/trip_data_repo.dart';
 import '../api/notification_api.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -49,7 +49,7 @@ class _MidRecordState extends State<MidRecord>
   bool choose = true;
   bool _ispaused = true;
   int noti = 0;
-  int c=0;
+  int c = 0;
   final uid = FirebaseAuth.instance.currentUser!.uid;
   late CustomTimerController _tcontroller = CustomTimerController(
       vsync: this,
@@ -114,7 +114,7 @@ class _MidRecordState extends State<MidRecord>
               myLocationEnabled: true,
               onMapCreated: (GoogleMapController controller) {
                 _controller = controller;
-                if(!mapController.isCompleted){
+                if (!mapController.isCompleted) {
                   mapController.complete(controller);
                 }
               },
@@ -426,13 +426,15 @@ class _MidRecordState extends State<MidRecord>
                 title: "Warning ",
                 body: " drowsiness detected Take a break ",
                 fln: flutterLocalNotificationsPlugin);
-            final now = DateTime.now();
+            DateTime now = DateTime.now();
+            String formattedDate = DateFormat.jm().format(now);
 
             final newnotification = Notifications(
               id: 1,
               userId: uid,
               date: now,
               tripId: counter,
+              info: "Drowsiness detected at $formattedDate",
             );
             NotificationsRepository().addNotification(newnotification); // add
           }
@@ -448,40 +450,38 @@ class _MidRecordState extends State<MidRecord>
               asAlarm: true, // Android only - all APIs
             );
           }
-           // back end code for sending msg to emergency contact
-            if( valueFromFirebase == 3){
-
-              if(c==0){
-                sending_SMS([currUser!.emergencycontact],geturl(position.latitude,position.longitude));
-                c++;
-                Noti.showBigTextNotification(
-                    title: "Warning ",
-                    body: " emergency contacts notified of current location ",
-                    fln: flutterLocalNotificationsPlugin);
-                final now = DateTime.now();
-                counter++;
-                final newnoti = Notifications(
-                  id: 1,
-                  userId: uid,
-                  date: now,
-                  tripId: counter,
-                );
-                NotificationsRepository().addNotification(newnoti);
-              }
-else{  router.go('/warning');
+          // back end code for sending msg to emergency contact
+          if (valueFromFirebase == 3) {
+            if (c == 0) {
+              sending_SMS([currUser!.emergencycontact],
+                  geturl(position.latitude, position.longitude));
+              c++;
+              Noti.showBigTextNotification(
+                  title: "Warning ",
+                  body: " emergency contacts notified of current location ",
+                  fln: flutterLocalNotificationsPlugin);
+              final now = DateTime.now();
+              counter++;
+              final newnoti = Notifications(
+                id: 1,
+                userId: uid,
+                date: now,
+                tripId: counter,
+              );
+              NotificationsRepository().addNotification(newnoti);
+            } else {
+              router.go('/warning');
               FlutterRingtonePlayer.play(
                 android: AndroidSounds.ringtone,
                 ios: IosSounds.alarm,
                 looping: true, // Android only - API >= 28
                 volume: 5.0, // Android only - API >= 28
                 asAlarm: true, // Android only - all APIs
-              ); }
-
-              noti = 1;
-
-
-
+              );
             }
+
+            noti = 1;
+          }
 
           var distance = Geolocator.distanceBetween(
             _previousPosition!.latitude,
@@ -523,20 +523,24 @@ else{  router.go('/warning');
       valueFromFirebase = a['classification'];
     });
   }
-  void sending_SMS( List<String> list_receipents,String url) async {
-    String name=currUser!.fullname;
+
+  void sending_SMS(List<String> list_receipents, String url) async {
+    String name = currUser!.fullname;
     final message =
         "BeAlert: This is an automated message. $name is drowsy while sleeping and doesn't want to wake up. Please call emergency services immediately. Here is the $name's location: $url";
     print(message);
-    String send_result = await sendSMS(message: message, recipients: list_receipents)
-        .catchError((err) {
+    String send_result =
+        await sendSMS(message: message, recipients: list_receipents)
+            .catchError((err) {
       print(err);
     });
 
     print(send_result);
   }
+
   String geturl(double latitude, double longitude) {
-    final url = 'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
+    final url =
+        'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
     // print(url);
     return url;
   }

@@ -3,6 +3,7 @@ import 'package:bealert/Trips_details/View/trips_details.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../Edit Profile/View/main_edit_profie.dart';
+import '../Notifications/View/notifications.dart';
 import '../User/View/login_page.dart';
 import '../User/View/signup_page.dart';
 import '../User/View/vehicle_info_page.dart';
@@ -89,6 +90,11 @@ final GoRouter router = GoRouter(
           path: 'warning',
           builder: (BuildContext context, GoRouterState state) => const ColorScreen(),
         ),
+        GoRoute(
+          path: 'notification_page',
+          builder: (BuildContext context, GoRouterState state) => const Notii(),
+        ),
+
       ],
     ),
   ],
