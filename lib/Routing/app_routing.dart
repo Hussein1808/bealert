@@ -2,6 +2,7 @@ import 'package:bealert/Record/View/warning.dart';
 import 'package:bealert/Trips_details/View/trips_details.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../About us/View/about_us.dart';
 import '../Edit Profile/View/main_edit_profie.dart';
 import '../Notifications/View/notifications.dart';
 import '../User/View/login_page.dart';
@@ -83,18 +84,20 @@ final GoRouter router = GoRouter(
               trailing: int.parse(state.params["trailing"]!),
               tripdistance: double.parse(state.params["tripdistance"]!),
               date: DateTime.parse(state.params["date"]!)),
-
-
         ),
         GoRoute(
           path: 'warning',
-          builder: (BuildContext context, GoRouterState state) => const ColorScreen(),
+          builder: (BuildContext context, GoRouterState state) =>
+              const ColorScreen(),
         ),
         GoRoute(
           path: 'notification_page',
           builder: (BuildContext context, GoRouterState state) => const Notii(),
         ),
-
+        GoRoute(
+          path: 'about_page',
+          builder: (BuildContext context, GoRouterState state) => AboutUsPage(),
+        ),
       ],
     ),
   ],
