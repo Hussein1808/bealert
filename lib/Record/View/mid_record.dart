@@ -6,10 +6,13 @@ import 'package:bealert/Record/Providers/distance_providers.dart';
 import 'package:bealert/Routing/app_routing.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:custom_timer/custom_timer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
+import 'package:flutter_sms/flutter_sms.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../Common_widgets/containerr.dart';
@@ -21,6 +24,7 @@ import '../Repository/noti_data_repository.dart';
 import '../Repository/trip_data_repo.dart';
 import '../api/notification_api.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -45,6 +49,8 @@ class _MidRecordState extends State<MidRecord>
   bool choose = true;
   bool _ispaused = true;
   int noti = 0;
+  int c=0;
+  final uid = FirebaseAuth.instance.currentUser!.uid;
   late CustomTimerController _tcontroller = CustomTimerController(
       vsync: this,
       begin: Duration(hours: 0, minutes: 0, seconds: 0),
@@ -243,7 +249,7 @@ class _MidRecordState extends State<MidRecord>
                                             final tripid = 1;
                                             final newTrip = Trips(
                                               id: tripid, // or generate a unique id
-                                              userid: currUser!.uid,
+                                              userid: uid,
                                               date: now,
                                               distance: double.parse(
                                                   _distanceTravelled
@@ -399,11 +405,14 @@ class _MidRecordState extends State<MidRecord>
     _positionStreamSubscription =
         Geolocator.getPositionStream().listen((position) {
       // print('-------------------------------$_paused');
-
+      //     geturl(position.latitude,position.longitude);
+      //     print("latitude"+position.latitude.toString());
+      //     print("longitude"+position.longitude.toString());
       if (_ispaused == false) {
         if (_previousPosition != null) {
           getData();
-          print(valueFromFirebase ??= 0);
+          // print(valueFromFirebase ??= 0);
+          valueFromFirebase ??= 0;
           if (valueFromFirebase == 0) {
             noti = 1;
             FlutterRingtonePlayer.stop();
@@ -421,7 +430,7 @@ class _MidRecordState extends State<MidRecord>
 
             final newnotification = Notifications(
               id: 1,
-              userId: currUser!.uid,
+              userId: uid,
               date: now,
               tripId: counter,
             );
@@ -439,9 +448,40 @@ class _MidRecordState extends State<MidRecord>
               asAlarm: true, // Android only - all APIs
             );
           }
-          //* back end code for sending msg to emergency contact
-          //* if( valueFromFirebase == 3){
-          //*   noti = 1;}
+           // back end code for sending msg to emergency contact
+            if( valueFromFirebase == 3){
+
+              if(c==0){
+                sending_SMS([currUser!.emergencycontact],geturl(position.latitude,position.longitude));
+                c++;
+                Noti.showBigTextNotification(
+                    title: "Warning ",
+                    body: " emergency contacts notified of current location ",
+                    fln: flutterLocalNotificationsPlugin);
+                final now = DateTime.now();
+                counter++;
+                final newnoti = Notifications(
+                  id: 1,
+                  userId: uid,
+                  date: now,
+                  tripId: counter,
+                );
+                NotificationsRepository().addNotification(newnoti);
+              }
+else{  router.go('/warning');
+              FlutterRingtonePlayer.play(
+                android: AndroidSounds.ringtone,
+                ios: IosSounds.alarm,
+                looping: true, // Android only - API >= 28
+                volume: 5.0, // Android only - API >= 28
+                asAlarm: true, // Android only - all APIs
+              ); }
+
+              noti = 1;
+
+
+
+            }
 
           var distance = Geolocator.distanceBetween(
             _previousPosition!.latitude,
@@ -482,6 +522,23 @@ class _MidRecordState extends State<MidRecord>
     setState(() {
       valueFromFirebase = a['classification'];
     });
+  }
+  void sending_SMS( List<String> list_receipents,String url) async {
+    String name=currUser!.fullname;
+    final message =
+        "BeAlert: This is an automated message. $name is drowsy while sleeping and doesn't want to wake up. Please call emergency services immediately. Here is the $name's location: $url";
+    print(message);
+    String send_result = await sendSMS(message: message, recipients: list_receipents)
+        .catchError((err) {
+      print(err);
+    });
+
+    print(send_result);
+  }
+  String geturl(double latitude, double longitude) {
+    final url = 'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
+    // print(url);
+    return url;
   }
   // void playAlarm() {
   //   // Play the alarm sound
