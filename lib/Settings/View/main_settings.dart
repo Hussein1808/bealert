@@ -18,13 +18,13 @@ class _MainSettingsState extends State<MainSettings> {
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
-    return SafeArea(
+    return  SafeArea(
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(flex: 2, child: TopSettings()),
-            const Expanded(
+            Expanded(flex: 2, child: TopSettings()),
+            Expanded(
                 flex: 6,
                 child: Padding(
                   padding: EdgeInsets.all(16.0),

@@ -17,13 +17,13 @@ class _MainHistoryState extends State<MainHistory> {
   @override
   Widget build(BuildContext context) {
     //* Screen size
-    return SafeArea(
+    return  SafeArea(
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(flex: 2, child: TopHistory()),
-            const Expanded(
+            Expanded(flex: 2, child: TopHistory()),
+            Expanded(
                 flex: 10,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),

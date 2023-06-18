@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
-import 'package:bealert/Common_widgets/containerr.dart';
 import 'package:bealert/Home/View/mid_home.dart';
 import 'package:flutter/material.dart';
 import 'bottom_home.dart';
@@ -19,19 +18,19 @@ class _MainHomeState extends State<MainHome> {
   @override
   Widget build(BuildContext context) {
     //* Screen size
-    return SafeArea(
+    return  SafeArea(
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(flex: 8, child: TopHome()),
-            const Expanded(
+            Expanded(flex: 8, child: TopHome()),
+            Expanded(
                 flex: 3,
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 16.0),
                   child: MidHome(),
                 )),
-           const  Expanded(
+           Expanded(
                 flex: 11,
                 child: Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 16.0),

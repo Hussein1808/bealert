@@ -46,7 +46,7 @@ class _MidTripState extends State<MidTrip> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
-                        children: const [
+                        children: [
                            Expanded(
                             flex: 1,
                             child: Textt(

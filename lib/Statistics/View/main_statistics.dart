@@ -17,11 +17,11 @@ class _MainStatisticsState extends State<MainStatistics> {
   Widget build(BuildContext context) {
     //* Screen size
 
-    return SafeArea(
+    return  SafeArea(
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Expanded(flex: 3, child: TopStatistics()),
             Expanded(
                 flex: 10,
