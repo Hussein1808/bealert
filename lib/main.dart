@@ -10,6 +10,8 @@ import 'Record/Providers/time_provider.dart';
 import 'Routing/app_routing.dart';
 
 class BeAlert extends StatelessWidget {
+  const BeAlert({super.key});
+
   //* Application routing
 
   @override
@@ -17,6 +19,7 @@ class BeAlert extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: router,
       title: 'Todo list',
+      // navigatorObservers: [MyNavigatorObserver()],
       // builder: ,
       // home: TodoList(),
       // builder: (context, widget) => SplashScreen(),

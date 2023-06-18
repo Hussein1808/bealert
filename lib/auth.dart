@@ -1,5 +1,3 @@
-import 'package:bealert/Common_widgets/scaffoldd.dart';
-import 'package:bealert/info.dart';
 import 'package:bealert/pages.dart';
 import 'package:bealert/start_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,7 +17,7 @@ class Auth extends StatelessWidget {
                 selectedIndex: 0,
               );
             } else {
-              return Start();
+              return const Start();
             }
           }),
     );

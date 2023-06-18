@@ -6,7 +6,7 @@ import 'package:unicons/unicons.dart';
 
 
 class Info extends StatelessWidget {
-  Info({super.key});
+  const Info({super.key});
 
   @override
   Widget build(BuildContext context) {

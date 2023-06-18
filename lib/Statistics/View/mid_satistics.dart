@@ -3,7 +3,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:group_button/group_button.dart';
-import 'package:intl/intl.dart';
 import '../../Common_widgets/textt.dart';
 import '../../Record/Domain/trip_data_domain.dart';
 import '../../Record/Repository/trip_data_repo.dart';
@@ -434,7 +433,7 @@ class MidStatisticsState extends State<MidStatistics> {
         Expanded(
           flex: 3,
           child: Padding(
-            padding: EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(4.0),
             child: Textt(
               text: 'Events',
               size: screenwidth * 0.07,
@@ -595,7 +594,7 @@ class MidStatisticsState extends State<MidStatistics> {
     while (date.isBefore(endDate)) {
       int weekNumber = int.parse(_getWeekNumber(date));
       weekNumbers.add(weekNumber);
-      date = date.add(Duration(days: 1));
+      date = date.add(const Duration(days: 1));
     }
 
     // Return the list of week numbers

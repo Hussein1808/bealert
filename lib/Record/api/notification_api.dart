@@ -4,8 +4,8 @@ class Noti {
   static Future initialize(
       FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin) async {
     var androidInitialize =
-        new AndroidInitializationSettings('mipmap/ic_launcher');
-    var initializationsSettings = new InitializationSettings(
+        const AndroidInitializationSettings('mipmap/ic_launcher');
+    var initializationsSettings = InitializationSettings(
       android: androidInitialize,
     );
     await flutterLocalNotificationsPlugin.initialize(initializationsSettings);
@@ -18,7 +18,7 @@ class Noti {
       var payload,
       required FlutterLocalNotificationsPlugin fln}) async {
     AndroidNotificationDetails androidPlatformChannelSpecifics =
-        new AndroidNotificationDetails(
+        const AndroidNotificationDetails(
       'you_can_name_it_whatever1',
       'channel_name',
       playSound: true,

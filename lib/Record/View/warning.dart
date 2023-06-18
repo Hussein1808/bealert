@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../Common_widgets/textt.dart';
 
 class ColorScreen extends StatefulWidget {
+  const ColorScreen({super.key});
+
   @override
   _ColorScreenState createState() => _ColorScreenState();
 }
@@ -18,7 +20,7 @@ class _ColorScreenState extends State<ColorScreen> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer.periodic(Duration(milliseconds: 100), (timer) {
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
       setState(() {
         _isRed = !_isRed;
       });
@@ -40,12 +42,12 @@ class _ColorScreenState extends State<ColorScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Textt(
+              const Textt(
                 text: 'Drowsiness Detected!',
                 size: 35.0,
                 font: GoogleFonts.righteous,
               ),
-              Text(
+              const Text(
                 'Please take a break!',
                 style: TextStyle(
                   fontSize: 25,
@@ -53,7 +55,7 @@ class _ColorScreenState extends State<ColorScreen> {
                 ),
               ),
               ElevatedButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   GoRouter.of(context).pop();
                   FlutterRingtonePlayer.stop();

@@ -20,7 +20,7 @@ final GoRouter router = GoRouter(
       routes: <GoRoute>[
         GoRoute(
           path: 'info_screen',
-          builder: (BuildContext context, GoRouterState state) => Info(),
+          builder: (BuildContext context, GoRouterState state) => const Info(),
         ),
         GoRoute(
           path: 'start_screen',
@@ -87,7 +87,7 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: 'warning',
-          builder: (BuildContext context, GoRouterState state) => ColorScreen(),
+          builder: (BuildContext context, GoRouterState state) => const ColorScreen(),
         ),
       ],
     ),

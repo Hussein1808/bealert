@@ -91,7 +91,7 @@ class _TripDetailsState extends State<TripDetails> {
                  Expanded(
                     flex: 4,
                     child: Padding(
-                      padding:  EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 16.0),
+                      padding:  const EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 16.0),
                       child:  BottomTrip(
                         date: widget.date,
                       ),
