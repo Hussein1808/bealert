@@ -28,34 +28,33 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
   final formKey = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
   final formKey3 = GlobalKey<FormState>();
+  Userr userr=Userr();
 
+
+  Future<void> _getuser() async {
+    final u=await getUser();
+    setState(() {
+      userr = u;
+    });
+
+  }
   @override
   void initState() {
-    FirebaseAuth.instance.idTokenChanges().listen((User? user) {
-      if (user == null) {
-        print('User is currently signed out!');
-        // GoRouter.of(context).go('/login');
-        context.go('/login_page');
-      } else {
-        // setState(() {
-        uid = user.uid;
-
-        // });
-
-        print('User is signed in!');
-        usernamecontroller.text = currUser!.username;
-        fullnamecontroller.text = currUser!.fullname;
-        addresscontroller.text = currUser!.address;
-        nationalIDcontroller.text = currUser!.nationalID.toString();
-        phonenumbercontroller.text = currUser!.phonenumber;
-        emergencycontactcontroller.text = currUser!.emergencycontact;
-        bloodgroupcontroller.text = currUser!.bloodgroup;
-      }
+    _getuser().then((value) {
+      usernamecontroller.text = userr.username!;
+      fullnamecontroller.text = userr.fullname!;
+      addresscontroller.text = userr.address!;
+      nationalIDcontroller.text = userr.nationalID.toString();
+      phonenumbercontroller.text = userr.phonenumber!;
+      emergencycontactcontroller.text = userr.emergencycontact!;
+      bloodgroupcontroller.text = userr.bloodgroup!;
     });
+
   }
 
   @override
   Widget build(BuildContext context) {
+
     final screenwidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -86,14 +85,14 @@ class _BottomEditProfileState extends State<BottomEditProfile> {
             ),
             onPressed: () async {
               if (formKey.currentState!.validate()) {
-                currUser!.username = usernamecontroller.text;
-                currUser!.fullname = fullnamecontroller.text;
-                currUser!.address = addresscontroller.text;
-                currUser!.nationalID = int.parse(nationalIDcontroller.text);
-                currUser!.phonenumber = phonenumbercontroller.text;
-                currUser!.emergencycontact = emergencycontactcontroller.text;
-                currUser!.bloodgroup = bloodgroupcontroller.text;
-                await editUser(currUser!.uid, currUser!);
+                userr.username = usernamecontroller.text;
+                userr.fullname = fullnamecontroller.text;
+                userr.address = addresscontroller.text;
+                userr.nationalID = int.parse(nationalIDcontroller.text);
+                userr.phonenumber = phonenumbercontroller.text;
+                userr.emergencycontact = emergencycontactcontroller.text;
+                userr.bloodgroup = bloodgroupcontroller.text;
+                await editUser( userr);
               }
             },
           ),
