@@ -293,11 +293,11 @@ class _Login_PageState extends State<Login_Page> {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(
               email: _emailcontroller.text.trim(),
-              password: _passwordcontroller.text.trim())
-          .then((value) async => getUser(value.user!.uid).then((value) {
-                currUser = value;
-                // print(value.name);
-              }));
+              password: _passwordcontroller.text.trim());
+          // .then((value) async => getUser(value.user!.uid).then((value) {
+          //       currUser = value;
+          //       // print(value.name);
+          //     }));
 
       FocusScope.of(context).unfocus();
       GoRouter.of(context).go('/home/0');

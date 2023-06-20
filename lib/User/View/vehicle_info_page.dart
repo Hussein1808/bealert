@@ -555,10 +555,10 @@ class _Vehicle_Info_PageState extends State<Vehicle_Info_Page> {
               brand.text.trim(),
               color.text.trim(),
               plateletters.text.trim(),
-              int.parse(platenumbers.text))
-          .then((value) async => getUser(value).then((value) {
-                currUser = value;
-              }));
+              int.parse(platenumbers.text));
+          // .then((value) async => getUser(value).then((value) {
+          //       currUser = value;
+          //     }));
       // vehicleUpdate(ownername.text.trim(), brand.text.trim(), color.text.trim(),
       //     plateletters.text.trim(), int.parse(platenumbers.text));
       // var collection = FirebaseFirestore.instance.collection('Users');
