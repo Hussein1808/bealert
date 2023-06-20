@@ -18,6 +18,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../Common_widgets/containerr.dart';
 import '../../Common_widgets/textt.dart';
+import '../../User/Data/UserData.dart';
+import '../../User/Data/auth_data.dart';
 import '../Domain/noti_domain.dart';
 import '../Domain/trip_data_domain.dart';
 import '../Providers/drowsiness_provider.dart';
@@ -59,9 +61,11 @@ class _MidRecordState extends State<MidRecord>
       interval: CustomTimerInterval.seconds);
   int? valueFromFirebase;
   int counter = 0;
+  Userr userr=Userr();
 
   @override
   void initState() {
+    _getuser();
     super.initState();
     _determinePosition();
     Noti.initialize(flutterLocalNotificationsPlugin);
@@ -74,7 +78,13 @@ class _MidRecordState extends State<MidRecord>
     mapController = Completer();
     super.dispose();
   }
+  Future<void> _getuser() async {
+    final u=await getUser();
+    setState(() {
+      userr = u;
+    });
 
+  }
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
@@ -463,7 +473,7 @@ class _MidRecordState extends State<MidRecord>
           // back end code for sending msg to emergency contact
           if (valueFromFirebase == 3) {
             if (c == 0) {
-              sending_SMS([currUser!.emergencycontact],
+              sending_SMS([userr.emergencycontact!],
                   geturl(position.latitude, position.longitude));
               c++;
               Noti.showBigTextNotification(
@@ -538,7 +548,7 @@ class _MidRecordState extends State<MidRecord>
   }
 
   void sending_SMS(List<String> list_receipents, String url) async {
-    String name = currUser!.fullname;
+    String name = userr.fullname!;
     final message =
         "BeAlert: This is an automated message. $name is drowsy while sleeping and doesn't want to wake up. Please call emergency services immediately. Here is the $name's location: $url";
     print(message);
