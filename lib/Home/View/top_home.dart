@@ -173,19 +173,23 @@ class _TopHomeState extends State<TopHome> {
       ),
     );
   }
-  int checkdrowsy(){
-    int counter=0;
+  int checkdrowsy() {
+    int counter = 0;
+    DateTime currentMonth = DateTime.now();
+    List<int> days = [];
 
-    for (var i in _trips){
-     if (i.time!.month==DateTime.now().month){
+    for (var i in _trips) {
+      if (i.time!.month == currentMonth.month) {
+          if (i.drowsinesstimes! > 0) {
+            if (!days.contains(i.time!.day))
+              {
+                counter++;
+                days.add(i.time!.day);
+              }
 
-        if (i.drowsinesstimes!>0){
-          counter++;
-        }
-
+          }
       }
     }
     return counter;
-
   }
 }
