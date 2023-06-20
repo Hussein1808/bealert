@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quiver/time.dart';
 import 'package:swipe/swipe.dart';
 import '../../Common_widgets/textt.dart';
+import '../../User/Data/UserData.dart';
+import '../../User/Data/auth_data.dart';
 
 class TopSettings extends StatefulWidget {
   const TopSettings({super.key});
@@ -18,15 +20,26 @@ class _TopSettingsState extends State<TopSettings> {
   // final DateFormat _dateFormatter = DateFormat.MMMEd();
   // late var months = DateFormat.M().format(DateTime.now());
   late var daysinmonth = daysInMonth(DateTime.now().year, DateTime.now().month);
-  String constt = ' name';
+  String constt = ' ';
+  Userr userr=Userr();
+  Future<void> _getuser() async {
+    final u=await getUser();
+    setState(() {
+      userr = u;
+    });
 
+  }
   @override
   void initState() {
-    if (currUser != null) constt = currUser!.fullname;
+    _getuser().then((value) {
+      constt=  userr.fullname!;
+    });
+    // if (currUser != null) constt = currUser!.fullname;
   }
 
   @override
   Widget build(BuildContext context) {
+    // constt= await userr.fullname!;
     //* Screen size
     final screenwidth = MediaQuery.of(context).size.width;
     final screenheight = MediaQuery.of(context).size.height;
