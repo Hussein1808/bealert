@@ -54,16 +54,19 @@ Future<String> userSetup(
 
 
 
-Future<void> delete(String id) async {
-  await FirebaseFirestore.instance.collection('Users').doc(id).delete();
+Future<void> delete() async {
+  final uid = FirebaseAuth.instance.currentUser!.uid;
+  await FirebaseFirestore.instance.collection('Users').doc(uid).delete();
 }
 
-Future<void> editUser(String id,Userr u) async {
-  await FirebaseFirestore.instance.collection('Users').doc(id).collection("User Info").doc(id).update(u.toMap());
+Future<void> editUser(Userr u) async {
+  final uid = FirebaseAuth.instance.currentUser!.uid;
+  await FirebaseFirestore.instance.collection('Users').doc(uid).collection("User Info").doc(uid).update(u.toMap());
 }
 
-Future<Userr> getUser(String id) async {
-  return await FirebaseFirestore.instance.collection('Users').doc(id).collection("User Info").doc(id). get().then((value) => Userr.fromMap(value.data()!));
+Future<Userr> getUser() async {
+  final uid = FirebaseAuth.instance.currentUser!.uid;
+  return await FirebaseFirestore.instance.collection('Users').doc(uid).collection("User Info").doc(uid). get().then((value) => Userr.fromMap(value.data()!));
 }
 Future<bool> findUser(String uid) async{
   return await FirebaseFirestore.instance.collection('users').where("uid",isEqualTo: uid ).get().then((value) {
