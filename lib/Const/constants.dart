@@ -1,4 +1,4 @@
 import '../User/Data/UserData.dart';
 
-Userr? currUser;
+// Userr? currUser;
 

@@ -63,7 +63,7 @@ class _ModallState extends State<Modall> {
             onConfirmBtnTap: () {
               Navigator.pop(context);
               FirebaseAuth.instance.signOut();
-              currUser=null;
+              // currUser=null;
               GoRouter.of(context).go('/login_page');
             },
           );
