@@ -27,6 +27,8 @@ import '../Repository/noti_data_repository.dart';
 import '../Repository/trip_data_repo.dart';
 import '../api/notification_api.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter/services.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -68,6 +70,7 @@ class _MidRecordState extends State<MidRecord>
     _getuser();
     super.initState();
     _determinePosition();
+    requestSmsPermission();
     Noti.initialize(flutterLocalNotificationsPlugin);
   }
 
@@ -380,7 +383,25 @@ class _MidRecordState extends State<MidRecord>
       ),
     );
   }
-
+  Future<void> requestSmsPermission() async {
+    if (await Permission.sms.request().isGranted) {
+      // Permission is granted
+    } else {
+      if (await Permission.sms.isPermanentlyDenied) {
+        // Permission is permanently denied, show error message or guide user to app settings
+        return Future.error("sms permission denied");
+      } else {
+        // Permission is denied, request it again
+        PermissionStatus status = await Permission.sms.request();
+        if (status.isGranted) {
+          // Permission granted
+        } else {
+          return Future.error("sms permission denied");
+          // Permission denied
+        }
+      }
+    }
+  }
   Future<void> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
